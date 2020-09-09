@@ -6,6 +6,7 @@ import { db } from '../../firebase'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 
+/** Aqui se traen los estilos (es un objeto en este archivo)**** */
 import { style } from './style'
 import '../../assets/tugogo.png'
 

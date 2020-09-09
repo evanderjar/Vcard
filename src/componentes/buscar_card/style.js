@@ -1,3 +1,5 @@
+/**** UNA VARIABLE SE EXPORTA CON LOS CAMPOS **************** */
+
 export const style = {
     imagen: {
         width: "120px",
