@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CButton,
   CCard,
@@ -19,13 +19,28 @@ import { styles } from './estilos'
 import registro from '../../assets/imagen-registro.png';
 import logo from '../../assets/tugogo.png';
 
+// import { db, storage, auth } from '../../firebase'
+
+
 function Registrar(){
 
+    let [usuario, SetUsuario] = useState("")
+    let [clave, SetClave] = useState("")
+    let [confirmarClave, SetConfirmarClave] = useState("")
 
     const NuevoUsuario = (event) => {
+        
+        
         event.preventDefault();
-        console.log("aqui")
-        window.location ="#/login"
+
+        if(clave === confirmarClave){
+            alert("son iguales")
+        }else{
+            alert ("no son iguales")
+        }
+
+        // console.log("aqui")
+        // window.location ="#/login"
     }
 
 
@@ -44,18 +59,9 @@ function Registrar(){
                     <p className="text-muted">Crea tu cuenta</p>
                     <CInputGroup className="mb-3">
                         <CInputGroupPrepend>
-                        <CInputGroupText>
-                            {/* <CIcon name="cil-user" /> */}
-                            <i className="far fa-user"></i>
-                        </CInputGroupText>
-                        </CInputGroupPrepend>
-                        <CInput style={styles.inputs} type="text" placeholder="Username" autoComplete="username" />
-                    </CInputGroup>
-                    <CInputGroup className="mb-3">
-                        <CInputGroupPrepend>
                         <CInputGroupText>@</CInputGroupText>
                         </CInputGroupPrepend>
-                        <CInput style={styles.inputs} type="text" placeholder="Email" autoComplete="email" />
+                        <CInput style={styles.inputs} type="email" placeholder="Usuario" autoComplete="email" value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
                     </CInputGroup>
                     <CInputGroup className="mb-3">
                         <CInputGroupPrepend>
@@ -64,7 +70,7 @@ function Registrar(){
                             <i className="fas fa-lock"></i>
                         </CInputGroupText>
                         </CInputGroupPrepend>
-                        <CInput style={styles.inputs} type="password" placeholder="Password" autoComplete="new-password" />
+                        <CInput style={styles.inputs} type="password" placeholder="Clave" autoComplete="new-password" value={clave} onChange={(event)=>{SetClave(event.target.value)}} required/>
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                         <CInputGroupPrepend>
@@ -73,7 +79,7 @@ function Registrar(){
                             <i className="fas fa-lock"></i>
                         </CInputGroupText>
                         </CInputGroupPrepend>
-                        <CInput style={styles.inputs} type="password" placeholder="Repeat password" autoComplete="new-password" />
+                        <CInput style={styles.inputs} type="password" placeholder="Repetir clave" autoComplete="new-password" value={confirmarClave} onChange={(event)=>{SetConfirmarClave(event.target.value)}} required/>
                     </CInputGroup>
                     <CButton style={styles.boton} color="success" block type="submit">Create Account</CButton>
                     </CForm>

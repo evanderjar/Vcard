@@ -50,18 +50,6 @@ function Formulario() {
          SetMostrarImagen(true)
        })
     })
-    
-    
-    // task.snapshotChanges()
-    // .pipe(
-    //     finalize(()=>{
-    //         ref.getDownloadURL()
-    //         .subscribe(element=>{
-    //             console.log("estoy aqui")
-    //             console.log(element)
-    //         })
-    //     })
-    // ).subscribe()
   }
 
 

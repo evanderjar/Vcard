@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -22,13 +22,29 @@ import login from '../../assets/imagen-login.png';
 
 import { style } from './estilos'
 
+import { auth, app } from '../../firebase'
+
 
 function Login(){
 
-    const EntrarLogin = (event) => {
+    let [usuario, SetUsuario] = useState("")
+    let [clave, SetClave] = useState("")
+
+
+    const EntrarLogin = async (event) => {
         event.preventDefault();
-        window.location ="/#/formulario" 
-        localStorage.setItem('cargo_formulario','false')
+
+        try {
+            await app
+              .auth()
+              .signInWithEmailAndPassword(usuario, clave);
+                window.location ="/#/formulario" 
+                localStorage.setItem('cargo_formulario','false')
+          } catch (error) {
+            alert(error);
+          }
+
+
     }
 
 
@@ -52,7 +68,7 @@ function Login(){
                                         <i className="fas fa-user"></i>
                                         </CInputGroupText>
                                     </CInputGroupPrepend>
-                                    <CInput type="text" placeholder="Usuario" autoComplete="username" style={style.campos}/>
+                                    <CInput type="text" placeholder="Usuario" autoComplete="username" style={style.campos} value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
                                     </CInputGroup>
                                     <CInputGroup className="mb-4">
                                     <CInputGroupPrepend>
@@ -60,7 +76,7 @@ function Login(){
                                         <i className="fas fa-lock"></i>
                                         </CInputGroupText>
                                     </CInputGroupPrepend>
-                                    <CInput type="password" placeholder="Contraseña" autoComplete="current-password" style={style.campos}/>
+                                    <CInput type="password" placeholder="Contraseña" autoComplete="current-password" style={style.campos} value={clave} onChange={(event)=>{SetClave(event.target.value)}} required/>
                                     </CInputGroup>
                                     <CRow>
                                     <CCol xs="12">
