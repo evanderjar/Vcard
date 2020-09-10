@@ -18,11 +18,14 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import background from '../../assets/background-login.jpg'
 import logo from '../../assets/tugogo.png';
-import login from '../../assets/imagen-login.png';
+import login from '../../assets/imagen-login.gif';
 
 import { style } from './estilos'
 
-import { auth, app } from '../../firebase'
+import { app } from '../../firebase'
+
+/****** COMPONENTE NAVBAR *************** */
+import Navbar from '../navbar/navbar'
 
 
 function Login(){

@@ -11,6 +11,9 @@ import { style } from './style'
 import '../../assets/tugogo.png'
 
 
+/****** COMPONENTE NAVBAR *************** */
+import Navbar from '../navbar/navbar'
+
 function BuscarCard(){
   let [nombre, SetNombre] = useState("")
   let [noExiste, SetNoExiste] = useState(false)
@@ -41,27 +44,32 @@ function BuscarCard(){
   }
 
     return(
-        <div className="container">
-            <div className="abs-center">
-                <form onSubmit={ValidarData} className="border p-3 form">
-                    <div className="card-body row justify-content-center h-100">           
-                        <img style={style.imagen} src="https://firebasestorage.googleapis.com/v0/b/prueba-app-1f667.appspot.com/o/tugogo.png?alt=media&token=6e4ac90a-f26a-4caa-9037-bd269a95c3c5" alt="icono"></img> 
-                    </div>
-                    <div className="input-group">
-                        <input style={style.buscar_card} className="form-control" id="exampleInputEmail1" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el codigo" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
-                            <span>
-                                <button className="btn btn-primary" type="submit" style={style.boton}> 
-                                    <i className="fas fa-arrow-right"></i>
-                                </button>
-                            </span>
-                    </div>
-                    {noExiste ? 
-                    <h5 style={style.error}>No exite el codigo {nombre}</h5>: ''
-                    }
+        <section style = {style.back}>
+            <div style={style.todo}>
+            <Navbar />
+                <div className="container">
+                    <div className="abs-center">
+                        <form onSubmit={ValidarData} className="p-3 form">
+                            <div className="card-body row justify-content-center h-100">           
+                                <img style={style.imagen} src="https://firebasestorage.googleapis.com/v0/b/prueba-app-1f667.appspot.com/o/tugogo.png?alt=media&token=6e4ac90a-f26a-4caa-9037-bd269a95c3c5" alt="icono"></img> 
+                            </div>
+                            <div className="input-group">
+                                <input style={style.buscar_card} className="form-control" id="exampleInputEmail1" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el codigo" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
+                                    <span style={style.span_boton}>
+                                        <button className="btn" type="submit" style={style.boton}> 
+                                            <i className="fas fa-arrow-right"></i>
+                                        </button>
+                                    </span>
+                            </div>
+                            {noExiste ? 
+                            <h2 style={style.error}>No exite el codigo {nombre}</h2>: ''
+                            }
 
-                </form>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     )
 }
 
