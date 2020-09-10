@@ -16,6 +16,9 @@ import {
 } from '@coreui/react'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
+import background from '../../assets/background-login.jpg'
+import logo from '../../assets/tugogo.png';
+import login from '../../assets/imagen-login.png';
 
 import { style } from './estilos'
 
@@ -31,15 +34,17 @@ function Login(){
 
 
     return (
-        <div className="c-app c-default-layout flex-row align-items-center">
+        <div  className="c-app c-default-layout flex-row align-items-center">
+            <img style={style.back} src={background} alt="background"></img>
             <CContainer style={style.contenedor}>
                 <CRow className="justify-content-center">
-                    <CCol md="8">
-                        <CCardGroup>
-                            <CCard className="p-4">
+                    <CCol md="11">
+                        <CCardGroup style={style.tarjeta}>
+                            <CCard className="col-md-8 " style={{ height: '395px' }}>
                                 <CCardBody>
                                 <CForm onSubmit={EntrarLogin}>
-                                    <h1 style={style.titulo}>Login</h1>
+                                <img style={style.logo} src={logo} alt="logo"></img>
+                                    {/* <h1 style={style.titulo}>Login</h1> */}
                                     <h4 className="text-muted">Iniciar sesion</h4>
                                     <CInputGroup className="mb-3">
                                     <CInputGroupPrepend>
@@ -58,8 +63,8 @@ function Login(){
                                     <CInput type="password" placeholder="Contraseña" autoComplete="current-password" style={style.campos}/>
                                     </CInputGroup>
                                     <CRow>
-                                    <CCol xs="6">
-                                        <button className="btn btn-primary" type="submit" style={style.boton}> 
+                                    <CCol xs="12">
+                                        <button className="btn btn-primary btn-block" type="submit" style={style.boton2}> 
                                             Ingresar
                                         </button>
                                     </CCol>
@@ -67,12 +72,12 @@ function Login(){
                                 </CForm>
                                 </CCardBody>
                             </CCard>
-                            <CCard className="text-white bg-primary py-5 d-md-down-none" style={{ width: '44%' }}>
-                                <CCardBody className="text-center">
+                            <CCard className="text-white d-md-down-none" style={{ width: '44%' }}>
+                            <img style={style.login} src={login} alt="login"></img>
+                                <CCardBody style={style.tarjeta2} className="text-center">
                                 <div>
-                                    <h2>Crear cuenta</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                    labore et dolore magna aliqua.</p>
+                                    <h1 style={style.titulo2}>Crear una cuenta</h1>
+                                    <p style={style.texto}>Si no tiene una cuenta puede crear una facilmente aqui.</p>
                                     <Link to="/registrar">
                                     <CButton color="primary" active tabIndex={-1} style={style.boton}>Registrate!!</CButton>
                                     </Link>
