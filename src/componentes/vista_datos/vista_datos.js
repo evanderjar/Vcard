@@ -1,11 +1,15 @@
 import React, { Fragment, useState, useEffect } from 'react';
-
+import {
+  CContainer,
+} from '@coreui/react'
 import { useParams } from 'react-router-dom'
 
 import { db } from '../../firebase'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
+import{ VcardStile } from './estilosVcard';
+import backVcard from '../../assets/Imagen-background2.jpg';
 
 
 function VistaDatos() {
@@ -61,6 +65,9 @@ function VistaDatos() {
   if(mostrarReturn){
     return (
       <Fragment>
+        <img style={VcardStile.backgrond} src={backVcard} alt="backVcard"></img>
+        <CContainer style={VcardStile.contenedor}>
+          <div>
         {usuario.foto_perfil === "" || usuario.twitter === undefined ? "":
           <img src={usuario.foto_perfil} alt="foto perfil" Style="width: 70px;" required></img>
         }
@@ -100,7 +107,8 @@ function VistaDatos() {
             </a>
           }
         </div>
-        
+        </div>
+        </CContainer>
       </Fragment>
     );
   }else{
