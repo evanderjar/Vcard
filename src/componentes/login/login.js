@@ -64,7 +64,7 @@ function Login(){
                                     </CInputGroup>
                                     <CRow>
                                     <CCol xs="12">
-                                        <button className="btn btn-primary btn-block" type="submit" style={style.boton2}> 
+                                        <button className="btn btn-block" type="submit" style={style.boton2}> 
                                             Ingresar
                                         </button>
                                     </CCol>
@@ -79,7 +79,7 @@ function Login(){
                                     <h1 style={style.titulo2}>Crear una cuenta</h1>
                                     <p style={style.texto}>Si no tiene una cuenta puede crear una facilmente aqui.</p>
                                     <Link to="/registrar">
-                                    <CButton color="primary" active tabIndex={-1} style={style.boton}>Registrate!!</CButton>
+                                    <CButton active tabIndex={-1} style={style.boton}>Registrate!!</CButton>
                                     </Link>
                                 </div>
                                 </CCardBody>

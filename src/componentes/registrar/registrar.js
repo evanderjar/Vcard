@@ -75,7 +75,7 @@ function Registrar(){
                         </CInputGroupPrepend>
                         <CInput style={styles.inputs} type="password" placeholder="Repeat password" autoComplete="new-password" />
                     </CInputGroup>
-                    <CButton style={styles.boton} color="success" block type="submit">Create Account</CButton>
+                    <CButton style={styles.boton} block type="submit">Create Account</CButton>
                     </CForm>
                 </CCardBody>
                 </CCard>

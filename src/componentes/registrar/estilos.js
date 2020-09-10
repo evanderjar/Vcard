@@ -15,7 +15,9 @@ export const styles = {
         borderRadius: "5px"
     },
     boton:{
-        fontSize: "15px"
+        fontSize: "15px",
+        color: "white",
+        backgroundColor: "#4fbcc1"
     }
 
 }
