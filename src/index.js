@@ -15,12 +15,6 @@ import { AuthProvider } from './componentes/Auth/auth'
 import { Route } from 'react-router-dom'
 import { HashRouter, Switch } from 'react-router-dom'
 
-import { useParams } from 'react-router-dom'
-
-let { id } = useParams()
-
-console.log(id)
-
 
 ReactDOM.render(
   <AuthProvider>

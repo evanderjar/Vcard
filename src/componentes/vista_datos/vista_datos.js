@@ -120,7 +120,7 @@ function VistaDatos() {
         <div></div>
         <a link rel="canonical"
           class="twitter-share-button"
-          href="https://twitter.com/intent/tweet?text=tienda.deproinf.com.ve/9966" target="_blank">
+          href="https://twitter.com/intent/tweet?text=tienda.deproinf.com.ve/,/9966" target="_blank">
           Share on twiter
         </a>
         
