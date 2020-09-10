@@ -24,9 +24,13 @@ export const style = {
         height: "30px",
         width: "105px",
         fontSize: "13px",
+        backgroundColor: "#5fd490",
+        color: "white"
     },
     boton2:{
         fontSize: "20px",
+        color: "white",
+        backgroundColor: "#4fbcc1"
     },
     contenedor: {
         maxWidth: "1400px",

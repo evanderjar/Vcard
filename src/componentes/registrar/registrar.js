@@ -81,7 +81,7 @@ function Registrar(){
                         </CInputGroupPrepend>
                         <CInput style={styles.inputs} type="password" placeholder="Repetir clave" autoComplete="new-password" value={confirmarClave} onChange={(event)=>{SetConfirmarClave(event.target.value)}} required/>
                     </CInputGroup>
-                    <CButton style={styles.boton} color="success" block type="submit">Create Account</CButton>
+                    <CButton style={styles.boton} block type="submit">Create Account</CButton>
                     </CForm>
                 </CCardBody>
                 </CCard>
