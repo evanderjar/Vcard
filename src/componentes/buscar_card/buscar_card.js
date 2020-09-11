@@ -38,6 +38,7 @@ function BuscarCard(){
             window.location ="/#/"+nombre 
             localStorage.setItem('cargo_formulario','false')
         }else {
+            alert("el codigo "+ nombre +" no exite")
             SetNoExiste(true)
         }
     })
@@ -61,9 +62,9 @@ function BuscarCard(){
                                         </button>
                                     </span>
                             </div>
-                            {noExiste ? 
+                            {/* {noExiste ? 
                                 <h2 style={style.error}>No exite el codigo {nombre}</h2>: ''
-                                }
+                                } */}
                         </form>
                     </div>
                 </div>
