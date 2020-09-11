@@ -8,8 +8,10 @@ import 'firebase/firestore';
 
 import 'firebase/storage'
 
+import 'firebase/auth'
+
 // TODO: Replace the following with your app's Firebase project configuration
-const firebaseConfig = {
+export const firebaseConfig = {
     apiKey: "AIzaSyCHlCJ7LFu0ChWspxIWhge0rw_Z9N0ZwCk",
     authDomain: "prueba-app-1f667.firebaseapp.com",
     databaseURL: "https://prueba-app-1f667.firebaseio.com",
@@ -21,6 +23,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+export const app = firebase.initializeApp(firebaseConfig);
 export const db = firebase.firestore();
 export const storage = firebase.storage()
+export const auth = firebase.auth();

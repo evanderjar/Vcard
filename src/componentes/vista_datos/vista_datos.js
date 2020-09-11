@@ -9,7 +9,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
 import{ VcardStile } from './estilosVcard';
-import backVcard from '../../assets/Imagen-background2.jpg';
+import backVcard from '../../assets/Imagen-background1.jpg';
 
 
 function VistaDatos() {
@@ -17,6 +17,9 @@ function VistaDatos() {
   const [nuevoForm, setNuevoForm] = useState("false")
   const [usuario, setUsuario] = useState()
   const [mostrarReturn, setmMostrarReturn] = useState(false)
+  // const [compartir_facebook, setCompartir_facebook] = useState("")
+
+  const compartir_facebook = `https://www.facebook.com/sharer/sharer.php?u=example.org`
 
   useEffect(() => {
     console.log(localStorage.getItem('cargo_formulario'))
@@ -72,7 +75,8 @@ function VistaDatos() {
           <img src={usuario.foto_perfil} alt="foto perfil" Style="width: 70px;" required></img>
         }
         <h1>Usuario: {usuario.nombre}</h1>
-        <h2>Apellido {usuario.apellido}</h2>
+        <h2>Apellido: {usuario.apellido}</h2>
+        <h2>Telefono: {usuario.telefono}</h2>
         {/* <div>
           <h2 Style='display: contents;'>Su ruta es</h2>
           <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
@@ -91,7 +95,6 @@ function VistaDatos() {
             <a target="_blank" href={usuario.twitter} rel="noopener noreferrer">
               <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
             </a>
-            
           }
 
           {usuario.instagram === "" || usuario.instagram === undefined ? '': 
@@ -106,9 +109,30 @@ function VistaDatos() {
               <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
             </a>
           }
+
+          {usuario.linkedin === "" || usuario.linkedin === undefined ? '': 
+            <a target="_blank" href={usuario.linkedin} rel="noopener noreferrer">
+              <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+          }
+          {usuario.web === "" || usuario.web === undefined ? '': 
+            <a target="_blank" href={usuario.web} rel="noopener noreferrer">
+              <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
+            </a>
+          }
         </div>
         </div>
         </CContainer>
+        <a href={compartir_facebook} target="_blank">
+          Share on Facebook
+        </a>
+        <div></div>
+        <a link rel="canonical"
+          class="twitter-share-button"
+          href="https://twitter.com/intent/tweet?text=tienda.deproinf.com.ve/,/9966" target="_blank">
+          Share on twiter
+        </a>
+        
       </Fragment>
     );
   }else{

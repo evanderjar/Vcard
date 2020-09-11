@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -18,17 +18,36 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import background from '../../assets/background-login.jpg'
 import logo from '../../assets/tugogo.png';
-import login from '../../assets/imagen-login.png';
+import login from '../../assets/imagen-login.gif';
 
 import { style } from './estilos'
+
+import { app } from '../../firebase'
+
+/****** COMPONENTE NAVBAR *************** */
+import Navbar from '../navbar/navbar'
 
 
 function Login(){
 
-    const EntrarLogin = (event) => {
+    let [usuario, SetUsuario] = useState("")
+    let [clave, SetClave] = useState("")
+
+
+    const EntrarLogin = async (event) => {
         event.preventDefault();
-        window.location ="/#/formulario" 
-        localStorage.setItem('cargo_formulario','false')
+
+        try {
+            await app
+              .auth()
+              .signInWithEmailAndPassword(usuario, clave);
+                window.location ="/#/formulario" 
+                localStorage.setItem('cargo_formulario','false')
+          } catch (error) {
+            alert(error);
+          }
+
+
     }
 
 
@@ -52,7 +71,7 @@ function Login(){
                                         <i className="fas fa-user"></i>
                                         </CInputGroupText>
                                     </CInputGroupPrepend>
-                                    <CInput type="text" placeholder="Usuario" autoComplete="username" style={style.campos}/>
+                                    <CInput type="text" placeholder="Usuario" autoComplete="username" style={style.campos} value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
                                     </CInputGroup>
                                     <CInputGroup className="mb-4">
                                     <CInputGroupPrepend>
@@ -60,7 +79,7 @@ function Login(){
                                         <i className="fas fa-lock"></i>
                                         </CInputGroupText>
                                     </CInputGroupPrepend>
-                                    <CInput type="password" placeholder="Contraseña" autoComplete="current-password" style={style.campos}/>
+                                    <CInput type="password" placeholder="Contraseña" autoComplete="current-password" style={style.campos} value={clave} onChange={(event)=>{SetClave(event.target.value)}} required/>
                                     </CInputGroup>
                                     <CRow>
                                     <CCol xs="12">

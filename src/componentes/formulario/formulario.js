@@ -20,10 +20,14 @@ import { StepIcon } from '@material-ui/core';
 function Formulario() {
   let [nombre, SetNombre] = useState("")
   let [apellido, SetApellido] = useState("")
+  let [telefono, SetTelefono] = useState(0)
   let [nombre_ruta, SetNombre_ruta] = useState("")
   let [twitter, SetTwitter] = useState("")
   let [instagram, SetInstagram] = useState("")
   let [facebook, SetFacebook] = useState("")
+  let [linkedin, SetLinkedin] = useState("")
+  let [web, SetWeb] = useState("")
+
   /************************************************ */
   let [imagen, SetImagen] = useState("")
   let [mostrarImagen, SetMostrarImagen] = useState(false)
@@ -50,18 +54,6 @@ function Formulario() {
          SetMostrarImagen(true)
        })
     })
-    
-    
-    // task.snapshotChanges()
-    // .pipe(
-    //     finalize(()=>{
-    //         ref.getDownloadURL()
-    //         .subscribe(element=>{
-    //             console.log("estoy aqui")
-    //             console.log(element)
-    //         })
-    //     })
-    // ).subscribe()
   }
 
 
@@ -113,7 +105,7 @@ function Formulario() {
             <img src={imagen} alt="foto perfil" Style="width: 70px;" required></img>
           : null }        
             <label>
-              <input type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} multiple/>
+              <input type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
             </label>
             <div></div>
             <label>
@@ -123,6 +115,10 @@ function Formulario() {
             <label>
               Apellido:
               <input type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
+            </label>
+            <label>
+              Telefono:
+              <input type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
             </label>
             <label>
               http://tienda.deproinf.com.ve/#/
@@ -143,6 +139,14 @@ function Formulario() {
           <label>
             Facebook:
             <input type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+          </label>
+          <label>
+            Linkedin:
+            <input type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
+          </label>
+          <label>
+            Web Personal:
+            <input type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
         </div>;
       case 2:
@@ -178,11 +182,15 @@ function Formulario() {
             SetExisteCodigo(false)
             GuardarFicha({nombre, 
               apellido, 
-              nombre_ruta, 
+              nombre_ruta,
+              telefono, 
               twitter,
               instagram,
               facebook,
+              linkedin,
+              web,
               foto_perfil:imagen
+
             })
             .then(Guardo=>{
               console.log("Guardo")
