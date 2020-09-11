@@ -50,8 +50,6 @@ function Login(){
 
     }
 
-
-
     return (
         <div  className="c-app c-default-layout flex-row align-items-center">
             <img style={style.back} src={background} alt="background"></img>
@@ -71,7 +69,7 @@ function Login(){
                                         <i className="fas fa-user"></i>
                                         </CInputGroupText>
                                     </CInputGroupPrepend>
-                                    <CInput type="text" placeholder="Usuario" autoComplete="username" style={style.campos} value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
+                                    <CInput type="text" placeholder="Email" autoComplete="username" style={style.campos} value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
                                     </CInputGroup>
                                     <CInputGroup className="mb-4">
                                     <CInputGroupPrepend>
