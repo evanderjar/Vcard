@@ -13,5 +13,9 @@ export const style = {
         textAlign: 'center', 
         margin: '0 auto', 
         marginTop: 32 
-    },
+    },  
+    margen:{
+        paddingLeft: "180px"
+    } 
+
 }

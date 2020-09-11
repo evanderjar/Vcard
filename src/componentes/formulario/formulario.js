@@ -17,6 +17,8 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { StepIcon } from '@material-ui/core';
 
+import Slidevar from '../sidevar/sidevar';
+
 function Formulario() {
   let [nombre, SetNombre] = useState("")
   let [apellido, SetApellido] = useState("")
@@ -240,12 +242,13 @@ function Formulario() {
   };
 
   return (
-
-    <div className={classes.root}>
-      <Stepper activeStep={activeStep} orientation="vertical">
+    <div className={classes.root} >
+       <Slidevar />
+       <div style={style.margen}>
+      <Stepper activeStep={activeStep} orientation="vertical" >
         {steps.map((label, index) => (
           <Step key={label}>
-            <StepLabel>
+            <StepLabel >
               {label}
               </StepLabel>
             <StepContent>
@@ -284,6 +287,7 @@ function Formulario() {
           </Button>
         </Paper>
       )}
+      </div>
     </div>
 
 

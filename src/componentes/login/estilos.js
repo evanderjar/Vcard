@@ -39,7 +39,7 @@ export const style = {
         zIndex: "2",
     },
     tarjeta:{
-        paddingTop: "12%",
+        paddingTop: "8%",
     },
     back:{
         position: "fixed",
@@ -53,7 +53,7 @@ export const style = {
     tarjeta2:{
         position: "absolute",
         zIndex: "5",
-        paddingTop: "20%",
+        paddingTop: "35%",
         paddingLeft: "12%",
         paddingRight: "7%",
     },
