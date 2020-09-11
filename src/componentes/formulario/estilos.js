@@ -18,5 +18,11 @@ export const style = {
     margen:{
         paddingLeft: "180px"
     }, 
+    titulos:{
+        fontSize: "12px"
+    },
+    borde:{
+        border: "solid 1px black"
+    }
 
 }
