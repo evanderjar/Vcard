@@ -110,43 +110,43 @@ function Formulario() {
             <img src={imagen} alt="foto perfil" Style="width: 70px;" required></img>
           : null }        
             <label>
-              <input  type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
+              <input type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
             </label>
             <div></div>
             <div class="form-group">
             <label style={style.titulos}>
               Nombre:
-              <input class="form-control" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required autofocus/>
+              <input style={{fontSize: "15px"}} class="form-control" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required autofocus/>
             </label>
             </div>
             <div class="form-group">
             <label style={style.titulos}>
               Apellido:
-              <input class="form-control" type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
             </label>
             </div>
             <div class="form-group">
-            <label style={style.titulos}>
+            <label style={{fontSize: "15px"}} style={style.titulos}>
               Cargo:
-              <input class="form-control" type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
             </label>
             </div>
             <div class="form-group">
             <label style={style.titulos}>
               Codigo +:
-              <input class="form-control" type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
             </label>
             </div>
             <div class="form-group">
             <label style={style.titulos}>
               Telefono (sin 0):
-              <input class="form-control" type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
             </label>
             </div>
             <div class="form-group">
-            <label style={style.titulos}>
+            <label  style={style.titulos}>
               Correo:
-              <input class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
             </div>
             {/* <label>
@@ -160,37 +160,37 @@ function Formulario() {
           <div class="form-group">
           <label style={style.titulos}>
             Twitter:
-            <input  class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Instagram:
-            <input  class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Facebook:
-            <input  class="form-control" type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Linkedin:
-            <input  class="form-control" type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Skype:
-            <input  class="form-control" type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Web Personal:
-            <input  class="form-control" type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
           </div>
         </div>;
