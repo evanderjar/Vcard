@@ -3,41 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Formulario from './componentes/formulario/formulario'
-import VistaDatos from './componentes/vista_datos/vista_datos'
-import BuscarCard from './componentes/buscar_card/buscar_card'
-import Login from './componentes/login/login'
-import Registrar from './componentes/registrar/registrar'
-import { AuthProvider } from './componentes/Auth/auth'
-// import Vcard from './componentes/Vcard/Vcard'
 
-
-import { Route } from 'react-router-dom'
-import { HashRouter, Switch } from 'react-router-dom'
+import App from './App'
 
 
 ReactDOM.render(
-  <AuthProvider>
-    <HashRouter>
-      <Switch>
-        <Route exact path="/">
-          <BuscarCard />
-        </Route>
-        <Route path="/formulario">
-          <Formulario />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/registrar">
-          <Registrar />
-        </Route>
-        <Route path="/:id">
-          <VistaDatos />
-        </Route>
-      </Switch>
-    </HashRouter>
-    </AuthProvider>,
+  <App />,
   document.getElementById('root')
 );
 

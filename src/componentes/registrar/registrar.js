@@ -16,7 +16,7 @@ import {
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { styles } from './estilos'
-import registro from '../../assets/imagen-registro.jpg';
+import registro from '../../assets/imagen-registro1.jpg';
 import logo from '../../assets/tugogo.png';
 
 import { app } from '../../firebase'
