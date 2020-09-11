@@ -62,5 +62,7 @@ export const style = {
         height: "100%",
         position: "absolute",
         zIndex: "2",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
     }
 }

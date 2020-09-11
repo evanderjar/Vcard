@@ -22,9 +22,9 @@ import Slidevar from '../sidevar/sidevar';
 function Formulario() {
   let [nombre, SetNombre] = useState("")
   let [apellido, SetApellido] = useState("")
-  let [codigo_telefono, SetCodigo_telefono] = useState(0)
-  let [telefono, SetTelefono] = useState(0)
-  let [cargo, SetCargo] = useState(0)
+  let [codigo_telefono, SetCodigo_telefono] = useState("")
+  let [telefono, SetTelefono] = useState("")
+  let [cargo, SetCargo] = useState("")
   let [nombre_ruta, SetNombre_ruta] = useState("")
   let [correo, SetCorreo] = useState("")
   let [twitter, SetTwitter] = useState("")
@@ -43,9 +43,8 @@ function Formulario() {
 
   const detectarImagen = event => {
     const image = event.target.files[0]
-    console.log(image)
-    console.log(image.name)
-    const filePath = '/foto_perfil/'+ image.name
+    const numero_automatico = Math.random().toString(36).substring(2)
+    const filePath = '/foto_perfil/'+ image.name+numero_automatico
     const uploadTask = storage.ref(filePath).put(image)
     uploadTask.on('state_changed', 
     (snapShot) => {
@@ -137,10 +136,10 @@ function Formulario() {
               Correo:
               <input type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
-            <label>
+            {/* <label>
               http://tienda.deproinf.com.ve/#/
               <input type="text" name="nombre_ruta" value={nombre_ruta} onChange={(event)=>{SetNombre_ruta(event.target.value)}} required/>
-              </label>
+            </label> */}
           </form>
         </div>;
       case 1:
@@ -188,10 +187,11 @@ function Formulario() {
       localStorage.clear()
     
       telefono = codigo_telefono+telefono
-      console.log(telefono)
+      const rutadinamica = Math.random().toString(36).substring(2)
+      SetNombre_ruta(rutadinamica)
 
       /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
-      await db.collection('Datos_usuarios').where("nombre_ruta", "==",nombre_ruta)
+      await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
       .onSnapshot(function(querySnapshot) {
           var reporte = [];
           var contador = 0
@@ -206,7 +206,7 @@ function Formulario() {
             SetExisteCodigo(false)
             GuardarFicha({nombre, 
               apellido, 
-              nombre_ruta,
+              nombre_ruta:rutadinamica,
               telefono,
               correo, 
               twitter,
@@ -221,7 +221,8 @@ function Formulario() {
             })
             .then(Guardo=>{
               console.log("Guardo")
-              window.location ="/#/"+nombre_ruta 
+              // window.location ="/#/"+nombre_ruta 
+              SetExisteCodigo(false)
               localStorage.setItem('cargo_formulario','true')
             })
             console.log(reporte)
@@ -278,9 +279,13 @@ function Formulario() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} className={classes.resetContainer}>
-          { existeCodigo ? 
+          {/* { existeCodigo ? 
                <h6 style={style.error}>El codigo dado ya exite</h6>
-             : null }   
+             : null } */}
+
+            { existeCodigo ? 
+               null
+            : <h6 style={style.error}>su link es {nombre_ruta}</h6> }     
           
           <Button onClick={handleReset} className={classes.button}>
             Reset
