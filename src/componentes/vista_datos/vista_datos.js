@@ -74,119 +74,86 @@ function VistaDatos() {
         <section style = {VcardStile.back}>
          <div style={VcardStile.todo}>
         <Navbar/>
-        {/* <div className="col-md-6" style={VcardStile.tarjeta}> */}
-            {/* <div className="card tex-center">
-              <div className="card-header" style={VcardStile.contenedor2}> */}
+        <div className="col-md-6" style={VcardStile.tarjeta}>
+            <div className="card tex-center">
+              <div className="card-header">
               <CRow style={VcardStile.nombre}>
               {usuario.foto_perfil === "" || usuario.twitter === undefined ? "":
               <img src={usuario.foto_perfil} alt="foto perfil" style={VcardStile.imag} required></img>
               }
               </CRow>
               <CRow style={VcardStile.nombre}>
-              <h1 class="text-center" style={VcardStile.nombre2}>Usuario: {usuario.nombre}</h1><h1 style={VcardStile.nombre3}>Apellido: {usuario.apellido}</h1>
+              <h1 class="text-center" style={VcardStile.nombre2}>{usuario.nombre}</h1><h1 style={VcardStile.nombre3}>{usuario.apellido}</h1>
               </CRow>
               <CRow style={VcardStile.nombre}>
-              <h2 style={VcardStile.tlf}>Telefono: {usuario.telefono}</h2>
+              <h2>Telefono: {usuario.telefono}</h2>
               </CRow>
-              {/* <label for="basic-url">Tu Url</label> */}
+              <CRow style={VcardStile.nombre}>
+              <h2>Correo: {usuario.correo}</h2>
+              </CRow>
               <p></p>
-             
+                {/* <div>
+                <h2 Style='display: contents;'>Su ruta es</h2>
+                <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
+                </div> */}
+                <div style={VcardStile.redes}>
+                <div style={VcardStile.contacto}> Contactame </div>
+                <div style={VcardStile.cosa}>
+                  {usuario.twitter === "" || usuario.twitter === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
+                      <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
+                    </a>
+                  }
+
+                        {usuario.facebook === "" || usuario.facebook === undefined ? '': 
+                          <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
+                            <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                          </a>
+                        }
+
+                  {usuario.linkedin === "" || usuario.linkedin === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.linkedin} rel="noopener noreferrer">
+                      <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                  }
+
+                  {usuario.skype === "" || usuario.skype === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.skype} rel="noopener noreferrer">
+                      <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                  }
+
+                  {usuario.web === "" || usuario.web === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.web} rel="noopener noreferrer">
+                      <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
+                    </a>
+                  }
+
+                    {/* ENVIAR CORREO */}
+                    <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                      <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                    {/* LLAMAR */}
+                    <a style={VcardStile.redes2} href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
+                      <i class="fas fa-phone-volume" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                    {/* ESCRIBIR POR WHATSAPP */}
+                    <a style={VcardStile.redes2} href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                      <i class="fab fa-whatsapp" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                    {/* ENVIAR */}
+                    <a style={VcardStile.redes2} href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                      <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    </a>
+                </div>
+                {/* <hr></hr> */}
+                <label for="basic-url">Tu Url</label>
               <div  style={VcardStile.nombre} class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
                 </div>
                 <input type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
               </div>
-  
-                {/* <div>
-                <h2 Style='display: contents;'>Su ruta es</h2>
-                <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
-                </div> */}
-                <div style={VcardStile.redes}>
-                {usuario.twitter === "" || usuario.twitter === undefined ? '': 
-                  <a style={VcardStile.Tw} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
-                    <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
-                  </a>
-                }
-
-                {usuario.instagram === "" || usuario.instagram === undefined ? '': 
-                  
-                  <a style={VcardStile.Ins} target="_blank" href={usuario.instagram} rel="noopener noreferrer">
-                    <i class="fab fa-instagram" Style="font-size: 35px !important; color:#3f729b !important"></i>
-                  </a>
-                }
-        {usuario.foto_perfil === "" || usuario.twitter === undefined ? "":
-          <img src={usuario.foto_perfil} alt="foto perfil" Style="width: 70px;" required></img>
-        }
-        <h1>Usuario: {usuario.nombre}</h1>
-        <h2>Apellido: {usuario.apellido}</h2>
-        <h2>Telefono: {usuario.telefono}</h2>
-        <h2>Correo: {usuario.correo}</h2>
-        {/* <div>
-          <h2 Style='display: contents;'>Su ruta es</h2>
-          <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
-        </div> */}
-
-        <label for="basic-url">Tu Url</label>
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
-            </div>
-            <input type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
-          </div>
-        
-        
-        
-        <div> Contactame </div>
-        <div>
-          {usuario.twitter === "" || usuario.twitter === undefined ? '': 
-            <a target="_blank" href={usuario.twitter} rel="noopener noreferrer">
-              <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
-            </a>
-          }
-
-                {usuario.facebook === "" || usuario.facebook === undefined ? '': 
-                  <a style={VcardStile.Fb} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
-                    <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-                  </a>
-                }
-
-          {usuario.linkedin === "" || usuario.linkedin === undefined ? '': 
-            <a target="_blank" href={usuario.linkedin} rel="noopener noreferrer">
-              <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-          }
-
-          {usuario.skype === "" || usuario.skype === undefined ? '': 
-            <a target="_blank" href={usuario.skype} rel="noopener noreferrer">
-              <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-          }
-
-          {usuario.web === "" || usuario.web === undefined ? '': 
-            <a target="_blank" href={usuario.web} rel="noopener noreferrer">
-              <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
-            </a>
-          }
-
-            {/* ENVIAR CORREO */}
-            <a href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-            {/* LLAMAR */}
-            <a href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-phone-volume" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-            {/* ESCRIBIR POR WHATSAPP */}
-            <a href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-whatsapp" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-            {/* ENVIAR */}
-            <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-            </a>
-
-        </div>
         {/* <a href={compartir_facebook} target="_blank">
           Share on Facebook
         </a>
@@ -207,8 +174,11 @@ function VistaDatos() {
         </div>
         </section>
         </a> */}
-        </div>
-        </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </Fragment>
     );

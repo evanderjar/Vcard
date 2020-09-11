@@ -6,9 +6,6 @@ export const VcardStile = {
         zIndex: "2",
         paddingLeft: "42%"
     },
-    contenedor2:{
-        paddingBottom: "285px"
-    },
     todo:{
         width: "100%",
         height: "100%"
@@ -19,7 +16,7 @@ export const VcardStile = {
         position: "fixed",
         zIndex: "1",
         backgroundSize: "cover",
-        backgroundImage: `url(${fondos_buscar_vcard})`
+        backgroundColor: "#4fd190"
     },
     imag:{
         width: "200px",
@@ -36,31 +33,27 @@ export const VcardStile = {
     },
     nombre2:{
         paddingRight: "10px",
-        color: "white"
     },
     nombre3:{
         paddingRight: "10px",
-        color: "white"
-    },
-    tlf:{
-        color: "white"
     },
     url:{
         marginLeft: "150px"
     },
     redes:{
-        textAlign: "center"
+        textAlign: "center",
     },
-    Tw:{
+    redes2:{
         paddingRight: "13px"
     },
-    Fb:{
-        paddingRight: "13px"
+    contacto:{
+        fontsize: "15px"
     },
-    Ins:{
-        paddingRight: "13px"
+    linea:{
+        border: "solid 1px blue",
+        width: "124px"
     },
-    LK:{
-        paddingRight: "13px"
+    cosa:{
+        paddingBottom: "15px"
     }
 } 
