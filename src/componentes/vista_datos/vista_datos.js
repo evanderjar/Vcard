@@ -18,6 +18,7 @@ function VistaDatos() {
   const compartir_facebook = `https://www.facebook.com/sharer/sharer.php?u=example.org`
 
   useEffect(() => {
+    
     console.log(localStorage.getItem('cargo_formulario'))
     if(localStorage.getItem('cargo_formulario')){
       setNuevoForm("true")
@@ -120,10 +121,17 @@ function VistaDatos() {
         <div></div>
         <a link rel="canonical"
           class="twitter-share-button"
-          href="https://twitter.com/intent/tweet?text=tienda.deproinf.com.ve/,/9966" target="_blank">
+          href="http://twitter.com/share?text=text goes here&url=http://tienda.deproinf.com.ve/9966 &hashtags=hashtag1,hashtag2,hashtag3" target="_blank">
           Share on twiter
         </a>
-        
+        <div></div>
+        <a href="mailto:prueba@mail.com?subject=Link de mi Card&body=Te invito a visitar mi link de mi Card" target="_blank" rel="noopener noreferrer">Mail</a>
+        <div></div>
+          <a href="tel:+34678567876" target="_blank" rel="noopener noreferrer">Escribir al telefono</a>
+        <div></div>
+          <a href="https://api.whatsapp.com/send?phone=584121231212&text=Este%20es%20el%20link%20de%20mi%20vcard" target="_blank" rel="noopener noreferrer">Compartir Vcard</a>
+        <div></div>
+        <a href="sms:+3412345678?body=Mensaje" target="_blank" rel="noopener noreferrer">Mensajes</a>
       </Fragment>
     );
   }else{

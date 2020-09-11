@@ -1,4 +1,4 @@
-import fondos from '../../assets/imagen-registro.jpg';
+import fondos from '../../assets/imagen-registrobg4.jpg';
 
 
 export const styles = {
@@ -27,6 +27,7 @@ export const styles = {
         height: "100%",
         position: "fixed",
         zIndex: "1",
+        backgroundSize: "cover",
         backgroundImage: `url(${fondos})`
     },
 
