@@ -17,6 +17,13 @@ export const style = {
     },
     navbar_ingresar:{
         paddigLeft:"30px",
+    },
+    icono:{
+        fontSize: "21px",
+        paddingRight: "10px",
+    },
+    icono2:{
+        paddingLeft: "8px",
     }
       
 }

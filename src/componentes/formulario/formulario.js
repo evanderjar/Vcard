@@ -285,7 +285,8 @@ function Formulario() {
 
             { existeCodigo ? 
                null
-            : <h6 style={style.error}>su link es {nombre_ruta}</h6> }     
+            : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
+            <div></div>     
           
           <Button onClick={handleReset} className={classes.button}>
             Reset

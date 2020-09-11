@@ -1,7 +1,8 @@
 export const style = {
     error:{
         marginTop:"10px",
-        color:"red"
+        color:"red",
+        marginLeft: "560px"
     },
     boton:{
         height: "40px",
@@ -16,6 +17,6 @@ export const style = {
     },  
     margen:{
         paddingLeft: "180px"
-    } 
+    }, 
 
 }

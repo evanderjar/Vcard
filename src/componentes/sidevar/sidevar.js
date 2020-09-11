@@ -10,18 +10,18 @@ function Slidevar(){
     <div style={style.sidenav}>
         <ul className="navbar-nav">
                         <li className="nav-item">
-                            <a className="nav-link" href="">
-                                <span style={style.palabras_navbar}>Buscar Vcard</span> 
+                            <a style={style.icono2} className="nav-link" href="#">
+                            <i style={style.icono} class="fas fa-id-card"></i> <span style={style.palabras_navbar}>Tarjeta</span> 
                             </a>
                         </li>
                         <li className="nav-item" style={style.navbar_ingresar}>
-                            <a className="nav-link" href="">
-                                <span style={style.palabras_navbar}>Ingresar</span> 
+                            <a style={style.icono2} className="nav-link" href="#">
+                            <i style={style.icono} class="fas fa-question-circle"></i><span style={style.palabras_navbar}>Ayuda</span> 
                             </a>
                         </li>
                         <li className="nav-item" style={style.navbar_ingresar}>
-                            <a className="nav-link" href="">
-                                <span style={style.palabras_navbar}>Ingresar</span> 
+                            <a style={style.icono2} className="nav-link" href="">
+                            <i style={style.icono} class="fas fa-sign-out-alt"></i><span style={style.palabras_navbar}>Cerrar Sesion</span> 
                             </a>
                         </li>
             </ul>
