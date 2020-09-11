@@ -22,6 +22,7 @@ function Formulario() {
   let [apellido, SetApellido] = useState("")
   let [codigo_telefono, SetCodigo_telefono] = useState(0)
   let [telefono, SetTelefono] = useState(0)
+  let [cargo, SetCargo] = useState(0)
   let [nombre_ruta, SetNombre_ruta] = useState("")
   let [correo, SetCorreo] = useState("")
   let [twitter, SetTwitter] = useState("")
@@ -120,6 +121,10 @@ function Formulario() {
               <input type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
             </label>
             <label>
+              Cargo:
+              <input type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
+            </label>
+            <label>
               Codigo +:
               <input type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
             </label><label>
@@ -203,6 +208,7 @@ function Formulario() {
               telefono,
               correo, 
               twitter,
+              cargo,
               instagram,
               facebook,
               linkedin,
