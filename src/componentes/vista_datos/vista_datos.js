@@ -115,6 +115,35 @@ function VistaDatos() {
                     <i class="fab fa-instagram" Style="font-size: 35px !important; color:#3f729b !important"></i>
                   </a>
                 }
+        {usuario.foto_perfil === "" || usuario.twitter === undefined ? "":
+          <img src={usuario.foto_perfil} alt="foto perfil" Style="width: 70px;" required></img>
+        }
+        <h1>Usuario: {usuario.nombre}</h1>
+        <h2>Apellido: {usuario.apellido}</h2>
+        <h2>Telefono: {usuario.telefono}</h2>
+        <h2>Correo: {usuario.correo}</h2>
+        {/* <div>
+          <h2 Style='display: contents;'>Su ruta es</h2>
+          <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
+        </div> */}
+
+        <label for="basic-url">Tu Url</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
+            </div>
+            <input type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
+          </div>
+        
+        
+        
+        <div> Contactame </div>
+        <div>
+          {usuario.twitter === "" || usuario.twitter === undefined ? '': 
+            <a target="_blank" href={usuario.twitter} rel="noopener noreferrer">
+              <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
+            </a>
+          }
 
                 {usuario.facebook === "" || usuario.facebook === undefined ? '': 
                   <a style={VcardStile.Fb} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
@@ -127,13 +156,38 @@ function VistaDatos() {
               <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
             </a>
           }
+
+          {usuario.skype === "" || usuario.skype === undefined ? '': 
+            <a target="_blank" href={usuario.skype} rel="noopener noreferrer">
+              <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+          }
+
           {usuario.web === "" || usuario.web === undefined ? '': 
             <a target="_blank" href={usuario.web} rel="noopener noreferrer">
               <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
             </a>
           }
+
+            {/* ENVIAR CORREO */}
+            <a href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* LLAMAR */}
+            <a href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-phone-volume" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* ESCRIBIR POR WHATSAPP */}
+            <a href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* ENVIAR */}
+            <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+
         </div>
-        <a href={compartir_facebook} target="_blank">
+        {/* <a href={compartir_facebook} target="_blank">
           Share on Facebook
         </a>
         <div></div>
@@ -150,6 +204,10 @@ function VistaDatos() {
           <a href="https://api.whatsapp.com/send?phone=584121231212&text=Este%20es%20el%20link%20de%20mi%20vcard" target="_blank" rel="noopener noreferrer">Compartir Vcard</a>
         <div></div>
         <a href="sms:+3412345678?body=Mensaje" target="_blank" rel="noopener noreferrer">Mensajes</a>
+        </div>
+        </section>
+        </a> */}
+        </div>
         </div>
         </section>
       </Fragment>
