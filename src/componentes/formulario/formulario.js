@@ -110,32 +110,45 @@ function Formulario() {
             <img src={imagen} alt="foto perfil" Style="width: 70px;" required></img>
           : null }        
             <label>
-              <input type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
+              <input  type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
             </label>
             <div></div>
-            <label>
+            <div class="form-group">
+            <label style={style.titulos}>
               Nombre:
-              <input type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
+              <input class="form-control" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required autofocus/>
             </label>
-            <label>
+            </div>
+            <div class="form-group">
+            <label style={style.titulos}>
               Apellido:
-              <input type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
+              <input class="form-control" type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
             </label>
-            <label>
+            </div>
+            <div class="form-group">
+            <label style={style.titulos}>
               Cargo:
-              <input type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
+              <input class="form-control" type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
             </label>
-            <label>
+            </div>
+            <div class="form-group">
+            <label style={style.titulos}>
               Codigo +:
-              <input type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
-            </label><label>
+              <input class="form-control" type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
+            </label>
+            </div>
+            <div class="form-group">
+            <label style={style.titulos}>
               Telefono (sin 0):
-              <input type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
+              <input class="form-control" type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
             </label>
-            <label>
+            </div>
+            <div class="form-group">
+            <label style={style.titulos}>
               Correo:
-              <input type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
+              <input class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
+            </div>
             {/* <label>
               http://tienda.deproinf.com.ve/#/
               <input type="text" name="nombre_ruta" value={nombre_ruta} onChange={(event)=>{SetNombre_ruta(event.target.value)}} required/>
@@ -144,30 +157,42 @@ function Formulario() {
         </div>;
       case 1:
         return <div>
-          <label>
+          <div class="form-group">
+          <label style={style.titulos}>
             Twitter:
-            <input type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
+            <input  class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
           </label>
-          <label>
+          </div>
+          <div class="form-group">
+          <label style={style.titulos}>
             Instagram:
-            <input type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
+            <input  class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
           </label>
-          <label>
+          </div>
+          <div class="form-group">
+          <label style={style.titulos}>
             Facebook:
-            <input type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+            <input  class="form-control" type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
           </label>
-          <label>
+          </div>
+          <div class="form-group">
+          <label style={style.titulos}>
             Linkedin:
-            <input type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
+            <input  class="form-control" type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
           </label>
-          <label>
+          </div>
+          <div class="form-group">
+          <label style={style.titulos}>
             Skype:
-            <input type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
+            <input  class="form-control" type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
           </label>
-          <label>
+          </div>
+          <div class="form-group">
+          <label style={style.titulos}>
             Web Personal:
-            <input type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+            <input  class="form-control" type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
+          </div>
         </div>;
       case 2:
         return `Desea guardar su VCard ?`;
