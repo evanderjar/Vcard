@@ -109,12 +109,12 @@ function Formulario() {
         return <div>
           <form> 
           { mostrarImagen ? 
-            <img src={imagen} alt="foto perfil" Style="width: 110px; height: 110px; margin-left: 50px;" required></img>
-          : null }
-          <p></p>
-          <div class="form-group">      
+            <img src={imagen} alt="foto perfil" Style="width: 125px;" required></img>
+          : null } 
+            <div></div> 
+            <div class="form-group">      
             <label>
-              <input type="file" accept=".png, .jpg" name="image" onChange={detectarImagen} required/>
+              <input type="file" accept=".png, .jpg" Style="margin-top: 125px;" Style="margin-top: 15px;margin-bottom: 10px;" name="image" onChange={detectarImagen} required/>
             </label>
             </div>  
             <div></div>
