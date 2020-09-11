@@ -18,7 +18,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import background from '../../assets/background-login2.jpg'
 import logo from '../../assets/tugogo.png';
-import login from '../../assets/imagen-login6.gif';
+import login from '../../assets/imagen-login.png';
 
 import { style } from './estilos'
 

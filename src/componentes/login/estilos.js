@@ -49,6 +49,7 @@ export const style = {
     logo:{
         width: "21%",
         marginLeft: "38%",
+        marginTop: "50px",
     },
     tarjeta2:{
         position: "absolute",

@@ -11,7 +11,7 @@ export const styles = {
     },
     logo:{
         width: "25%",
-        marginLeft: "180px"
+        marginLeft: "180px"        
     },
     inputs:{
         height: "35px",
