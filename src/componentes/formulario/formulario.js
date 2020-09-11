@@ -208,6 +208,7 @@ function Formulario() {
               telefono,
               correo, 
               twitter,
+              cargo,
               instagram,
               facebook,
               linkedin,
