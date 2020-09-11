@@ -28,6 +28,7 @@ function Formulario() {
   let [instagram, SetInstagram] = useState("")
   let [facebook, SetFacebook] = useState("")
   let [linkedin, SetLinkedin] = useState("")
+  let [skype, SetSkype] = useState("")
   let [web, SetWeb] = useState("")
 
   /************************************************ */
@@ -154,6 +155,10 @@ function Formulario() {
             <input type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
           </label>
           <label>
+            Skype:
+            <input type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
+          </label>
+          <label>
             Web Personal:
             <input type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
@@ -201,6 +206,7 @@ function Formulario() {
               instagram,
               facebook,
               linkedin,
+              skype,
               web,
               foto_perfil:imagen
 

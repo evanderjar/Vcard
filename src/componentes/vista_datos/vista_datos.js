@@ -113,6 +113,13 @@ function VistaDatos() {
               <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
             </a>
           }
+
+          {usuario.skype === "" || usuario.skype === undefined ? '': 
+            <a target="_blank" href={usuario.skype} rel="noopener noreferrer">
+              <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+          }
+
           {usuario.web === "" || usuario.web === undefined ? '': 
             <a target="_blank" href={usuario.web} rel="noopener noreferrer">
               <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
