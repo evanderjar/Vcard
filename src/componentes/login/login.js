@@ -57,9 +57,9 @@ function Login(){
             <img style={style.back} src={background} alt="background"></img>
             <CContainer style={style.contenedor}>
                 <CRow className="justify-content-center">
-                    <CCol md="11">
+                    <CCol md="11" style={{ marginRight: '233px' }}>
                         <CCardGroup style={style.tarjeta}>
-                            <CCard className="col-md-8 " style={{ height: '395px' }}>
+                            <CCard className="col-md-8 " style={{ height: '530px', marginLeft: "233px" }}>
                                 <CCardBody>
                                 <CForm onSubmit={EntrarLogin}>
                                 <img style={style.logo} src={logo} alt="logo"></img>
