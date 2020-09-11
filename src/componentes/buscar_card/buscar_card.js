@@ -53,8 +53,8 @@ function BuscarCard(){
                             <div className="card-body row justify-content-center h-100">           
                                 <img style={style.imagen} src="https://firebasestorage.googleapis.com/v0/b/prueba-app-1f667.appspot.com/o/tugogo.png?alt=media&token=6e4ac90a-f26a-4caa-9037-bd269a95c3c5" alt="icono"></img> 
                             </div>
-                            <div className="input-group">
-                                <input style={style.buscar_card} className="form-control" id="exampleInputEmail1" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el codigo" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
+                            <div className="input-group" style={{justifyContent: 'center', marginTop: "10px"}}>
+                                <input style={style.buscar_card} id="exampleInputEmail1" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el codigo" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
                                     <span style={style.span_boton}>
                                         <button className="btn" type="submit" style={style.boton}> 
                                             <i className="fas fa-arrow-right"></i>
@@ -62,9 +62,8 @@ function BuscarCard(){
                                     </span>
                             </div>
                             {noExiste ? 
-                            <h2 style={style.error}>No exite el codigo {nombre}</h2>: ''
-                            }
-
+                                <h2 style={style.error}>No exite el codigo {nombre}</h2>: ''
+                                }
                         </form>
                     </div>
                 </div>

@@ -11,7 +11,8 @@ export const style = {
     },
     error:{
         marginTop:"10px",
-        color:"red"
+        color:"red",
+        textAlign: "center"
     },
     boton:{
         height: "40px",

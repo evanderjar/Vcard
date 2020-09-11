@@ -16,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { StepIcon } from '@material-ui/core';
+import imagen_perfil from '../../assets/user-icono.jpg';
 
 import Slidevar from '../sidevar/sidevar';
 
@@ -35,8 +36,8 @@ function Formulario() {
   let [web, SetWeb] = useState("")
 
   /************************************************ */
-  let [imagen, SetImagen] = useState("")
-  let [mostrarImagen, SetMostrarImagen] = useState(false)
+  let [imagen, SetImagen] = useState(imagen_perfil)
+  let [mostrarImagen, SetMostrarImagen] = useState(true)
   let [existeCodigo, SetExisteCodigo] = useState(false)
 
 
@@ -44,7 +45,7 @@ function Formulario() {
   const detectarImagen = event => {
     const image = event.target.files[0]
     const numero_automatico = Math.random().toString(36).substring(2)
-    const filePath = '/foto_perfil/'+ image.name+numero_automatico
+    const filePath = '/foto_perfil/'+ image.name
     const uploadTask = storage.ref(filePath).put(image)
     uploadTask.on('state_changed', 
     (snapShot) => {
@@ -55,6 +56,7 @@ function Formulario() {
       storage.ref('foto_perfil').child(image.name).getDownloadURL()
        .then(fireBaseUrl => {
          console.log(fireBaseUrl)
+         SetImagen("")
          SetImagen(fireBaseUrl)
          SetMostrarImagen(true)
        })
