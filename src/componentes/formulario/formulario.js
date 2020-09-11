@@ -271,11 +271,11 @@ function Formulario() {
     <div className={classes.root} >
        <Slidevar />
        <div style={style.margen}>
-      <Stepper activeStep={activeStep} orientation="vertical" >
+      <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((label, index) => (
           <Step key={label}>
             <StepLabel >
-              {label}
+              <span style={{fontSize: "20px"}}>{label}</span>
               </StepLabel>
             <StepContent>
               <Typography>{getStepContent(index)}</Typography>
