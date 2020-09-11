@@ -71,6 +71,7 @@ function VistaDatos() {
         <h1>Usuario: {usuario.nombre}</h1>
         <h2>Apellido: {usuario.apellido}</h2>
         <h2>Telefono: {usuario.telefono}</h2>
+        <h2>Correo: {usuario.correo}</h2>
         {/* <div>
           <h2 Style='display: contents;'>Su ruta es</h2>
           <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
@@ -84,6 +85,9 @@ function VistaDatos() {
             <input type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
           </div>
         
+        
+        
+        <div> Contactame </div>
         <div>
           {usuario.twitter === "" || usuario.twitter === undefined ? '': 
             <a target="_blank" href={usuario.twitter} rel="noopener noreferrer">
@@ -114,8 +118,26 @@ function VistaDatos() {
               <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
             </a>
           }
+
+            {/* ENVIAR CORREO */}
+            <a href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* LLAMAR */}
+            <a href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-phone-volume" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* ESCRIBIR POR WHATSAPP */}
+            <a href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-whatsapp" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+            {/* ENVIAR */}
+            <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+              <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+            </a>
+
         </div>
-        <a href={compartir_facebook} target="_blank">
+        {/* <a href={compartir_facebook} target="_blank">
           Share on Facebook
         </a>
         <div></div>
@@ -123,15 +145,8 @@ function VistaDatos() {
           class="twitter-share-button"
           href="http://twitter.com/share?text=text goes here&url=http://tienda.deproinf.com.ve/9966 &hashtags=hashtag1,hashtag2,hashtag3" target="_blank">
           Share on twiter
-        </a>
-        <div></div>
-        <a href="mailto:prueba@mail.com?subject=Link de mi Card&body=Te invito a visitar mi link de mi Card" target="_blank" rel="noopener noreferrer">Mail</a>
-        <div></div>
-          <a href="tel:+34678567876" target="_blank" rel="noopener noreferrer">Escribir al telefono</a>
-        <div></div>
-          <a href="https://api.whatsapp.com/send?phone=584121231212&text=Este%20es%20el%20link%20de%20mi%20vcard" target="_blank" rel="noopener noreferrer">Compartir Vcard</a>
-        <div></div>
-        <a href="sms:+3412345678?body=Mensaje" target="_blank" rel="noopener noreferrer">Mensajes</a>
+        </a> */}
+
       </Fragment>
     );
   }else{

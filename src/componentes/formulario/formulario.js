@@ -20,8 +20,10 @@ import { StepIcon } from '@material-ui/core';
 function Formulario() {
   let [nombre, SetNombre] = useState("")
   let [apellido, SetApellido] = useState("")
+  let [codigo_telefono, SetCodigo_telefono] = useState(0)
   let [telefono, SetTelefono] = useState(0)
   let [nombre_ruta, SetNombre_ruta] = useState("")
+  let [correo, SetCorreo] = useState("")
   let [twitter, SetTwitter] = useState("")
   let [instagram, SetInstagram] = useState("")
   let [facebook, SetFacebook] = useState("")
@@ -117,8 +119,15 @@ function Formulario() {
               <input type="text" name="apellido" value={apellido} onChange={(event)=>{SetApellido(event.target.value)}} required/>
             </label>
             <label>
-              Telefono:
+              Codigo +:
+              <input type="number" name="codigo_telefono" value={codigo_telefono} onChange={(event)=>{SetCodigo_telefono(event.target.value)}} required/>
+            </label><label>
+              Telefono (sin 0):
               <input type="number" name="telefono" value={telefono} onChange={(event)=>{SetTelefono(event.target.value)}} required/>
+            </label>
+            <label>
+              Correo:
+              <input type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
             <label>
               http://tienda.deproinf.com.ve/#/
@@ -166,6 +175,9 @@ function Formulario() {
     if (activeStep === 2){
       localStorage.clear()
     
+      telefono = codigo_telefono+telefono
+      console.log(telefono)
+
       /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
       await db.collection('Datos_usuarios').where("nombre_ruta", "==",nombre_ruta)
       .onSnapshot(function(querySnapshot) {
@@ -183,7 +195,8 @@ function Formulario() {
             GuardarFicha({nombre, 
               apellido, 
               nombre_ruta,
-              telefono, 
+              telefono,
+              correo, 
               twitter,
               instagram,
               facebook,

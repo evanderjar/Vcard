@@ -18,27 +18,27 @@ import { useParams } from 'react-router-dom'
 
 function App() {
 
-  let id = window.location
+  // let id = window.location
 
-  useEffect(() => {
-    switch (id){
-      case '/formulario':
-        window.location = '/#'
-        break
-      case '/login':
-        window.location = '/#'
-        break
-      case '/registrar':
-        window.location = '/#'
-        break 
-      default:
-        window.location = "#"+id.pathname 
-        localStorage.setItem('cargo_formulario','false')
-        console.log(id.pathname)
+  // useEffect(() => {
+  //   switch (id){
+  //     case '/formulario':
+  //       window.location = '/#'
+  //       break
+  //     case '/login':
+  //       window.location = '/#'
+  //       break
+  //     case '/registrar':
+  //       window.location = '/#'
+  //       break 
+  //     default:
+  //       window.location = "#"+id.pathname 
+  //       localStorage.setItem('cargo_formulario','false')
+  //       console.log(id.pathname)
 
-        break
-    }
-  },[])
+  //       break
+  //   }
+  // },[])
 
 
   return (
