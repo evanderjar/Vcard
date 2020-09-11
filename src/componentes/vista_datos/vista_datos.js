@@ -12,6 +12,8 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import{ VcardStile } from './estilosVcard';
 import backVcard from '../../assets/Imagen-background1.jpg';
 import Navbar from '../navbar/navbar'
+import imagen_anonimo from '../../assets/user-icono.jpg';
+
 
 
 function VistaDatos() {
@@ -44,6 +46,9 @@ function VistaDatos() {
             
           }else {
             console.log(reporte)
+            if(reporte.foto_perfil ==""){
+                reporte.foto_perfil = imagen_anonimo
+            }
             setUsuario(reporte)
             setmMostrarReturn(true)
           }
@@ -61,6 +66,9 @@ function VistaDatos() {
             
           }else {
             console.log(reporte)
+            if(reporte.foto_perfil ==""){
+              reporte.foto_perfil = imagen_anonimo
+            }
             setUsuario(reporte)
             setmMostrarReturn(true)
           }

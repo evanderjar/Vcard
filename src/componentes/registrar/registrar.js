@@ -64,7 +64,7 @@ function Registrar(){
                                 <CInputGroupPrepend>
                                 <CInputGroupText>@</CInputGroupText>
                                 </CInputGroupPrepend>
-                                <CInput style={styles.inputs} type="email" placeholder="Usuario" autoComplete="email" value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
+                                <CInput style={styles.inputs} type="email" placeholder="email" autoComplete="email" value={usuario} onChange={(event)=>{SetUsuario(event.target.value)}} required/>
                             </CInputGroup>
                             <CInputGroup className="mb-3">
                                 <CInputGroupPrepend>

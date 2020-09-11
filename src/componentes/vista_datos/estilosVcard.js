@@ -1,4 +1,4 @@
-import fondos_buscar_vcard from '../../assets/Imagen-background1.jpg';
+import fondos_vcard from '../../assets/mountains.jpg';
 
 export const VcardStile = {
     contenedor:{
@@ -19,7 +19,8 @@ export const VcardStile = {
         position: "fixed",
         zIndex: "1",
         backgroundSize: "cover",
-        backgroundColor: "#4fd190"
+        // backgroundColor: "#4fd190"
+        backgroundImage: `url(${fondos_vcard})`
     },
     imag:{
         width: "150px",

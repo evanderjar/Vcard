@@ -20,7 +20,8 @@ export const style = {
     },
     buscar_card:{
         height: "40px",
-        fontSize: "15px"
+        fontSize: "15px",
+        width:"50%",
         
     },
     todo:{
