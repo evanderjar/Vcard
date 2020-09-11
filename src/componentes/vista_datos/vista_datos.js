@@ -85,11 +85,38 @@ function VistaDatos() {
               <CRow style={VcardStile.nombre}>
               <h1 class="text-center" style={VcardStile.nombre2}>{usuario.nombre}</h1><h1 style={VcardStile.nombre3}>{usuario.apellido}</h1>
               </CRow>
+              
+              
+              
               <CRow style={VcardStile.nombre}>
-              <h2>Telefono: {usuario.telefono}</h2>
+              <button style={VcardStile.boton}>
+              <a style={VcardStile.redes2} href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color:'white', }}>
+                <i class="fas fa-phone-volume" Style="font-size: 25px !important; color:#000000 !important"></i>
+                <span Style="font-size: 15px !important; color:#000000 !important; margin-left:5px;">LLAMAR AL MOVIL</span>
+              </a>
+              </button>
               </CRow>
               <CRow style={VcardStile.nombre}>
-              <h2>Correo: {usuario.correo}</h2>
+              <button style={VcardStile.boton2}>
+                  <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-envelope" Style="font-size: 20px !important; color:#000000 !important"></i>
+                    <span Style="font-size: 15px !important; color:#000000 !important; margin-left:5px;" >EMAIL</span>
+                  </a>
+              </button>
+              <button style={VcardStile.boton_mensajes}>
+                <a style={VcardStile.redes2} href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">
+                  <i class="fab fa-whatsapp" Style="font-size: 20px !important; color:#000000 !important"></i>
+                  <span Style="font-size: 15px !important; color:#000000 !important; margin-left:5px;" style={{ textDecoration: 'none' }}>CHAT</span>
+                </a>
+              </button>
+              </CRow>
+              
+              <div style={VcardStile.telefono}></div>
+              <CRow style={VcardStile.nombre}>
+              <h4>Telefono: {usuario.telefono}</h4>
+              </CRow>
+              <CRow style={VcardStile.nombre}>
+              <h4>Correo: {usuario.correo}</h4>
               </CRow>
               <p></p>
                 {/* <div>
@@ -99,6 +126,7 @@ function VistaDatos() {
                 <div style={VcardStile.redes}>
                 <div style={VcardStile.contacto}> Contactame </div>
                 <div style={VcardStile.cosa}>
+          
                   {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
                       <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
@@ -130,17 +158,17 @@ function VistaDatos() {
                   }
 
                     {/* ENVIAR CORREO */}
-                    <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                    {/* <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                       <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-                    </a>
+                    </a> */}
                     {/* LLAMAR */}
-                    <a style={VcardStile.redes2} href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
+                    {/* <a style={VcardStile.redes2} href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer">
                       <i class="fas fa-phone-volume" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-                    </a>
+                    </a> */}
                     {/* ESCRIBIR POR WHATSAPP */}
-                    <a style={VcardStile.redes2} href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                    {/* <a style={VcardStile.redes2} href={`https://api.whatsapp.com/send?phone=${usuario.telefono}&text=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                       <i class="fab fa-whatsapp" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-                    </a>
+                    </a> */}
                     {/* ENVIAR */}
                     <a style={VcardStile.redes2} href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                       <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
