@@ -111,10 +111,12 @@ function Formulario() {
           { mostrarImagen ? 
             <img src={imagen} alt="foto perfil" Style="width: 125px;" required></img>
           : null } 
-            <div></div>       
+            <div></div> 
+            <div class="form-group">      
             <label>
               <input type="file" accept=".png, .jpg" Style="margin-top: 125px;" Style="margin-top: 15px;margin-bottom: 10px;" name="image" onChange={detectarImagen} required/>
             </label>
+            </div>  
             <div></div>
             <div class="form-group">
             <label style={style.titulos}>
