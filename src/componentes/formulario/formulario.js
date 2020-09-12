@@ -163,25 +163,25 @@ function Formulario() {
           <div class="form-group">
           <label style={style.titulos}>
             Twitter:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" placeholder="https://twitter.com/ejemplo" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Instagram:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" placeholder="https://instagram/ejemplo" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Facebook:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" placeholder="https://facebookk.com/ejemplo" alue={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Linkedin:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="linkedin" placeholder="https://linkedin/company/ejemplo" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
           </label>
           </div>
           <div class="form-group">
@@ -193,7 +193,7 @@ function Formulario() {
           <div class="form-group">
           <label style={style.titulos}>
             Web Personal:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web" placeholder="https//ejemplo.com" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
           </div>
         </div>;

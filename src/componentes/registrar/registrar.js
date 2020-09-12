@@ -21,6 +21,9 @@ import logo from '../../assets/tugogo.png';
 
 import { app } from '../../firebase'
 
+/****** COMPONENTE NAVBAR *************** */
+import Navbar from '../navbar/navbar'
+
 
 function Registrar(){
 
@@ -48,6 +51,7 @@ function Registrar(){
 
     return (
         <section style = {styles.back}>
+            <Navbar />
             <div className="c-app c-default-layout flex-row align-items-center">
                 <CContainer style={styles.tarjeta}>
                     <CRow className="justify-content-center">

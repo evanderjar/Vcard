@@ -1,6 +1,6 @@
 export const style = {
     imagen: {
-        width: "35px",
+        width: "30px",
     },
     formulario:{
         display:"inline-block",
@@ -23,11 +23,12 @@ export const style = {
         height: "100%"
     },
     fondo:{
-        background: "#F7B662", 
+        background: "#5fd490", 
+        height:"30px"
         
     },
     palabras_navbar:{
-        fontSize: "20px",
+        fontSize: "15px",
         color:"black"
     },
     navbar_ingresar:{

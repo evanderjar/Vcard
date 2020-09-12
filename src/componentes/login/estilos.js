@@ -1,3 +1,6 @@
+import background from '../../assets/background-login2.jpg'
+
+
 export const style = {
     titulo: {
         fontSize: "35px",
@@ -37,6 +40,7 @@ export const style = {
         paddingBottom: "21%",
         position: "fixed",
         zIndex: "2",
+        marginTop:"-30px"
     },
     tarjeta:{
         paddingTop: "8%",
@@ -65,5 +69,17 @@ export const style = {
         zIndex: "2",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
-    }
+    },
+    todo:{
+        width: "100%",
+        height: "100%"
+    },
+    back:{
+        width: "100%",
+        height: "100%",
+        position: "fixed",
+        zIndex: "1",
+        backgroundSize: "cover",
+        backgroundImage: `url(${background})`
+    },
 }
