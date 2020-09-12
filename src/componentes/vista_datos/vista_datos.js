@@ -11,8 +11,9 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
 import{ VcardStile } from './estilosVcard';
 import backVcard from '../../assets/Imagen-background1.jpg';
-import Navbar from '../navbar/navbar'
+import Navbar from '../navbar-vcard/navbar'
 import imagen_anonimo from '../../assets/user-icono.jpg';
+import twitter from '../../assets/ICONOS GRIS/ICONO_TWITTER_GRIS.png';
 
 
 
@@ -90,12 +91,12 @@ function VistaDatos() {
               <img src={usuario.foto_perfil} alt="foto perfil" style={VcardStile.imag} required></img>
               }
               </CRow>
-              <CRow style={VcardStile.nombre}>
-              <h1 class="text-center" style={VcardStile.nombre2}>{usuario.nombre}</h1><h1 style={VcardStile.nombre3}>{usuario.apellido}</h1>
+              <CRow style={{justifyContent: "center", marginLeft: "1px"}}>
+              <p style={VcardStile.nombre2}>{usuario.nombre}</p><p style={VcardStile.nombre3}>{usuario.apellido}</p>
               </CRow>
-              
-              
-              
+              <CRow style={VcardStile.nombre}>
+              <p style={VcardStile.cargo}>{usuario.cargo}</p>
+              </CRow>
               <CRow style={VcardStile.nombre}>
               <button style={VcardStile.boton}>
               <a style={VcardStile.redes2} href={`tel:+${usuario.telefono}`} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color:'white', }}>
@@ -118,34 +119,26 @@ function VistaDatos() {
                 </a>
               </button>
               </CRow>
-              
-              <div style={VcardStile.telefono}></div>
-              <CRow style={VcardStile.nombre}>
-              <h4>Telefono: {usuario.telefono}</h4>
-              </CRow>
-              <CRow style={VcardStile.nombre}>
-              <h4>Correo: {usuario.correo}</h4>
-              </CRow>
-              <p></p>
                 {/* <div>
                 <h2 Style='display: contents;'>Su ruta es</h2>
                 <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
                 </div> */}
                 <div style={VcardStile.redes}>
-                <div style={VcardStile.contacto}> Contactame </div>
-                <div style={VcardStile.cosa}>
-          
+                <div style={VcardStile.espacio}>
+                  
+                <CRow style={VcardStile.redesMargen}>
                   {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
+                      {/* <img src={twitter} alt="twitter"></img> */}
                       <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
                     </a>
                   }
 
-                        {usuario.facebook === "" || usuario.facebook === undefined ? '': 
-                          <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
-                            <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
-                          </a>
-                        }
+                  {usuario.facebook === "" || usuario.facebook === undefined ? '': 
+                      <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
+                         <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                      </a>
+                  }
 
                   {usuario.linkedin === "" || usuario.linkedin === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.linkedin} rel="noopener noreferrer">
@@ -158,7 +151,9 @@ function VistaDatos() {
                       <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
                     </a>
                   }
-
+                  </CRow>
+                  <p></p>
+                  <CRow style={VcardStile.nombre}>
                   {usuario.web === "" || usuario.web === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.web} rel="noopener noreferrer">
                       <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
@@ -181,14 +176,23 @@ function VistaDatos() {
                     <a style={VcardStile.redes2} href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                       <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
                     </a>
+                    </CRow>
                 </div>
-                {/* <hr></hr> */}
+                <hr style={VcardStile.separador}></hr>
+                  <div style={VcardStile.contacto}> Contactame </div>
+
+                      <CRow style={VcardStile.nombre}>
+                        <h4>Telefono: {usuario.telefono}</h4>
+                      </CRow>
+                      <CRow style={VcardStile.nombre}>
+                        <h4>Correo: {usuario.correo}</h4>
+                      </CRow>
                 <label for="basic-url">Tu Url</label>
               <div  style={VcardStile.nombre} class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
+                  <span style={VcardStile.url} class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
                 </div>
-                <input type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
+                <input style={VcardStile.u} class="form-control" type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
               </div>
         {/* <a href={compartir_facebook} target="_blank">
           Share on Facebook

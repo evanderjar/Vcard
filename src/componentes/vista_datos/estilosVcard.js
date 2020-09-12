@@ -6,9 +6,6 @@ export const VcardStile = {
         zIndex: "2",
         paddingLeft: "42%"
     },
-    telefono:{
-        paddingTop:"15px",
-    },
     todo:{
         width: "100%",
         height: "100%"
@@ -38,13 +35,21 @@ export const VcardStile = {
         justifyContent: "center"
     },
     nombre2:{
-        paddingRight: "10px",
+        fontSize: "32px",
+        paddingRight: "10px"
+        
     },
     nombre3:{
-        paddingRight: "10px",
+        fontSize: "32px",
+        paddingRight: "10px"
+        
     },
-    url:{
-        marginLeft: "150px"
+    cargo:{
+        fontSize: "16px",
+    },
+    redesMargen:{
+        justifyContent: "center",
+        paddingTop: "35px"
     },
     redes:{
         textAlign: "center",
@@ -56,20 +61,18 @@ export const VcardStile = {
         fontSize: "17px",
         color:'#4FBCC1',
         fontWeight:"900",
-        paddingBottom: "20px",
     },
     linea:{
         border: "solid 1px blue",
         width: "124px"
     },
-    cosa:{
+    espacio:{
         paddingBottom: "15px"
     },
     boton:{
         fontSize: "15px",
-        color: "white",
+        color: "white !important",
         backgroundColor: "#5FD490",
-        color:'white',
         width: "220px",
         height:"65px",
         borderRadius: "10PX 10PX 10PX 10PX",
@@ -79,7 +82,6 @@ export const VcardStile = {
         fontSize: "15px",
         color: "white",
         backgroundColor: "#5FD490",
-        color:'white',
         width: "100px",
         height:"40px",
         borderRadius: "10PX 10PX 10PX 10PX",
@@ -89,11 +91,21 @@ export const VcardStile = {
         fontSize: "15px",
         color: "white",
         backgroundColor: "#5FD490",
-        color:'white',
         width: "100px",
         height:"40px",
         borderRadius: "10PX 10PX 10PX 10PX",
         marginTop:"5px",
         marginLeft:"10px"
+    },
+    url:{
+        marginLeft: "155px"
+    },
+    u:{
+        marginRight: "170px"
+    },
+    separador:{
+        border: "1px solid #4e4e4e",
+        width: "140px"
     }
+
 } 
