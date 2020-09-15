@@ -48,7 +48,9 @@ function Navbar(){
                 <ul className="nav navbar-nav navbar-center">
                 <li className="nav-item">
                     <a className="nav-link" >
+                        <div>
                         <i style={style.palabras_navbar} class="fas fa-user-circle"></i>
+                        </div>
                     </a>
                 </li>
                 <li className="nav-item" style={style.navbar_ingresar}>
