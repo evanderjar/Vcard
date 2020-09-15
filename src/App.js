@@ -7,6 +7,7 @@ import VistaDatos from './componentes/vista_datos/vista_datos'
 import BuscarCard from './componentes/buscar_card/buscar_card'
 import Login from './componentes/login/login'
 import Registrar from './componentes/registrar/registrar'
+import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
 import { AuthProvider } from './componentes/Auth/auth'
 // import Vcard from './componentes/Vcard/Vcard'
 
@@ -57,6 +58,9 @@ function App() {
             </Route>
             <Route exact path="/registrar">
               <Registrar />
+            </Route>
+            <Route exact path="/crear-usuarios">
+              <CrearUsuario />
             </Route>
             <Route exact path="/:id">
               <VistaDatos />
