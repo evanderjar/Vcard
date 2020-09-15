@@ -28,13 +28,17 @@ export const style = {
         
     },
     palabras_navbar:{
-        fontSize: "15px",
-        color:"black"
+        fontSize: "22px",
+        paddingRight: "26px",
+        paddingLeft: "26px"
     },
     navbar_ingresar:{
         paddigLeft:"30px",
     },
     centrar:{
         justifyContent: "center"
+    },
+    icoco:{
+        color:"white"
     }
 }

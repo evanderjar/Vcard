@@ -10,7 +10,30 @@ import 'bootstrap-css-only/css/bootstrap.min.css';
 import { style } from './style'
 import icono_tugogo from '../../assets/tu-gogo-icono.png';
 
+// var Link = React.createClass({
+//     getInitialState: function(){
+//       return {hover: false}
+//     },
+//     toggleHover: function(){
+//       this.setState({hover: !this.state.hover})
+//     },
+//     render: function() {
+//       var linkStyle;
+//       if (this.state.hover) {
+//         linkStyle = {backgroundColor: 'red'}
+//       } else {
+//         linkStyle = {backgroundColor: 'blue'}
+//       }
+//       return(
+//         <div>
+//           <a style={linkStyle} onMouseEnter={this.toggleHover} onMouseLeave={this.toggleHover}>Link</a>
+//         </div>
+//       )
+//     }
+// }
+
 function Navbar(){
+    
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light" style={style.fondo}>
@@ -21,21 +44,26 @@ function Navbar(){
                 <span className="navbar-toggler-icon"></span>
             </button>
             <CRow style={style.centrar}>
-            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+            <div style={{marginLeft: "448px"}} className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="nav navbar-nav navbar-center">
                 <li className="nav-item">
-                    <a className="nav-link" href="/#/">
-                        <span style={style.palabras_navbar}>Buscar Vcard</span> 
+                    <a className="nav-link" >
+                        <i style={style.palabras_navbar} class="fas fa-user-circle"></i>
                     </a>
                 </li>
                 <li className="nav-item" style={style.navbar_ingresar}>
-                    <a className="nav-link" href="/#/login">
-                        <span style={style.palabras_navbar}>Ingresar</span> 
+                    <a className="nav-link" >
+                        <i style={style.palabras_navbar} class="fas fa-info-circle"></i>
                     </a>
                 </li>
                 <li className="nav-item" style={style.navbar_ingresar}>
-                    <a className="nav-link" href="/#/login">
-                        <span style={style.palabras_navbar}>Ingresar</span> 
+                    <a className="nav-link" >
+                        <i style={style.palabras_navbar} class="fas fa-share-alt"></i>
+                    </a>
+                </li>
+                <li className="nav-item" style={style.navbar_ingresar}>
+                    <a className="nav-link" >
+                        <i style={style.palabras_navbar} class="fas fa-cog"></i>
                     </a>
                 </li>
                 {/* <li className="nav-item dropdown">

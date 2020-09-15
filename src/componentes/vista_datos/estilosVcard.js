@@ -27,12 +27,16 @@ export const VcardStile = {
         marginTop: "10px"
     },
     tarjeta:{
-        marginLeft: "374px",
+        marginLeft: "430px",
         paddingRight: "64px",
         marginTop: "-20px"
     },
     nombre:{
         justifyContent: "center"
+    },   
+    botonesEspacio:{
+        justifyContent: "center",
+        marginTop: "5px"
     },
     nombre2:{
         fontSize: "32px",
@@ -45,7 +49,8 @@ export const VcardStile = {
         
     },
     cargo:{
-        fontSize: "16px",
+        fontSize: "18px",
+        color: "#74d09d"
     },
     redesMargen:{
         justifyContent: "center",
@@ -59,7 +64,7 @@ export const VcardStile = {
     },
     contacto:{
         fontSize: "17px",
-        color:'#4FBCC1',
+        color:'#74d09d',
         fontWeight:"900",
     },
     linea:{
@@ -70,42 +75,75 @@ export const VcardStile = {
         paddingBottom: "15px"
     },
     boton:{
-        fontSize: "15px",
-        color: "white !important",
-        backgroundColor: "#5FD490",
-        width: "220px",
-        height:"65px",
-        borderRadius: "10PX 10PX 10PX 10PX",
-        marginTop: "20px",
+           webkitBorderRadius: "14px",
+           mozBorderRadius: "14px",
+           borderRadius: "14px",
+           height: "65px",
+           lineHeight: "22px",
+           color: "#FFFFFF",
+           fontFamily: "Arial",
+           width: "225px",
+           fontSize: "15px",
+           fontWeight: "400",
+           padding: "20px",
+           backgroundColor: "#59E795",
+           border: "solid #24C645 1px",
+           textDecoration: "none",
+           display: "inline-block",
+           cursor: "pointer",
+           textAlign: "center"
     },
     boton2:{
-        fontSize: "15px",
-        color: "white",
-        backgroundColor: "#5FD490",
-        width: "100px",
-        height:"40px",
-        borderRadius: "10PX 10PX 10PX 10PX",
-        marginTop:"5px",
+           webkitBorderRadius: "14px",
+           mozBorderRadius: "14px",
+           borderRadius: "14px",
+           height: "55px",
+           lineHeight: "10px",
+           color: "#FFFFFF",
+           width: "110px",
+           fontSize: "15px",
+           fontWeight: "400",
+           padding: "20px",
+           backgroundColor: "#59E795",
+           border: "solid #24C645 1px",
+           textDecoration: "none",
+           display: "inline-block",
+           cursor: "pointer",
+           textAlign: "center",
+           marginRight:"5px"
     },
     boton_mensajes:{
-        fontSize: "15px",
-        color: "white",
-        backgroundColor: "#5FD490",
-        width: "100px",
-        height:"40px",
-        borderRadius: "10PX 10PX 10PX 10PX",
-        marginTop:"5px",
-        marginLeft:"10px"
+           webkitBorderRadius: "14px",
+           mozBorderRadius: "14px",
+           borderRadius: "14px",
+           height: "55px",
+           lineHeight: "10px",
+           color: "#FFFFFF",
+           fontFamily: "Arial",
+           width: "110px",
+           fontSize: "15px",
+           fontWeight: "400",
+           padding: "20px",
+           backgroundColor: "#59E795",
+           border: "solid #24C645 1px",
+           textDecoration: "none",
+           display: "inline-block",
+           cursor: "pointer",
+           textAlign: "center"
     },
     url:{
-        marginLeft: "155px"
+        marginLeft: "100px"
     },
     u:{
-        marginRight: "170px"
+        marginRight: "100px"
     },
     separador:{
         border: "1px solid #4e4e4e",
         width: "140px"
+    },
+    icono:{
+        width: "11%",
+        height: "100%"
     }
 
 } 

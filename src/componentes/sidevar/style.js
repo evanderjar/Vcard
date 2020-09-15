@@ -1,12 +1,12 @@
 export const style = {
     sidenav: {
         height: "100%",
-        width: "160px",
+        width: "50px",
         position: "fixed",
         zIndex: "1",
         top: "0",
         left: "0",
-        backgroundColor: "#000000",
+        backgroundColor: "#5FD490",
         overflowX: "hidden",
         paddingTop: "20px"
 
@@ -23,7 +23,7 @@ export const style = {
         paddingRight: "10px",
     },
     icono2:{
-        paddingLeft: "8px",
+        paddingLeft: "16px",
     }
       
 }
