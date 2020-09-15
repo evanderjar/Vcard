@@ -122,41 +122,41 @@ function VistaDatos() {
               </CRow>
               {/* <CRow style={VcardStile.nombre}>
 
-              <a style={{marginRight: "10px"}} href={`sms:?body=Tarjeta: ${usuario.nombre} ${usuario.apellido} - http://tugogo.com.mx/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+              <a style={{marginRight: "10px"}} href={`sms:?body=Tarjeta: ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                           sms
                       </a>
                       <div></div>
                       
-                      <a style={{marginRight: "10px"}} data-action="share/whatsaap/share" href={`https://api.whatsapp.com/send?text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tugogo.com.mx/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                      <a style={{marginRight: "10px"}} data-action="share/whatsaap/share" href={`https://api.whatsapp.com/send?text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                         compartir por whatsaap
                       </a>
                       <div></div>
 
-                      <a style={{marginRight: "10px"}} data-action="share/telegram/share" href={`https://telegram.me/share/url?=http%3A%2F%2Ftugogo.com.mx/&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tugogo.com.mx/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                      <a style={{marginRight: "10px"}} data-action="share/telegram/share" href={`https://telegram.me/share/url?=http%3A%2F%2Ftienda.deproinf.com.ve/&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                         compartir por telegram
                       </a>
                       <div></div>
 
-                      <a style={{marginRight: "10px"}} href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tugogo.com.mx/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">
+                      <a style={{marginRight: "10px"}} href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">
                         compartir por mail
                       </a>
                     <div></div>
 
-                    <a style={{marginRight: "10px"}} href={`https://twitter.com/intent/tweet?text=Hola, los invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tugogo.com.mx/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                    <a style={{marginRight: "10px"}} href={`https://twitter.com/intent/tweet?text=Hola, los invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                       compartir en twitter
                     </a>
 
-                    <a style={{marginRight: "10px"}} href={`https://www.facebook.com/sharer/sharer.php?u=http%3A//tugogo.com.mx/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                    <a style={{marginRight: "10px"}} href={`https://www.facebook.com/sharer/sharer.php?u=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                       compartir en facebook
                     </a>
 
-                    <a style={{marginRight: "10px"}} href={`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//tugogo.com.mx/%23/${usuario.nombre_ruta}&title=Vcard&summary=Visita%20la%20Vcard%20de%20${usuario.nombre}%20${usuario.apellido}&source="`} target="_blank" rel="noopener noreferrer">
+                    <a style={{marginRight: "10px"}} href={`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}&title=Vcard&summary=Visita%20la%20Vcard%20de%20${usuario.nombre}%20${usuario.apellido}&source="`} target="_blank" rel="noopener noreferrer">
                       compartir en linkedin
                     </a>
               </CRow> */}
                 {/* <div>
                 <h2 Style='display: contents;'>Su ruta es</h2>
-                <a href={`http://tugogo.com.mx/#/${usuario.nombre_ruta}`}>http://tugogo.com.mx/#/{usuario.nombre_ruta}</a>
+                <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
                 </div> */}
                 <div style={VcardStile.redes}>
                 <div style={VcardStile.espacio}>
@@ -221,7 +221,7 @@ function VistaDatos() {
                 {/* <label for="basic-url">Tu Url</label>
               <div  style={VcardStile.nombre} class="input-group mb-3">
                 <div class="input-group-prepend">
-                  <span style={VcardStile.url} class="input-group-text" id="basic-addon3">http://tugogo.com.mx/#/</span>
+                  <span style={VcardStile.url} class="input-group-text" id="basic-addon3">http://tienda.deproinf.com.ve/#/</span>
                 </div>
                 <input style={VcardStile.u} class="form-control" type="text" id="basic-url" aria-describedby="basic-addon3" value={usuario.nombre_ruta} readOnly/>
               </div> */}
@@ -231,7 +231,7 @@ function VistaDatos() {
         <div></div>
         <a link rel="canonical"
           class="twitter-share-button"
-          href="http://twitter.com/share?text=text goes here&url=http://tugogo.com.mx/9966 &hashtags=hashtag1,hashtag2,hashtag3" target="_blank">
+          href="http://twitter.com/share?text=text goes here&url=http://tienda.deproinf.com.ve/9966 &hashtags=hashtag1,hashtag2,hashtag3" target="_blank">
           Share on twiter
         </a>
         <div></div>

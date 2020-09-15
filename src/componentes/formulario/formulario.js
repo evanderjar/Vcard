@@ -367,7 +367,7 @@ function Formulario() {
       if(actualizar){
         console.log(nombre_ruta)
         console.log("Va actualizar")
-        console.log(imagen)
+        console.log(facebook)
         
               db.collection("Datos_usuarios").doc(key).set({
                 nombre, 
@@ -523,7 +523,7 @@ function Formulario() {
 
               { existeCodigo ? 
                 null
-              : <span>Su link es: <a href={`http://tugogo.com.mx/#/${nombre_ruta}`} target="_blank">{`http://tugogo.com.mx/#/${nombre_ruta}`} </a></span>}     
+              : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
               <div></div>     
             
             <Button onClick={handleReset} className={classes.button}>
