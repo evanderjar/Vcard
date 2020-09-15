@@ -168,6 +168,12 @@ function VistaDatos() {
                       {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
+                  {usuario.instagram === "" || usuario.instagram === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.instagram} rel="noopener noreferrer">
+                      <img style={VcardStile.icono} src={instagram} alt="tw"></img>
+                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
+                    </a>
+                  }
 
                     {/* ENVIAR CORREO */}
                     {/* <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">

@@ -19,7 +19,7 @@ function Navbar(){
             <div style={{marginLeft: "515px"}} className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="nav navbar-nav navbar-center">
                 <li className="nav-item">
-                    <a className="nav-link" href="/#/">
+                    <a className="nav-link" href="/#/buscar">
                     <i style={style.palabras_navbar} class="fas fa-search" ></i>
                     </a>
                 </li>
