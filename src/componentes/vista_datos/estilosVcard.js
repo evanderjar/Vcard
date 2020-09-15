@@ -4,7 +4,7 @@ export const VcardStile = {
     contenedor:{
         position: "absolute",
         zIndex: "2",
-        paddingLeft: "42%"
+        paddingLeft: "42%",
     },
     todo:{
         width: "100%",
@@ -40,17 +40,20 @@ export const VcardStile = {
     },
     nombre2:{
         fontSize: "32px",
-        paddingRight: "10px"
+        paddingRight: "10px",
+        fontFamily:"muli-light"
         
     },
     nombre3:{
         fontSize: "32px",
-        paddingRight: "10px"
+        paddingRight: "10px",
+        fontFamily:"muli-light"
         
     },
     cargo:{
         fontSize: "18px",
-        color: "#74d09d"
+        color: "#74d09d",
+        fontFamily:"muli-light"
     },
     redesMargen:{
         justifyContent: "center",
@@ -65,7 +68,7 @@ export const VcardStile = {
     contacto:{
         fontSize: "17px",
         color:'#74d09d',
-        fontWeight:"900",
+        fontFamily:"muli-bold"
     },
     linea:{
         border: "solid 1px blue",
@@ -78,29 +81,11 @@ export const VcardStile = {
            webkitBorderRadius: "14px",
            mozBorderRadius: "14px",
            borderRadius: "14px",
-           height: "65px",
+           height: "70px",
            lineHeight: "22px",
            color: "#FFFFFF",
-           fontFamily: "Arial",
-           width: "225px",
-           fontSize: "15px",
-           fontWeight: "400",
-           padding: "20px",
-           backgroundColor: "#59E795",
-           border: "solid #24C645 1px",
-           textDecoration: "none",
-           display: "inline-block",
-           cursor: "pointer",
-           textAlign: "center"
-    },
-    boton2:{
-           webkitBorderRadius: "14px",
-           mozBorderRadius: "14px",
-           borderRadius: "14px",
-           height: "55px",
-           lineHeight: "10px",
-           color: "#FFFFFF",
-           width: "110px",
+           fontFamily:"muli-bold",
+           width: "232px",
            fontSize: "15px",
            fontWeight: "400",
            padding: "20px",
@@ -110,17 +95,15 @@ export const VcardStile = {
            display: "inline-block",
            cursor: "pointer",
            textAlign: "center",
-           marginRight:"5px"
     },
-    boton_mensajes:{
+    boton2:{
            webkitBorderRadius: "14px",
            mozBorderRadius: "14px",
            borderRadius: "14px",
            height: "55px",
            lineHeight: "10px",
            color: "#FFFFFF",
-           fontFamily: "Arial",
-           width: "110px",
+           width: "115px",
            fontSize: "15px",
            fontWeight: "400",
            padding: "20px",
@@ -129,7 +112,28 @@ export const VcardStile = {
            textDecoration: "none",
            display: "inline-block",
            cursor: "pointer",
-           textAlign: "center"
+           textAlign: "center",
+           marginRight:"5px",
+           fontFamily:"muli-bold"
+    },
+    boton_mensajes:{
+           webkitBorderRadius: "14px",
+           mozBorderRadius: "14px",
+           borderRadius: "14px",
+           height: "55px",
+           lineHeight: "10px",
+           color: "#FFFFFF",
+           fontFamily:"muli-bold",
+           width: "115px",
+           fontSize: "15px",
+           fontWeight: "400",
+           padding: "20px",
+           backgroundColor: "#59E795",
+           border: "solid #24C645 1px",
+           textDecoration: "none",
+           display: "inline-block",
+           cursor: "pointer",
+           textAlign: "center",
     },
     url:{
         marginLeft: "100px"
@@ -142,8 +146,8 @@ export const VcardStile = {
         width: "140px"
     },
     icono:{
-        width: "11%",
-        height: "100%"
+        width: "40px",
+        height: "40px",
     }
 
 } 

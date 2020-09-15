@@ -13,7 +13,12 @@ import{ VcardStile } from './estilosVcard';
 import Navbar from '../navbar-vcard/navbar'
 import imagen_anonimo from '../../assets/user-icono.jpg';
 import Icon from '../iconos/iconos'
-import twitter from '../../assets/ICONO_TWITTER_GRIS.ico';
+import twitter from '../../assets/ICONOS COLOR/ICONO_TWITTER_COLOR.png';
+import facebook from '../../assets/ICONOS COLOR/ICONO_FACEBOOK_COLOR.png';
+import instagram from '../../assets/ICONOS COLOR/ICONO_INSTAGRAM_COLOR.png';
+import sms from '../../assets/ICONOS COLOR/ICONO_SMS_COLOR.png';
+import skype from '../../assets/ICONOS COLOR/ICONO_SKYPE_COLOR.png';
+import web from '../../assets/ICONOS COLOR/ICONO_WEB_COLOR.png';
 
 
 
@@ -93,10 +98,10 @@ function VistaDatos() {
               }
               </CRow>
               <CRow style={{justifyContent: "center", marginLeft: "1px"}}>
-              <p style={VcardStile.nombre2}>{usuario.nombre}</p><p style={VcardStile.nombre3}>{usuario.apellido}</p>
+              <h1 style={VcardStile.nombre2}>{usuario.nombre}</h1><h1 style={VcardStile.nombre3}>{usuario.apellido}</h1>
               </CRow>
               <CRow style={VcardStile.nombre}>
-              <p style={VcardStile.cargo}>{usuario.cargo}</p>
+              <h4 style={VcardStile.cargo}>{usuario.cargo}</h4>
               </CRow>
               <CRow style={VcardStile.nombre}>
               <button style={VcardStile.boton}>
@@ -164,14 +169,15 @@ function VistaDatos() {
                 <CRow style={VcardStile.redesMargen}>
                   {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
-                      <i src={twitter} alt="twitter"></i>
+                      <img style={VcardStile.icono} src={twitter} alt="tw"></img>
                       {/* <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i> */}
                     </a>
                   }
 
                   {usuario.facebook === "" || usuario.facebook === undefined ? '': 
                       <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
-                         <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                       <img style={VcardStile.icono} src={facebook} alt="tw"></img>
+                         {/* <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                       </a>
                   }
 
@@ -183,12 +189,14 @@ function VistaDatos() {
 
                   {usuario.skype === "" || usuario.skype === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.skype} rel="noopener noreferrer">
-                      <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                      <img style={VcardStile.icono} src={skype} alt="tw"></img>
+                      {/* <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                     </a>
                   }
                   {usuario.web === "" || usuario.web === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.web} rel="noopener noreferrer">
-                      <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i>
+                      <img style={VcardStile.icono} src={web} alt="tw"></img>
+                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
 
@@ -206,17 +214,18 @@ function VistaDatos() {
                     </a> */}
                     {/* ENVIAR */}
                     <a style={VcardStile.redes2} href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-                      <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                    <img style={VcardStile.icono} src={sms} alt="tw"></img>
+                      {/* <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                     </a>
                     </CRow>
                 </div>
-                  <div style={VcardStile.contacto}> Contactame </div>
+                  <h3 style={VcardStile.contacto}> Contactame </h3>
 
                       <CRow style={VcardStile.nombre}>
-                        <h4>Telefono: {usuario.telefono}</h4>
+                        <p style={{fontSize: "15px", fontFamily:"muli-light", marginBottom: "-1px"}}>Telefono: {usuario.telefono}</p>
                       </CRow>
                       <CRow style={VcardStile.nombre}>
-                        <h4>Correo: {usuario.correo}</h4>
+                        <p style={{fontSize: "15px", fontFamily:"muli-light"}}>Correo: {usuario.correo}</p>
                       </CRow>
                 {/* <label for="basic-url">Tu Url</label>
               <div  style={VcardStile.nombre} class="input-group mb-3">
