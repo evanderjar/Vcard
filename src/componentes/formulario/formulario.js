@@ -6,7 +6,10 @@ import { GuardarFicha } from '../../consultas/consultas'
 import { db, storage } from '../../firebase'
 
 import { style } from './estilos'
-
+import {
+  CContainer,
+  CRow
+} from '@coreui/react'
 import { makeStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -118,6 +121,7 @@ function Formulario() {
             </label>
             </div>  
             <div></div>
+            <CRow>
             <div class="form-group">
             <label style={style.titulos}>
               Nombre:
@@ -136,6 +140,8 @@ function Formulario() {
               <input style={{fontSize: "15px"}} class="form-control" type="text" name="cargo" value={cargo} onChange={(event)=>{SetCargo(event.target.value)}} required/>
             </label>
             </div>
+            </CRow>
+            <CRow>
             <div class="form-group">
             <label style={style.titulos}>
               Codigo +:
@@ -154,6 +160,7 @@ function Formulario() {
               <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
             </div>
+            </CRow>
             {/* <label>
               http://tienda.deproinf.com.ve/#/
               <input type="text" name="nombre_ruta" value={nombre_ruta} onChange={(event)=>{SetNombre_ruta(event.target.value)}} required/>
@@ -162,29 +169,36 @@ function Formulario() {
         </div>;
       case 1:
         return <div>
+          <CRow>
           <div class="form-group">
           <label style={style.titulos}>
             Twitter:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" placeholder="https://twitter.com/ejemplo" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://twitter.com/ejemplo</p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Instagram:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" placeholder="https://instagram/ejemplo" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://instagram/ejemplo</p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Facebook:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" placeholder="https://facebookk.com/ejemplo" alue={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" alue={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://facebookk.com/ejemplo</p>
           </div>
+          </CRow>
+          <CRow>
           <div class="form-group">
           <label style={style.titulos}>
             Linkedin:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="linkedin" placeholder="https://linkedin/company/ejemplo" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="linkedin" value={linkedin} onChange={(event)=>{SetLinkedin(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://linkedin/company/ejemplo</p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
@@ -195,9 +209,11 @@ function Formulario() {
           <div class="form-group">
           <label style={style.titulos}>
             Web Personal:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web" placeholder="https//ejemplo.com" value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web"  value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https//ejemplo.com</p>
           </div>
+          </CRow>
         </div>;
       case 2:
         return `Desea guardar su VCard ?`;

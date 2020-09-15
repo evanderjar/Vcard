@@ -16,10 +16,11 @@ export const style = {
         marginTop: 32 
     },  
     margen:{
-        paddingLeft: "180px"
+        paddingLeft: "45px"
     }, 
     titulos:{
-        fontSize: "12px"
+        fontSize: "12px",
+        marginRight: "15px"
     },
     borde:{
         border: "solid 1px black"
