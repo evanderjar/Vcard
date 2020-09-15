@@ -3,6 +3,7 @@ import './App.css';
 
 /******** COMPONENTES *************** */
 import Formulario from './componentes/formulario/formulario'
+import Compartir from './componentes/compartir/compatir'
 import VistaDatos from './componentes/vista_datos/vista_datos'
 import BuscarCard from './componentes/buscar_card/buscar_card'
 import Login from './componentes/login/login'
@@ -68,6 +69,9 @@ function App() {
             </Route>
             <Route exact path="/:id">
               <VistaDatos />
+            </Route>
+            <Route exact path="/:id/compartir">
+              <Compartir />
             </Route>
           </Switch>
         </HashRouter>

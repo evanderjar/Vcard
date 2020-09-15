@@ -58,6 +58,7 @@ function Login(){
             <div style={style.todo}>
                 <Navbar />
                 {/* <img style={style.back} src={background} alt="background"></img> */}
+                <div className="c-app c-default-layout flex-row align-items-center">
                 <CContainer style={style.contenedor}>
                     <CRow className="justify-content-center">
                         <CCol md="11" style={{ marginRight: '233px' }}>
@@ -110,6 +111,7 @@ function Login(){
                         </CCol>
                     </CRow>
                 </CContainer>
+                </div>
             </div>
         </section>
     )

@@ -33,5 +33,11 @@ export const style = {
     },
     navbar_ingresar:{
         paddigLeft:"30px",
-    }
+    },
+    palabras_navbar:{
+        fontSize: "22px",
+        paddingRight: "26px",
+        paddingLeft: "26px",
+        color:"black"
+    },
 }

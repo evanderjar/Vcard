@@ -57,7 +57,7 @@ export const VcardStile = {
     },
     redesMargen:{
         justifyContent: "center",
-        paddingTop: "35px"
+        paddingTop: "5px"
     },
     redes:{
         textAlign: "center",
@@ -68,7 +68,8 @@ export const VcardStile = {
     contacto:{
         fontSize: "17px",
         color:'#74d09d',
-        fontFamily:"muli-bold"
+        fontFamily:"muli-bold",
+        paddingBottom: "5px"
     },
     linea:{
         border: "solid 1px blue",
@@ -107,6 +108,26 @@ export const VcardStile = {
            fontSize: "15px",
            fontWeight: "400",
            padding: "20px",
+           backgroundColor: "#59E795",
+           border: "solid #24C645 1px",
+           textDecoration: "none",
+           display: "inline-block",
+           cursor: "pointer",
+           textAlign: "center",
+           marginRight:"5px",
+           fontFamily:"muli-bold"
+    },
+    boton3:{
+           webkitBorderRadius: "14px",
+           mozBorderRadius: "14px",
+           borderRadius: "14px",
+           height: "46px",
+           lineHeight: "10px",
+           color: "#FFFFFF",
+           width: "154px",
+           fontSize: "15px",
+           fontWeight: "400",
+           padding: "10spx",
            backgroundColor: "#59E795",
            border: "solid #24C645 1px",
            textDecoration: "none",

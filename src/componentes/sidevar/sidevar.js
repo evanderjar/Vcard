@@ -11,7 +11,7 @@ function Slidevar(){
         <div style={{marginTop: "280px"}}>
         <ul className="nav navbar-nav navbar-center">
                         <li className="nav-item">
-                            <a style={style.icono2} className="nav-link" >
+                            <a style={style.icono2} className="nav-link" href="/#/formulario">
                             <i style={style.icono} class="fas fa-id-card"></i>
                             </a>
                         </li>
@@ -21,7 +21,7 @@ function Slidevar(){
                             </a>
                         </li>
                         <li className="nav-item" style={style.navbar_ingresar}>
-                            <a style={style.icono2} className="nav-link">
+                            <a style={style.icono2} className="nav-link" href="/#/login">
                             <i style={style.icono} class="fas fa-sign-out-alt"></i>
                             </a>
                         </li>

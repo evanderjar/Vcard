@@ -19,7 +19,7 @@ import instagram from '../../assets/ICONOS COLOR/ICONO_INSTAGRAM_COLOR.png';
 import sms from '../../assets/ICONOS COLOR/ICONO_SMS_COLOR.png';
 import skype from '../../assets/ICONOS COLOR/ICONO_SKYPE_COLOR.png';
 import web from '../../assets/ICONOS COLOR/ICONO_WEB_COLOR.png';
-
+import what from '../../assets/ICONOS COLOR/ICONO_WHATSAPP_COLOR.png';
 
 
 
@@ -125,40 +125,9 @@ function VistaDatos() {
                 </a>
               </button>
               </CRow>
-              {/* <CRow style={VcardStile.nombre}>
-
-              <a style={{marginRight: "10px"}} href={`sms:?body=Tarjeta: ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
-                          sms
-                      </a>
-                      <div></div>
-                      
-                      <a style={{marginRight: "10px"}} data-action="share/whatsaap/share" href={`https://api.whatsapp.com/send?text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
-                        compartir por whatsaap
-                      </a>
-                      <div></div>
-
-                      <a style={{marginRight: "10px"}} data-action="share/telegram/share" href={`https://telegram.me/share/url?=http%3A%2F%2Ftienda.deproinf.com.ve/&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
-                        compartir por telegram
-                      </a>
-                      <div></div>
-
-                      <a style={{marginRight: "10px"}} href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">
-                        compartir por mail
-                      </a>
-                    <div></div>
-
-                    <a style={{marginRight: "10px"}} href={`https://twitter.com/intent/tweet?text=Hola, los invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
-                      compartir en twitter
-                    </a>
-
-                    <a style={{marginRight: "10px"}} href={`https://www.facebook.com/sharer/sharer.php?u=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
-                      compartir en facebook
-                    </a>
-
-                    <a style={{marginRight: "10px"}} href={`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}&title=Vcard&summary=Visita%20la%20Vcard%20de%20${usuario.nombre}%20${usuario.apellido}&source="`} target="_blank" rel="noopener noreferrer">
-                      compartir en linkedin
-                    </a>
-              </CRow> */}
+              <CRow style={VcardStile.nombre}>
+              <h3 style={VcardStile.contacto}> Contactame </h3>           
+              </CRow>
                 {/* <div>
                 <h2 Style='display: contents;'>Su ruta es</h2>
                 <a href={`http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}`}>http://tienda.deproinf.com.ve/#/{usuario.nombre_ruta}</a>
@@ -219,14 +188,52 @@ function VistaDatos() {
                     </a>
                     </CRow>
                 </div>
-                  <h3 style={VcardStile.contacto}> Contactame </h3>
-
+                <CRow style={VcardStile.nombre}>
+              <h3 style={VcardStile.contacto}> Compartir por: </h3>           
+              </CRow>
+                <CRow style={VcardStile.botonesEspacio}>
+              <button style={VcardStile.boton3}>
+              <a style={{marginRight: "10px"}} data-action="share/whatsaap/share" href={`https://api.whatsapp.com/send?text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+              <img style={VcardStile.icono} src={what} alt="tw"></img>
+                  </a>
+              </button>
+              <button style={VcardStile.boton3}>
+              <a style={{marginRight: "10px"}} data-action="share/telegram/share" href={`https://telegram.me/share/url?=http%3A%2F%2Ftienda.deproinf.com.ve/&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-paper-plane" Style="font-size: 20px !important; color:#ffffff !important"></i>
+                  </a>
+              </button>
+              <button style={VcardStile.boton3}>
+              <a style={{marginRight: "10px"}} href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">  
+                    <i class="fas fa-envelope" Style="font-size: 20px !important; color:#ffffff !important"></i>
+                  </a>
+              </button>
+              </CRow>
+              <CRow style={VcardStile.botonesEspacio}>
+              <button style={VcardStile.boton3}>
+              <a style={{marginRight: "10px"}} href={`https://twitter.com/intent/tweet?text=Hola, los invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+              <img style={VcardStile.icono} src={twitter} alt="tw"></img>
+                  </a>
+              </button>
+              <button style={VcardStile.boton3}>
+                  <a style={{marginRight: "10px"}} href={`https://www.facebook.com/sharer/sharer.php?u=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+                  <img style={VcardStile.icono} src={facebook} alt="tw"></img>
+                  </a>
+              </button>
+              <button style={VcardStile.boton3}>
+              <a style={{marginRight: "10px"}} href={`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}&title=Vcard&summary=Visita%20la%20Vcard%20de%20${usuario.nombre}%20${usuario.apellido}&source="`} target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin" Style="font-size: 35px !important; color:#3b5998 !important"></i>
+                  </a>
+              </button>
+              </CRow>
                       <CRow style={VcardStile.nombre}>
                         <p style={{fontSize: "15px", fontFamily:"muli-light", marginBottom: "-1px"}}>Telefono: {usuario.telefono}</p>
                       </CRow>
                       <CRow style={VcardStile.nombre}>
                         <p style={{fontSize: "15px", fontFamily:"muli-light"}}>Correo: {usuario.correo}</p>
                       </CRow>
+
+                      
+
                 {/* <label for="basic-url">Tu Url</label>
               <div  style={VcardStile.nombre} class="input-group mb-3">
                 <div class="input-group-prepend">

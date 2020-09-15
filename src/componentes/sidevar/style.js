@@ -19,6 +19,7 @@ export const style = {
         paddigLeft:"30px",
     },
     icono:{
+        color: "black",
         fontSize: "21px",
         paddingRight: "10px",
     },

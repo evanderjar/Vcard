@@ -54,12 +54,12 @@ function Navbar(){
                     </a>
                 </li>
                 <li className="nav-item" style={style.navbar_ingresar}>
-                    <a className="nav-link" >
+                    <a className="nav-link" href="/#/:id">
                         <i style={style.palabras_navbar} class="fas fa-info-circle"></i>
                     </a>
                 </li>
                 <li className="nav-item" style={style.navbar_ingresar}>
-                    <a className="nav-link" >
+                    <a className="nav-link" href="/:id/compartir">
                         <i style={style.palabras_navbar} class="fas fa-share-alt"></i>
                     </a>
                 </li>
