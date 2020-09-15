@@ -9,6 +9,7 @@ import Login from './componentes/login/login'
 import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
 import { AuthProvider } from './componentes/Auth/auth'
+import Pronto from './componentes/pronto/pronto'
 // import Vcard from './componentes/Vcard/Vcard'
 
 /*********** RUTAS ************************* */
@@ -48,6 +49,9 @@ function App() {
         <HashRouter>
           <Switch>
             <Route exact path="/">
+              <Pronto />
+            </Route>
+            <Route exact path="/buscar">
               <BuscarCard />
             </Route>
             <Route exact path="/formulario">

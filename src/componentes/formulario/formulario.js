@@ -55,6 +55,7 @@ function Formulario() {
   let [existeCodigo, SetExisteCodigo] = useState(false)
   let [actualizar, SetActualizar] = useState(false)
   let [mostrarReturn, SetMostrarReturn] = useState(false)
+  let [key, SetKey] = useState("")
 
 
   useEffect(() => {
@@ -82,7 +83,7 @@ function Formulario() {
           }
 
           console.log(reporte)
-
+          SetKey(reporte[0].$key)
           SetNombre(reporte[0].nombre)
           SetApellido(reporte[0].apellido)
           SetCodigo_telefono("")
@@ -367,18 +368,8 @@ function Formulario() {
         console.log(nombre_ruta)
         console.log("Va actualizar")
         console.log(imagen)
-        await db.collection('Datos_usuarios').where("nombre_ruta", "==",nombre_ruta)
-        .onSnapshot(function(querySnapshot) {
-            var reporte = [];
-            var contador = 0
-            querySnapshot.forEach(function(doc) {
-                let datos = doc.data()
-                datos.$key = doc.id
-                reporte = datos;
-            });
-              console.log(reporte)
-              SetExisteCodigo(false)
-              db.collection("Datos_usuarios").doc(reporte.$key).update({
+        
+              db.collection("Datos_usuarios").doc(key).set({
                 nombre, 
                 apellido, 
                 nombre_ruta,
@@ -398,17 +389,15 @@ function Formulario() {
                 ciudad,
                 codigoPostal,
                 provincia,
-                telefonoLocal
+                telefonoLocal,
+                leadPage
               })
               .then(resultado=>{
-                  console.log("Guardo")
+                  console.log("Atualizo")
                   // window.location ="/#/"+nombre_ruta 
                   SetExisteCodigo(false)
-                  // localStorage.setItem('cargo_formulario','true')
+                  localStorage.setItem('cargo_formulario','true')
               })
-              console.log(reporte)
-              console.log(contador)
-        })
 
       }else{
       
@@ -451,8 +440,8 @@ function Formulario() {
                 ciudad,
                 codigoPostal,
                 provincia,
-                telefonoLocal
-
+                telefonoLocal,
+                leadPage
               })
               .then(Guardo=>{
                 console.log("Guardo")
@@ -534,7 +523,7 @@ function Formulario() {
 
               { existeCodigo ? 
                 null
-              : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
+              : <span>Su link es: <a href={`http://tugogo.com.mx/#/${nombre_ruta}`} target="_blank">{`http://tugogo.com.mx/#/${nombre_ruta}`} </a></span>}     
               <div></div>     
             
             <Button onClick={handleReset} className={classes.button}>
