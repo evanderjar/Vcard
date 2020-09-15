@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // useEffect
+import React, { useState, useEffect } from 'react'; // useEffect
 
 /***** CONSULTAS BD ***************** */
 import { GuardarFicha } from '../../consultas/consultas' 
@@ -22,6 +22,8 @@ import { StepIcon } from '@material-ui/core';
 import imagen_perfil from '../../assets/user-icono.jpg';
 
 import Slidevar from '../sidevar/sidevar';
+import imagen_anonimo from '../../assets/user-icono.jpg';
+
 
 function Formulario() {
   let [nombre, SetNombre] = useState("")
@@ -37,11 +39,79 @@ function Formulario() {
   let [linkedin, SetLinkedin] = useState("")
   let [skype, SetSkype] = useState("")
   let [web, SetWeb] = useState("")
+  let [tiktok, SetTiktok] = useState("")
+  let [leadPage, SetLeadPage] = useState("")
+  let [pais, SetPais] = useState("")
+  let [direccion, SetDireccion] = useState("")
+  let [ciudad, SetCiudad] = useState("")
+  let [codigoPostal, SetCodigoPostal] = useState("")
+  let [provincia, SetProvincia] = useState("")
+  let [telefonoLocal, SetTelefonoLocal] = useState("")
+
 
   /************************************************ */
   let [imagen, SetImagen] = useState(imagen_perfil)
   let [mostrarImagen, SetMostrarImagen] = useState(true)
   let [existeCodigo, SetExisteCodigo] = useState(false)
+  let [actualizar, SetActualizar] = useState(false)
+  let [mostrarReturn, SetMostrarReturn] = useState(false)
+
+
+  useEffect(() => {
+    var usuario = localStorage.getItem('usuario')
+    SetCorreo(usuario)
+    db.collection('Datos_usuarios').where("correo", "==",usuario)
+    .onSnapshot(function(querySnapshot) {
+        var reporte = [];
+        querySnapshot.forEach(function(doc) {
+            let datos = doc.data()
+            datos.$key = doc.id
+            reporte.push(datos);
+        });
+        if(reporte.length === 0){
+          console.log("no exite")
+          SetActualizar(false)
+          SetMostrarReturn(true)
+        }else {
+          console.log(reporte)
+          if(reporte.foto_perfil ==""){
+            reporte.foto_perfil = imagen_anonimo
+            SetImagen("")
+          }else{
+            SetImagen(reporte.foto_perfil)
+          }
+
+          console.log(reporte)
+
+          SetNombre(reporte[0].nombre)
+          SetApellido(reporte[0].apellido)
+          SetCodigo_telefono("")
+          SetTelefono(reporte[0].telefono)
+          SetCargo(reporte[0].cargo)
+          SetTwitter(reporte[0].twitter)
+          SetInstagram(reporte[0].instagram)
+          SetFacebook(reporte[0].facebook)
+          SetLinkedin(reporte[0].linkedin)
+          SetSkype(reporte[0].skype)
+          SetWeb(reporte[0].web)
+          SetTiktok(reporte[0].tiktok)
+          SetLeadPage(reporte[0].leadPage)
+          SetPais(reporte[0].pais)
+          SetDireccion(reporte[0].direccion)
+          SetCiudad(reporte[0].ciudad)
+          SetCodigoPostal(reporte[0].codigoPostal)
+          SetProvincia(reporte[0].provincia)
+          SetTelefonoLocal(reporte[0].telefonoLocal)
+          SetNombre_ruta(reporte[0].nombre_ruta)
+          SetImagen(reporte[0].foto_perfil)
+
+
+          SetActualizar(true)
+          SetMostrarReturn(true)
+        }
+    })
+
+  },[])
 
 
 
@@ -157,14 +227,54 @@ function Formulario() {
             <div class="form-group">
             <label  style={style.titulos}>
               Correo:
-              <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
+              <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required readOnly/>
             </label>
             </div>
             </CRow>
-            {/* <label>
-              http://tienda.deproinf.com.ve/#/
-              <input type="text" name="nombre_ruta" value={nombre_ruta} onChange={(event)=>{SetNombre_ruta(event.target.value)}} required/>
-            </label> */}
+            <CRow>
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Pais:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="pais" value={pais} onChange={(event)=>{SetPais(event.target.value)}} required/>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Direccion:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="direccion" value={direccion} onChange={(event)=>{SetDireccion(event.target.value)}} required />
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Ciudad:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="ciudad" value={ciudad} onChange={(event)=>{SetCiudad(event.target.value)}} required />
+                </label>
+              </div>
+            </CRow>
+            <CRow>
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Codigo Postal:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="codigoPostal" value={codigoPostal} onChange={(event)=>{SetCodigoPostal(event.target.value)}} required/>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Provincia:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="provincia" value={provincia} onChange={(event)=>{SetProvincia(event.target.value)}} required/>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Telefono Local (Sin 0 y con codigo):
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="telefonoLocal" value={telefonoLocal} onChange={(event)=>{SetTelefonoLocal(event.target.value)}} required/>
+                </label>
+              </div>
+            </CRow>
           </form>
         </div>;
       case 1:
@@ -208,15 +318,37 @@ function Formulario() {
           </div>
           <div class="form-group">
           <label style={style.titulos}>
-            Web Personal:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="web"  value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+            Tik tok:
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="tiktok"  value={tiktok} onChange={(event)=>{SetTiktok(event.target.value)}}/>
           </label>
-          <p style={{fontStyle: "italic"}}>Ejemplo: https//ejemplo.com</p>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
           </div>
+          </CRow>
+            
+          <CRow>
+            <div class="form-group">
+              <label style={style.titulos}>
+                Web Personal:
+                <input style={{fontSize: "15px"}} class="form-control" type="text" name="web"  value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
+              </label>
+              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
+            </div>
+            <div class="form-group">
+              <label style={style.titulos}>
+                Lead Page:
+                <input style={{fontSize: "15px"}} class="form-control" type="text" name="leadPage"  value={leadPage} onChange={(event)=>{SetLeadPage(event.target.value)}}/>
+              </label>
+              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
+            </div>
           </CRow>
         </div>;
       case 2:
-        return `Desea guardar su VCard ?`;
+        if (actualizar){
+          return `Desea actualizar la VCard ?`;
+        }else{
+          return `Desea guardar su VCard ?`;
+        }
+        
       default:
         return 'Unknown step';
     }
@@ -230,53 +362,111 @@ function Formulario() {
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
     if (activeStep === 2){
-      localStorage.clear()
-    
-      telefono = codigo_telefono+telefono
-      const rutadinamica = Math.random().toString(36).substring(2)
-      SetNombre_ruta(rutadinamica)
-
-      /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
-      await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
-      .onSnapshot(function(querySnapshot) {
-          var reporte = [];
-          var contador = 0
-          querySnapshot.forEach(function(doc) {
-              let datos = doc.data()
-              datos.$key = doc.id
-              reporte.push(datos);
-          });
-          if(reporte.length === 0 ){
-            console.log("no existe")
-            contador++
-            SetExisteCodigo(false)
-            GuardarFicha({nombre, 
-              apellido, 
-              nombre_ruta:rutadinamica,
-              telefono,
-              correo, 
-              twitter,
-              cargo,
-              instagram,
-              facebook,
-              linkedin,
-              skype,
-              web,
-              foto_perfil:imagen
-
-            })
-            .then(Guardo=>{
-              console.log("Guardo")
-              // window.location ="/#/"+nombre_ruta 
+      
+      if(actualizar){
+        console.log(nombre_ruta)
+        console.log("Va actualizar")
+        console.log(imagen)
+        await db.collection('Datos_usuarios').where("nombre_ruta", "==",nombre_ruta)
+        .onSnapshot(function(querySnapshot) {
+            var reporte = [];
+            var contador = 0
+            querySnapshot.forEach(function(doc) {
+                let datos = doc.data()
+                datos.$key = doc.id
+                reporte = datos;
+            });
+              console.log(reporte)
               SetExisteCodigo(false)
-              localStorage.setItem('cargo_formulario','true')
-            })
-            console.log(reporte)
-            console.log(contador)
-          }if(reporte.length > 0 && contador === 0){
-            SetExisteCodigo(true)
-          }
-      })
+              db.collection("Datos_usuarios").doc(reporte.$key).update({
+                nombre, 
+                apellido, 
+                nombre_ruta,
+                telefono,
+                correo, 
+                twitter,
+                cargo,
+                instagram,
+                facebook,
+                linkedin,
+                skype,
+                web,
+                foto_perfil:imagen,
+                tiktok,
+                pais,
+                direccion,
+                ciudad,
+                codigoPostal,
+                provincia,
+                telefonoLocal
+              })
+              .then(resultado=>{
+                  console.log("Guardo")
+                  // window.location ="/#/"+nombre_ruta 
+                  SetExisteCodigo(false)
+                  // localStorage.setItem('cargo_formulario','true')
+              })
+              console.log(reporte)
+              console.log(contador)
+        })
+
+      }else{
+      
+        localStorage.clear()
+      
+        telefono = codigo_telefono+telefono
+        const rutadinamica = Math.random().toString(36).substring(2)
+        SetNombre_ruta(rutadinamica)
+
+        /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
+        await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
+        .onSnapshot(function(querySnapshot) {
+            var reporte = [];
+            var contador = 0
+            querySnapshot.forEach(function(doc) {
+                let datos = doc.data()
+                datos.$key = doc.id
+                reporte.push(datos);
+            });
+            if(reporte.length === 0 ){
+              console.log("no existe")
+              contador++
+              SetExisteCodigo(false)
+              GuardarFicha({nombre, 
+                apellido, 
+                nombre_ruta:rutadinamica,
+                telefono,
+                correo, 
+                twitter,
+                cargo,
+                instagram,
+                facebook,
+                linkedin,
+                skype,
+                web,
+                foto_perfil:imagen,
+                tiktok,
+                pais,
+                direccion,
+                ciudad,
+                codigoPostal,
+                provincia,
+                telefonoLocal
+
+              })
+              .then(Guardo=>{
+                console.log("Guardo")
+                // window.location ="/#/"+nombre_ruta 
+                SetExisteCodigo(false)
+                localStorage.setItem('cargo_formulario','true')
+              })
+              console.log(reporte)
+              console.log(contador)
+            }if(reporte.length > 0 && contador === 0){
+              SetExisteCodigo(true)
+            }
+        })
+      }
     }
   };
 
@@ -288,65 +478,78 @@ function Formulario() {
     setActiveStep(0);
   };
 
-  return (
-    <div className={classes.root} >
-       <Slidevar />
-       <div style={style.margen}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((label, index) => (
-          <Step key={label}>
-            <StepLabel >
-              <span style={{fontSize: "20px"}}>{label}</span>
-              </StepLabel>
-            <StepContent>
-              <Typography>{getStepContent(index)}</Typography>
-              <div className={classes.actionsContainer}>
-                <div>
-                  <Button
-                    disabled={activeStep === 0}
-                    onClick={handleBack}
-                    className={classes.button}
-                  >
-                    Regresar
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Guardar' : 'Siguiente'}
-                  </Button>
+  if(mostrarReturn){
+    return (
+      <div className={classes.root} >
+        <Slidevar />
+        <div style={style.margen}>
+        <Stepper activeStep={activeStep} orientation="vertical">
+          {steps.map((label, index) => (
+            <Step key={label}>
+              <StepLabel >
+                <span style={{fontSize: "20px"}}>{label}</span>
+                </StepLabel>
+              <StepContent>
+                <Typography>{getStepContent(index)}</Typography>
+                <div className={classes.actionsContainer}>
+                  <div>
+                    <Button
+                      disabled={activeStep === 0}
+                      onClick={handleBack}
+                      className={classes.button}
+                    >
+                      Regresar
+                    </Button>
+                    
+                    {
+                      actualizar ? <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Actualizar' : 'Siguiente'}
+                    </Button> : <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Guardar' : 'Siguiente'}
+                    </Button>
+                    }
+                    
+                    
+                  </div>
                 </div>
-              </div>
-            </StepContent>
-          </Step>
-        ))}
-      </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} className={classes.resetContainer}>
-          {/* { existeCodigo ? 
-               <h6 style={style.error}>El codigo dado ya exite</h6>
-             : null } */}
+              </StepContent>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length && (
+          <Paper square elevation={0} className={classes.resetContainer}>
+            {/* { existeCodigo ? 
+                <h6 style={style.error}>El codigo dado ya exite</h6>
+              : null } */}
 
-            { existeCodigo ? 
-               null
-            : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
-            <div></div>     
-          
-          <Button onClick={handleReset} className={classes.button}>
-            Reset
-          </Button>
-        </Paper>
-      )}
+              { existeCodigo ? 
+                null
+              : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
+              <div></div>     
+            
+            <Button onClick={handleReset} className={classes.button}>
+              Reset
+            </Button>
+          </Paper>
+        )}
+        </div>
       </div>
-    </div>
-
-
-   
-
-  
-  );
+    );
+  }else{
+    return (
+      <div></div>
+    )
+  }
 }
 
 export default Formulario;

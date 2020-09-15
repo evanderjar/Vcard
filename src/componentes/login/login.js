@@ -42,8 +42,10 @@ function Login(){
             await app
               .auth()
               .signInWithEmailAndPassword(usuario, clave);
-                window.location ="/#/formulario" 
-                localStorage.setItem('cargo_formulario','false')
+              localStorage.setItem('cargo_formulario','false')
+              localStorage.setItem('usuario',usuario)
+
+              window.location ="/#/formulario" 
           } catch (error) {
             alert(error);
           }
