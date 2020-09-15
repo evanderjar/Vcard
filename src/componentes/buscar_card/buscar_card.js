@@ -57,7 +57,7 @@ function BuscarCard(){
                             <div className="input-group" style={{justifyContent: 'center', marginTop: "10px"}}>
                                 <input style={style.buscar_card} id="exampleInputEmail1" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Ingrese el codigo" type="text" name="name" value={nombre} onChange={(event)=>{SetNombre(event.target.value)}} required/>
                                     <span style={style.span_boton}>
-                                        <button className="btn" type="submit" style={style.boton}> 
+                                        <button className="btn" type="submit" style={style.boton2}> 
                                             <i className="fas fa-arrow-right"></i>
                                         </button>
                                     </span>

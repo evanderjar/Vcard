@@ -1,4 +1,4 @@
-import fondos_vcard from '../../assets/mountains.jpg';
+import fondos_vcard from '../../assets/Bg.jpg';
 
 export const VcardStile = {
     contenedor:{

@@ -10,10 +10,11 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 // import 'mdbreact/dist/css/mdb.css';
 import{ VcardStile } from './estilosVcard';
-import backVcard from '../../assets/Imagen-background1.jpg';
 import Navbar from '../navbar-vcard/navbar'
 import imagen_anonimo from '../../assets/user-icono.jpg';
-import twitter from '../../assets/ICONOS GRIS/ICONO_TWITTER_GRIS.png';
+import Icon from '../iconos/iconos'
+import twitter from '../../assets/ICONO_TWITTER_GRIS.ico';
+
 
 
 
@@ -163,14 +164,13 @@ function VistaDatos() {
                 <CRow style={VcardStile.redesMargen}>
                   {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
-                      {/* <img style={VcardStile.icono} src={twitter} alt="twitter"></img> */}
-                      <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i>
+                      <i src={twitter} alt="twitter"></i>
+                      {/* <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i> */}
                     </a>
                   }
 
                   {usuario.facebook === "" || usuario.facebook === undefined ? '': 
                       <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
-                        {/* <img style={VcardStile.icono} src={twitter} alt="twitter"></img> */}
                          <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i>
                       </a>
                   }

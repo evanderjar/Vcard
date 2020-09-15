@@ -18,7 +18,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import background from '../../assets/background-login2.jpg'
 import logo from '../../assets/tugogo.png';
-import login from '../../assets/imagen-login.png';
+import login from '../../assets/wa_3_2.gif';
+
 
 import { style } from './estilos'
 
@@ -92,7 +93,7 @@ function Login(){
                                     </CCardBody>
                                 </CCard>
                                 <CCard className="text-white d-md-down-none" style={{ width: '44%' }}>
-                                <img style={style.login} src={login} alt="login"></img>
+                                <img style={style.todo} src={login} alt="login"></img>
                                     <CCardBody style={style.tarjeta2} className="text-center">
                                     <div>
                                         <h1 style={style.titulo2}>Crear una cuenta</h1>
