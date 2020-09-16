@@ -54,7 +54,7 @@ function App() {
         <HashRouter>
           <Switch>
             <Route exact path="/">
-              <ProfilePage />
+              <Pronto />
             </Route>
             <Route exact path="/buscar">
               <BuscarVcard />
@@ -75,7 +75,7 @@ function App() {
               <TodasVcard />
             </Route>
             <Route exact path="/:id">
-              <VistaDatos />
+              <ProfilePage />
             </Route>
           </Switch>
         </HashRouter>
