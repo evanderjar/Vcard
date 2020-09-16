@@ -49,17 +49,17 @@ export default function LoginPage(props) {
       console.log(usuario)
       console.log(clave)
 
-      // try {
-      //     await app
-      //       .auth()
-      //       .signInWithEmailAndPassword(usuario, clave);
-      //       localStorage.setItem('cargo_formulario','false')
-      //       localStorage.setItem('usuario',usuario)
+      try {
+          await app
+            .auth()
+            .signInWithEmailAndPassword(usuario, clave);
+            localStorage.setItem('cargo_formulario','false')
+            localStorage.setItem('usuario',usuario)
 
-      //       window.location ="/#/formulario" 
-      //   } catch (error) {
-      //     alert(error);
-      //   }
+            window.location ="/#/formulario" 
+        } catch (error) {
+          alert(error);
+        }
 
 
   }
@@ -97,7 +97,7 @@ export default function LoginPage(props) {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "text",
+                        type: "email",
                         onChange:(event)=>{SetUsuario(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
@@ -114,7 +114,7 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "password",
-                        onChange:(event)=>{SetUsuario(event.target.value)},
+                        onChange:(event)=>{SetClave(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Lock className={classes.inputIconsColor} />
