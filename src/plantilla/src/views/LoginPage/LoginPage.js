@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react'
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -20,11 +20,14 @@ import CardBody from "../../components/Card/CardBody.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardFooter from "../../components/Card/CardFooter.js";
 import CustomInput from "../../components/CustomInput/CustomInput.js";
+import { Link } from 'react-router-dom'
 
 import styles from "../../assets/jss/material-kit-react/views/loginPage";
 
 import image from "../../assets/img/bg7.jpg";
 import logo from "../../../../assets/tugogo.png";
+
+import { app } from '../../../../firebase'
 
 const useStyles = makeStyles(styles);
 
@@ -36,6 +39,30 @@ export default function LoginPage(props) {
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+
+  let [usuario, SetUsuario] = useState("")
+  let [clave, SetClave] = useState("")
+
+  const EntrarLogin = async (event) => {
+      event.preventDefault();
+
+      console.log(usuario)
+      console.log(clave)
+
+      // try {
+      //     await app
+      //       .auth()
+      //       .signInWithEmailAndPassword(usuario, clave);
+      //       localStorage.setItem('cargo_formulario','false')
+      //       localStorage.setItem('usuario',usuario)
+
+      //       window.location ="/#/formulario" 
+      //   } catch (error) {
+      //     alert(error);
+      //   }
+
+
+  }
   return (
     <div>
       <image src={logo} alt="logo"/>
@@ -57,7 +84,7 @@ export default function LoginPage(props) {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={5}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form className={classes.form} onSubmit={EntrarLogin}>
                   <CardHeader style={{backgroundImage: "linear-gradient(to right, #1CBBC4 , #4FD190)"}} className={classes.cardHeader}>
                     <h2 style={{color:"white"}}>Login</h2>
                   </CardHeader>
@@ -70,7 +97,8 @@ export default function LoginPage(props) {
                         fullWidth: true
                       }}
                       inputProps={{
-                        type: "email",
+                        type: "text",
+                        onChange:(event)=>{SetUsuario(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -86,6 +114,7 @@ export default function LoginPage(props) {
                       }}
                       inputProps={{
                         type: "password",
+                        onChange:(event)=>{SetUsuario(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Lock className={classes.inputIconsColor} />
@@ -96,12 +125,14 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button style={{backgroundColor: "#4FD190"}} size="lg">
+                    <Button type="submit" style={{backgroundColor: "#4FD190"}} size="lg">
                       Iniciar Sesion
                     </Button>
+                    <Link to="/registrar">
                     <Button style={{backgroundColor: "#4FD190"}} size="lg">
                       SIN CUENTA? REGISTRATE AQUI.
                     </Button>
+                    </Link>
                   </CardFooter>
                 </form>
               </Card>
