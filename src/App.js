@@ -11,6 +11,7 @@ import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
 import { AuthProvider } from './componentes/Auth/auth'
 import Pronto from './componentes/pronto/pronto'
+import TodasVcard from './componentes/manejo-vcards/todasVcars'
 // import Vcard from './componentes/Vcard/Vcard'
 
 /*********** RUTAS ************************* */
@@ -66,6 +67,9 @@ function App() {
             </Route>
             <Route exact path="/crear-usuarios">
               <CrearUsuario />
+            </Route>
+            <Route exact path="/Administrar-Vcard">
+              <TodasVcard />
             </Route>
             <Route exact path="/:id">
               <VistaDatos />
