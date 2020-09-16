@@ -20,6 +20,8 @@ import sms from '../../assets/ICONOS COLOR/ICONO_SMS_COLOR.png';
 import skype from '../../assets/ICONOS COLOR/ICONO_SKYPE_COLOR.png';
 import web from '../../assets/ICONOS COLOR/ICONO_WEB_COLOR.png';
 import what from '../../assets/ICONOS COLOR/ICONO_WHATSAPP_COLOR.png';
+import tiktok from '../../assets/ICONOS COLOR/tik-tok.png';
+import pagina from '../../assets/ICONOS COLOR/pagina.png';
 
 
 
@@ -178,16 +180,16 @@ function VistaDatos() {
 
                   {usuario.tiktok === "" || usuario.tiktok === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.tiktok} rel="noopener noreferrer">
-                      {/* <img style={VcardStile.icono} src={tiktok} alt="tw"></img> */}
-                      <i class="fab fa-tiktok"></i>
+                      <img style={VcardStile.icono} src={tiktok} alt="tw"></img>
+                      {/* <i class="fab fa-tiktok"></i> */}
                       {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
 
                   {usuario.leadPage === "" || usuario.leadPage === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.leadPage} rel="noopener noreferrer">
-                      {/* <img style={VcardStile.icono} src={tiktok} alt="tw"></img> */}
-                      <i class="fas fa-globe-americas"></i>
+                      <img style={VcardStile.icono} src={pagina} alt="tw"></img>
+                      {/* <i class="fas fa-globe-americas"></i> */}
                       {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
@@ -254,6 +256,14 @@ function VistaDatos() {
                 <CRow style={VcardStile.nombre}>
                   <p style={{fontSize: "15px", fontFamily:"muli-light"}}>Correo: {usuario.correo}</p>
                 </CRow>
+
+                {
+                  usuario.skype === "" || usuario.skype === undefined ? '':
+
+                  <CRow style={VcardStile.nombre}>
+                  <p style={{fontSize: "15px", fontFamily:"muli-light", marginBottom: "-1px"}}>Skype: {usuario.skype}</p>
+                  </CRow>
+                }
 
                       
 

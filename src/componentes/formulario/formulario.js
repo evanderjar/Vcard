@@ -286,21 +286,21 @@ function Formulario() {
             Twitter:
             <input style={{fontSize: "15px"}} class="form-control" type="text" name="twitter" value={twitter} onChange={(event)=>{SetTwitter(event.target.value)}}/>
           </label>
-          <p style={{fontStyle: "italic"}}>Ejemplo: https://twitter.com/ejemplo</p>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://twitter.com/usuario o usuario</p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Instagram:
             <input style={{fontSize: "15px"}} class="form-control" type="text" name="instagram" value={instagram} onChange={(event)=>{SetInstagram(event.target.value)}}/>
           </label>
-          <p style={{fontStyle: "italic"}}>Ejemplo: https://instagram/ejemplo</p>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://instagram/usuario o usuario (sin @)</p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Facebook:
-            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" alue={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
+            <input style={{fontSize: "15px"}} class="form-control" type="text" name="facebook" value={facebook} onChange={(event)=>{SetFacebook(event.target.value)}}/>
           </label>
-          <p style={{fontStyle: "italic"}}>Ejemplo: https://facebookk.com/ejemplo</p>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://facebook.com/usuario</p>
           </div>
           </CRow>
           <CRow>
@@ -316,13 +316,14 @@ function Formulario() {
             Skype:
             <input style={{fontSize: "15px"}} class="form-control" type="text" name="skype" value={skype} onChange={(event)=>{SetSkype(event.target.value)}}/>
           </label>
+          <p style={{fontStyle: "italic"}}>Ejemplo: usuario </p>
           </div>
           <div class="form-group">
           <label style={style.titulos}>
             Tik tok:
             <input style={{fontSize: "15px"}} class="form-control" type="text" name="tiktok"  value={tiktok} onChange={(event)=>{SetTiktok(event.target.value)}}/>
           </label>
-          <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
+          <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com/@usuario o @usuario </p>
           </div>
           </CRow>
             
@@ -332,14 +333,14 @@ function Formulario() {
                 Web Personal:
                 <input style={{fontSize: "15px"}} class="form-control" type="text" name="web"  value={web} onChange={(event)=>{SetWeb(event.target.value)}}/>
               </label>
-              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
+              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com o usuario</p>
             </div>
             <div class="form-group">
               <label style={style.titulos}>
                 Lead Page:
                 <input style={{fontSize: "15px"}} class="form-control" type="text" name="leadPage"  value={leadPage} onChange={(event)=>{SetLeadPage(event.target.value)}}/>
               </label>
-              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com</p>
+              <p style={{fontStyle: "italic"}}>Ejemplo: https://ejemplo.com o usuario</p>
             </div>
           </CRow>
         </div>;
@@ -365,47 +366,94 @@ function Formulario() {
     if (activeStep === 2){
       
       if(actualizar){
-        console.log(nombre_ruta)
-        console.log("Va actualizar")
-        console.log(facebook)
         
-              db.collection("Datos_usuarios").doc(key).set({
-                nombre, 
-                apellido, 
-                nombre_ruta,
-                telefono,
-                correo, 
-                twitter,
-                cargo,
-                instagram,
-                facebook,
-                linkedin,
-                skype,
-                web,
-                foto_perfil:imagen,
-                tiktok,
-                pais,
-                direccion,
-                ciudad,
-                codigoPostal,
-                provincia,
-                telefonoLocal,
-                leadPage
-              })
-              .then(resultado=>{
-                  console.log("Atualizo")
-                  // window.location ="/#/"+nombre_ruta 
-                  SetExisteCodigo(false)
-                  localStorage.setItem('cargo_formulario','true')
-              })
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TWITTER****** */
+        const split_twitter = twitter.split("/")
+        var cuenta_twitter = twitter
+
+        if(split_twitter.length === 1){
+          cuenta_twitter = "https://twitter.com/"+twitter
+        }
+
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO INSTAGRAM****** */
+        const split_instagram = instagram.split("/")
+        var cuenta_instagram = instagram
+        if(split_instagram.length === 1){
+          console.log(cuenta_instagram)
+          cuenta_instagram = "https://instagram.com/"+instagram
+        }
+
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TIKTOK****** */
+        const split_tiktok = tiktok.split("/")
+        var cuenta_tiktok = tiktok
+        if(split_tiktok.length === 1){
+          console.log(cuenta_tiktok)
+          cuenta_tiktok = "https://www.tiktok.com/"+tiktok
+        }
+
+
+        db.collection("Datos_usuarios").doc(key).set({
+          nombre, 
+          apellido, 
+          nombre_ruta,
+          telefono,
+          correo, 
+          twitter:cuenta_twitter,
+          cargo,
+          instagram:cuenta_instagram,
+          facebook,
+          linkedin,
+          skype,
+          web,
+          foto_perfil:imagen,
+          tiktok:cuenta_tiktok,
+          pais,
+          direccion,
+          ciudad,
+          codigoPostal,
+          provincia,
+          telefonoLocal,
+          leadPage
+        })
+        .then(resultado=>{
+            console.log("Atualizo")
+            // window.location ="/#/"+nombre_ruta 
+            SetExisteCodigo(false)
+            localStorage.setItem('cargo_formulario','true')
+        })
 
       }else{
-      
         localStorage.clear()
-      
         telefono = codigo_telefono+telefono
         const rutadinamica = Math.random().toString(36).substring(2)
         SetNombre_ruta(rutadinamica)
+
+
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TWITTER****** */
+        const split_twitter = twitter.split("/")
+        var cuenta_twitter = twitter
+
+        if(split_twitter.length === 1){
+          cuenta_twitter = "https://twitter.com/"+twitter
+        }
+
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO INSTAGRAM****** */
+        const split_instagram = instagram.split("/")
+        var cuenta_instagram = instagram
+        if(split_instagram.length === 1){
+          console.log(cuenta_instagram)
+          cuenta_instagram = "https://instagram.com/"+instagram
+        }
+
+        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TIKTOK****** */
+        const split_tiktok = tiktok.split("/")
+        var cuenta_tiktok = tiktok
+        if(split_tiktok.length === 1){
+          console.log(cuenta_tiktok)
+          cuenta_tiktok = "https://www.tiktok.com/"+tiktok
+        }
+
+
 
         /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
         await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
@@ -426,15 +474,15 @@ function Formulario() {
                 nombre_ruta:rutadinamica,
                 telefono,
                 correo, 
-                twitter,
+                twitter:cuenta_twitter,
                 cargo,
-                instagram,
+                instagram:cuenta_instagram,
                 facebook,
                 linkedin,
                 skype,
                 web,
                 foto_perfil:imagen,
-                tiktok,
+                tiktok:cuenta_tiktok,
                 pais,
                 direccion,
                 ciudad,
@@ -451,7 +499,8 @@ function Formulario() {
               })
               console.log(reporte)
               console.log(contador)
-            }if(reporte.length > 0 && contador === 0){
+            }
+            if(reporte.length > 0 && contador === 0){
               SetExisteCodigo(true)
             }
         })
@@ -523,7 +572,7 @@ function Formulario() {
 
               { existeCodigo ? 
                 null
-              : <span>Su link es: <a href={`http://localhost:3000/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
+              : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
               <div></div>     
             
             <Button onClick={handleReset} className={classes.button}>
