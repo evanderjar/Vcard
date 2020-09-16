@@ -10,7 +10,7 @@ function Navbar(){
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light" style={style.fondo}>
-            <a className="navbar-brand" href="/">
+            <a className="navbar-brand" href="/#/buscar">
                 <img style={style.imagen} src={icono_tugogo} alt="icono"></img>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

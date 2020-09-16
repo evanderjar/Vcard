@@ -35,6 +35,7 @@ function VistaDatos() {
   useEffect(() => {
     
     console.log(localStorage.getItem('cargo_formulario'))
+    
     if(localStorage.getItem('cargo_formulario')){
       setNuevoForm("true")
       localStorage.clear()
@@ -175,6 +176,22 @@ function VistaDatos() {
                     </a>
                   }
 
+                  {usuario.tiktok === "" || usuario.tiktok === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.tiktok} rel="noopener noreferrer">
+                      {/* <img style={VcardStile.icono} src={tiktok} alt="tw"></img> */}
+                      <i class="fab fa-tiktok"></i>
+                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
+                    </a>
+                  }
+
+                  {usuario.leadPage === "" || usuario.leadPage === undefined ? '': 
+                    <a style={VcardStile.redes2} target="_blank" href={usuario.leadPage} rel="noopener noreferrer">
+                      {/* <img style={VcardStile.icono} src={tiktok} alt="tw"></img> */}
+                      <i class="fas fa-globe-americas"></i>
+                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
+                    </a>
+                  }
+
                     {/* ENVIAR CORREO */}
                     {/* <a style={VcardStile.redes2} href={`mailto:${usuario.correo}?subject= Contacto por Vcard&body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                       <i class="fas fa-envelope" Style="font-size: 35px !important; color:#3b5998 !important"></i>
@@ -204,7 +221,7 @@ function VistaDatos() {
                   </a>
               </button>
               <button style={VcardStile.boton3}>
-              <a style={{marginRight: "10px"}} data-action="share/telegram/share" href={`https://telegram.me/share/url?=http%3A%2F%2Ftienda.deproinf.com.ve/&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
+              <a style={{marginRight: "10px"}} href={`https://telegram.me/share/url?url=http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-paper-plane" Style="font-size: 20px !important; color:#ffffff !important"></i>
                   </a>
               </button>
@@ -231,12 +248,12 @@ function VistaDatos() {
                   </a>
               </button>
               </CRow>
-                      <CRow style={VcardStile.nombre}>
-                        <p style={{fontSize: "15px", fontFamily:"muli-light", marginBottom: "-1px"}}>Telefono: {usuario.telefono}</p>
-                      </CRow>
-                      <CRow style={VcardStile.nombre}>
-                        <p style={{fontSize: "15px", fontFamily:"muli-light"}}>Correo: {usuario.correo}</p>
-                      </CRow>
+                <CRow style={VcardStile.nombre}>
+                  <p style={{fontSize: "15px", fontFamily:"muli-light", marginBottom: "-1px"}}>Telefono: {usuario.telefono}</p>
+                </CRow>
+                <CRow style={VcardStile.nombre}>
+                  <p style={{fontSize: "15px", fontFamily:"muli-light"}}>Correo: {usuario.correo}</p>
+                </CRow>
 
                       
 
