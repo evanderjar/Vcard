@@ -93,6 +93,7 @@ export default function RegistrarPage(props) {
                   </CardBody>
                   <CardFooter className={classes.cardFooter2}>
                   <GridContainer justify="center">
+                  <h5 className={classes.title}>Compartir por</h5>
                 <GridItem xs={12} sm={12} md={12} className={classes.navWrapper}>
                   <Button style={{backgroundColor: "#FFB762", marginBottom: "10px"}} type="button" size="md">
                       Email
