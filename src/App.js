@@ -8,6 +8,7 @@ import VistaDatos from './componentes/vista_datos/vista_datos'
 import BuscarVcard from './plantilla/src/views/BuscarPage/buscarVcard'
 import LoginPage from './plantilla/src/views/LoginPage/LoginPage'
 import RegistrarPage from './plantilla/src/views/RegistrarPage/RegistrarPage'
+import ProfilePage from './plantilla/src/views/ProfilePage/ProfilePage'
 // import Login from './componentes/login/login'
 // import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
@@ -52,7 +53,7 @@ function App() {
         <HashRouter>
           <Switch>
             <Route exact path="/">
-              <Pronto />
+              <ProfilePage />
             </Route>
             <Route exact path="/buscar">
               <BuscarVcard />
