@@ -57,7 +57,7 @@ export default function RegistrarPage(props) {
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="warning" className={classes.cardH}>
+                  <CardHeader color="info" className={classes.cardH}>
                   <div>
                     <img style={{width: "112px", height: "112px", borderRadius: "60px"}} src={profile} alt="..." className={navImageClasses} />
                   </div>
