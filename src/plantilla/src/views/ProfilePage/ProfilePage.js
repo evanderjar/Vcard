@@ -58,7 +58,7 @@ export default function RegistrarPage(props) {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="warning" className={classes.cardH}>
-                  <div style={{ marginTop: "15px"}}>
+                  <div>
                     <img style={{width: "112px", height: "112px", borderRadius: "60px"}} src={profile} alt="..." className={navImageClasses} />
                   </div>
                   <div className={classes.name}>
@@ -76,7 +76,7 @@ export default function RegistrarPage(props) {
                   </div>
                   </CardHeader>
                   <CardBody className={classes.cardB}>
-                  <div className={classes.name}>
+                  <div style={{ marginTop: "15px"}} className={classes.name}>
                     <Button justIcon link className={classes.margin5}>
                       <i className={"fab fa-twitter"} />
                     </Button>
