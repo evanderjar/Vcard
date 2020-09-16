@@ -523,7 +523,7 @@ function Formulario() {
 
               { existeCodigo ? 
                 null
-              : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
+              : <span>Su link es: <a href={`http://localhost:3000/#/${nombre_ruta}`} target="_blank">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}     
               <div></div>     
             
             <Button onClick={handleReset} className={classes.button}>
