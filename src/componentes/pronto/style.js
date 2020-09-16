@@ -1,4 +1,4 @@
-import fondos_vcard from '../../assets/fondo.PNG'
+import fondos_vcard from '../../assets/proximamente.png'
 
 export const style = {
     contenedor:{

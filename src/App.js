@@ -3,11 +3,13 @@ import './App.css';
 
 /******** COMPONENTES *************** */
 import Formulario from './componentes/formulario/formulario'
-import Compartir from './componentes/compartir/compatir'
 import VistaDatos from './componentes/vista_datos/vista_datos'
-import BuscarCard from './componentes/buscar_card/buscar_card'
-import Login from './componentes/login/login'
-import Registrar from './componentes/registrar/registrar'
+// import BuscarCard from './componentes/buscar_card/buscar_card'
+import BuscarVcard from './plantilla/src/views/BuscarPage/buscarVcard'
+import LoginPage from './plantilla/src/views/LoginPage/LoginPage'
+import RegistrarPage from './plantilla/src/views/RegistrarPage/RegistrarPage'
+// import Login from './componentes/login/login'
+// import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
 import { AuthProvider } from './componentes/Auth/auth'
 import Pronto from './componentes/pronto/pronto'
@@ -53,25 +55,22 @@ function App() {
               <Pronto />
             </Route>
             <Route exact path="/buscar">
-              <BuscarCard />
+              <BuscarVcard />
             </Route>
             <Route exact path="/formulario">
               <Formulario />
             </Route>
             <Route exact path="/login">
-              <Login />
+              <LoginPage />
             </Route>
             <Route exact path="/registrar">
-              <Registrar />
+              <RegistrarPage />
             </Route>
             <Route exact path="/crear-usuarios">
               <CrearUsuario />
             </Route>
             <Route exact path="/:id">
               <VistaDatos />
-            </Route>
-            <Route exact path="/:id/compartir">
-              <Compartir />
             </Route>
           </Switch>
         </HashRouter>
