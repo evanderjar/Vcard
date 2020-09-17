@@ -17,17 +17,23 @@ function Navbar(){
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div style={{marginLeft: "515px"}} className="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul className="nav navbar-nav navbar-center">
-                <li className="nav-item">
-                    <a className="nav-link" href="/#/buscar">
-                    <i style={style.palabras_navbar} class="fas fa-search" ></i>
-                    </a>
-                </li>
-                <li className="nav-item" style={style.navbar_ingresar}>
-                    <a className="nav-link" href="/#/login">
-                    <i style={style.palabras_navbar} class="fas fa-door-open" ></i>
-                    </a>
-                </li>
+            <ul className="nav navbar-nav navbar-center">
+                        <li className="nav-item">
+                            <a style={style.palabras_navbar} className="nav-link" href="/#/formulario">
+                            <i style={style.icono} class="fas fa-id-card"></i>
+                            </a>
+                        </li>
+                        <li className="nav-item" style={style.navbar_ingresar}>
+                            <a style={style.palabras_navbar} className="nav-link" href="/#/Administrar-Vcard" >
+                            <i style={style.icono} class="fas fa-table"></i>
+                            </a>
+                        </li>
+                        <li className="nav-item" style={style.navbar_ingresar}>
+                            <a style={style.palabras_navbar} className="nav-link" href="/#/login">
+                            <i style={style.icono} class="fas fa-sign-out-alt"></i>
+                            </a>
+                        </li>
+                 </ul>
                 {/* <li className="nav-item dropdown">
                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Dropdown link
@@ -38,7 +44,6 @@ function Navbar(){
                     <a className="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li> */}
-                </ul>
             </div>
         </nav>
     )
