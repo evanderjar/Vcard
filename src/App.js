@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import './App.css';
 
 /******** COMPONENTES *************** */
-import Formulario from './componentes/formulario/formulario'
+// import Formulario from './componentes/formulario/formulario'
 import VistaDatos from './componentes/vista_datos/vista_datos'
 // import BuscarCard from './componentes/buscar_card/buscar_card'
 import BuscarVcard from './plantilla/src/views/BuscarPage/buscarVcard'
 import LoginPage from './plantilla/src/views/LoginPage/LoginPage'
 import RegistrarPage from './plantilla/src/views/RegistrarPage/RegistrarPage'
 import ProfilePage from './plantilla/src/views/ProfilePage/ProfilePage'
+import Formulario2 from './plantilla/src2/views/User';
 // import Login from './componentes/login/login'
 // import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
@@ -59,7 +60,7 @@ function App() {
               <BuscarVcard />
             </Route>
             <Route exact path="/formulario">
-              <Formulario />
+              <Formulario2 />
             </Route>
             <Route exact path="/login">
               <LoginPage />
