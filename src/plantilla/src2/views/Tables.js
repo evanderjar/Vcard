@@ -149,7 +149,7 @@ if (mostrarReturn){
       <>
       <Navbar/>
         <div className="content">
-        <Row>
+        <Row style={{    marginRight: "350px", paddingBottom: "15px"}}>
           <div className="update ml-auto mr-auto">
               </div>
               <div className="update ml-auto mr-auto">
@@ -202,18 +202,18 @@ if (mostrarReturn){
           </Row>
           <Row>
             <Col md="12">
-              <Card>
+              <Card style={{marginLeft: "30px", marginRight: "30px"}}>
                 <CardHeader>
-                  <CardTitle tag="h4">Simple Table</CardTitle>
+                  <CardTitle tag="h4">Usuarios</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table responsive style={{paddingBottom: "92px"}}>
                     <thead className="text-primary">
                       <tr>
-                        <th>Ruta Dinamica</th>
-                        <th>fecha</th>
-                        <th>Acciones</th>
-                        <th>Enviar</th>
+                        <th style={{textAlign: "center"}}>Ruta Dinamica</th>
+                        <th align="center">fecha</th>
+                        <th align="center">Acciones</th>
+                        <th style={{textAlign: "center"}}>Enviar</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -229,10 +229,10 @@ if (mostrarReturn){
                             <td component="th" scope="row">Por enviar</td>
                         }
                         <td align="center">
-                        <button type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
+                        <button style={{marginRight: "10px"}} className="btn-round" color="primary" type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
                                 Vcard
                             </button>
-                            <button type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
+                            <button className="btn-round" color="primary" type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
                                 Enviado
                             </button>
                         </td>
