@@ -20,7 +20,6 @@ import TodasVcard from './componentes/manejo-vcards/todasVcars'
 /*********** RUTAS ************************* */
 import { Route } from 'react-router-dom'
 import { HashRouter, Switch } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 
 function App() {
