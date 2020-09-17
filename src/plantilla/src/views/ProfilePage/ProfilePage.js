@@ -34,6 +34,7 @@ import pagina from '../../../../assets/ICONOS COLOR/pagina.png';
 import { db } from '../../../../firebase'
 import { Row } from 'react-bootstrap';
 
+
 const useStyles = makeStyles(styles);
 
 export default function RegistrarPage(props) {
@@ -54,6 +55,7 @@ export default function RegistrarPage(props) {
   const [nuevoForm, setNuevoForm] = useState("false")
   const [usuario, setUsuario] = useState()
   const [mostrarReturn, setmMostrarReturn] = useState(false)
+  
   useEffect(() => {
     
     console.log(localStorage.getItem('cargo_formulario'))
@@ -81,6 +83,7 @@ export default function RegistrarPage(props) {
             }
             setUsuario(reporte)
             setmMostrarReturn(true)
+
           }
       })
     }else{
@@ -106,6 +109,22 @@ export default function RegistrarPage(props) {
     }
   },[])
 
+
+  // const DescargarVCF = async(event) => {
+  //   event.preventDefault();
+    
+  //   fetch('http://localhost:4000/descargar-archivo', {
+  //     method: 'GET', // or 'PUT'
+  //     body: JSON.stringify(usuario), // data can be `string` or {object}!
+  //     headers:{
+  //       'Content-Type': 'application/json'
+  //     }
+  //   }).then(res => res.json())
+  //   .catch(error => console.error('Error:', error))
+  //   .then(response => console.log('Success:', response));
+  // }
+
+
 if(mostrarReturn){
   return (
     <div>
@@ -128,9 +147,9 @@ if(mostrarReturn){
             <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                   <CardHeader className={classes.cardH}>
-                  <Button style={{marginRight: "330px"}} justIcon round color="white">
+                  {/* <Button style={{marginRight: "330px"}} justIcon round color="white" onClick={DescargarVCF}>
                   <i style={{fontSize: "15px"}} className={"fa fa-download"}/>
-                </Button>
+                  </Button> */}
                   <div>
                     {usuario.foto_perfil === "" || usuario.twitter === undefined ? "":
                     <img style={{width: "120px", height: "120px", borderRadius: "60px"}} src={usuario.foto_perfil} className={navImageClasses} alt="foto perfil" required/>

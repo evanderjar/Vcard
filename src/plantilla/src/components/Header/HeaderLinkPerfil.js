@@ -100,7 +100,7 @@ export default function HeaderLinksPerfil(props) {
                       classes.navLink
                     }
                   >{" "}
-                    <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-users"}/>Resgistrarse
+                    <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-users"}/>Registrarse
                   </Button>
                   </Link>
                 </ListItem>
