@@ -222,11 +222,17 @@ if(mostrarReturn){
                       <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={pagina} alt="tw"></img>
                     </a>
                   }
+                    
+                  {
+                    usuario.telefono === "" || usuario.telefono === undefined ? '':
                     <button style={{border: "none", textDecoration: "none", display: "inline-block", background: "none"}}>
-                    <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-                    <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={sms} alt="tw"></img>
-                    </a>
+                      <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={sms} alt="tw"></img>
+                      </a>
                     </button>
+                  }
+                    
+                    
                     </Row>
                   </div>
                   <h4 className={classes.title}>Telefono: {usuario.telefono}</h4>                  

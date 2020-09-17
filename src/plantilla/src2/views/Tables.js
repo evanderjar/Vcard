@@ -174,9 +174,9 @@ if (mostrarReturn){
                 <option value="9">9</option>
                 <option value="10">10</option>
             </select>
-            <Button className="btn-round"
+            <Button className="btn-round" style={{marginLeft:"5px"}}
               color="primary" type="submit" onClick={GenerarDatos}>
-                generar Vcards
+                Generar Vcards
             </Button>
               </div>
               <div className="update ml-auto mr-auto">
@@ -185,9 +185,9 @@ if (mostrarReturn){
                 <option value="PorEnviar">Por enviar</option>
                 
             </select>
-            <Button className="btn-round"
+            <Button className="btn-round" style={{marginLeft:"5px"}}
               color="primary" type="submit" onClick={Filtrar}>
-             generar Vcards
+              Filtrar
             </Button>
               </div>
               {/* <div className="update ml-auto mr-auto">
@@ -204,11 +204,11 @@ if (mostrarReturn){
             <Col md="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">Simple Table</CardTitle>
+                  <CardTitle tag="h4">Vcars Masivas</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table responsive style={{paddingBottom: "92px"}}>
-                    <thead className="text-primary">
+                    <thead className="text-primary" style={{textAlign:"center"}}>
                       <tr>
                         <th>Ruta Dinamica</th>
                         <th>fecha</th>
@@ -218,7 +218,7 @@ if (mostrarReturn){
                     </thead>
                     <tbody>
                     {todosUsuarios.map((row) => (
-                      <tr key={row.nombre_ruta}>
+                      <tr key={row.nombre_ruta} style={{textAlign:"center"}}>
                         <td align="center">http://tienda.deproinf.com.ve/#/{row.nombre_ruta}</td>
                         <td component="th" scope="row">{row.fecha}</td>
                         
@@ -229,12 +229,13 @@ if (mostrarReturn){
                             <td component="th" scope="row">Por enviar</td>
                         }
                         <td align="center">
-                        <button type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
+                        <Button type="submit" className="btn-round" color="primary" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
                                 Vcard
-                            </button>
-                            <button type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
-                                Enviado
-                            </button>
+                        </Button>
+                        <Button type="submit" value={row.nombre_ruta} onClick = {modificarEstatus} style={{marginLeft:"5px"}} className="btn-round" color="primary">
+                            Enviado
+                        </Button>
+                        
                         </td>
                         </tr>
                        ))}

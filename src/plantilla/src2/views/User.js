@@ -292,7 +292,6 @@ function Formulario2() {
               })
               .then(resultado=>{
                 alert("Se actualizo con exito")
-                // window.location ="/#/"+nombre_ruta 
                 SetExisteCodigo(false)
                 localStorage.setItem('cargo_formulario','true')
               })
@@ -472,7 +471,7 @@ function Formulario2() {
                   </Row>
                   { existeCodigo ? 
                     null
-                  : <span>Su link es: <a href={`http://localhost:3000/#/${nombre_ruta}`} target="_blank" rel="noopener noreferrer">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}
+                  : <span>Su link es: <a href={`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} target="_blank" rel="noopener noreferrer">{`http://tienda.deproinf.com.ve/#/${nombre_ruta}`} </a></span>}
                   </CardBody>
                 </Card>
               </Col>
