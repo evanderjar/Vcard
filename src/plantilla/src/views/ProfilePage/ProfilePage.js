@@ -180,12 +180,12 @@ if(mostrarReturn){
                     <Row style={{justifyContent: "center", marginBottom: "10px"}}>
                     {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a target="_blank" href={usuario.twitter} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={twitter} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={twitter} alt="tw"></img>
                     </a>
                   }
                   {usuario.facebook === "" || usuario.facebook === undefined ? '': 
                       <a target="_blank" href={usuario.facebook} rel="noopener noreferrer">
-                       <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={facebook} alt="tw"></img>
+                       <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={facebook} alt="tw"></img>
                       </a>
                   }
 
@@ -197,34 +197,34 @@ if(mostrarReturn){
 
                   {usuario.skype === "" || usuario.skype === undefined ? '': 
                     <a target="_blank" href={usuario.skype} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={skype} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={skype} alt="tw"></img>
                     </a>
                   }
                   {usuario.web === "" || usuario.web === undefined ? '': 
                     <a  target="_blank" href={usuario.web} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={web} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={web} alt="tw"></img>
                     </a>
                   }
                   {usuario.instagram === "" || usuario.instagram === undefined ? '': 
                     <a  target="_blank" href={usuario.instagram} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={instagram} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={instagram} alt="tw"></img>
                     </a>
                   }
 
                   {usuario.tiktok === "" || usuario.tiktok === undefined ? '': 
                     <a  target="_blank" href={usuario.tiktok} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={tiktok} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={tiktok} alt="tw"></img>
                     </a>
                   }
 
                   {usuario.leadPage === "" || usuario.leadPage === undefined ? '': 
                     <a target="_blank" href={usuario.leadPage} rel="noopener noreferrer">
-                      <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={pagina} alt="tw"></img>
+                      <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={pagina} alt="tw"></img>
                     </a>
                   }
                     <button style={{border: "none", textDecoration: "none", display: "inline-block", background: "none"}}>
                     <a href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
-                    <img style={{width: "36px", height: "36px", filter: "grayscale(100%)" }} className={navImageClasses} src={sms} alt="tw"></img>
+                    <img style={{width: "36px", height: "36px", filter: "grayscale(1%)" }} className={navImageClasses} src={sms} alt="tw"></img>
                     </a>
                     </button>
                     </Row>
