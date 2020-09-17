@@ -10,12 +10,13 @@ import LoginPage from './plantilla/src/views/LoginPage/LoginPage'
 import RegistrarPage from './plantilla/src/views/RegistrarPage/RegistrarPage'
 import ProfilePage from './plantilla/src/views/ProfilePage/ProfilePage'
 import Formulario2 from './plantilla/src2/views/User';
+import Tables from './plantilla/src2/views/Tables';
 // import Login from './componentes/login/login'
 // import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
 import { AuthProvider } from './componentes/Auth/auth'
 import Pronto from './componentes/pronto/pronto'
-import TodasVcard from './componentes/manejo-vcards/todasVcars'
+// import TodasVcard from './componentes/manejo-vcards/todasVcars'
 // import Vcard from './componentes/Vcard/Vcard'
 
 /*********** RUTAS ************************* */
@@ -71,7 +72,7 @@ function App() {
               <CrearUsuario />
             </Route>
             <Route exact path="/Administrar-Vcard">
-              <TodasVcard />
+              <Tables />
             </Route>
             <Route exact path="/:id">
               <ProfilePage />
