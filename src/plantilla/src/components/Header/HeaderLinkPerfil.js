@@ -19,10 +19,18 @@ import logo from "../../../../assets/tugogo.png";
 
 import styles from "../../assets/jss/material-kit-react/components/headerLinksStyle.js";
 
+import { useParams } from 'react-router-dom'
+
+import { db } from '../../../../firebase'
+
+
 const useStyles = makeStyles(styles);
 
 export default function HeaderLinksPerfil(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+
+  let { id } = useParams()
+
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
@@ -34,6 +42,33 @@ export default function HeaderLinksPerfil(props) {
     classes.imgFluid
   );
   const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
+  const Redireccionar = async(event) => {
+    event.preventDefault();
+    console.log(id)
+
+    await db.collection('Datos_usuarios').where('nombre_ruta', '==', id).get()
+    .then(snapshot => {
+      var reporte = []
+      snapshot.forEach(doc => {
+        let datos = doc.data()
+        datos.$key = doc.id
+        reporte.push(datos);
+      });
+      console.log(reporte)
+      if(reporte[0].tiene_usuario){
+        window.location ="/#/login"
+      }else{
+        localStorage.setItem('cargo_formulario','false')
+        localStorage.setItem('usuario',reporte[0].correo)
+        localStorage.setItem('ruta',reporte[0].nombre_ruta)
+        window.location ="/#/formulario"
+      }
+    })
+  }
+
+
+
   return (
     <List className={classes.list}>
       <Header
@@ -46,12 +81,14 @@ export default function HeaderLinksPerfil(props) {
                 <ListItem className={classes.listItem}>
                 <Link style={{color:"#1CBBC4"}} to="/login">
                   <Button
+                    type="submit"
+                    onClick={Redireccionar}
                     color="transparent"
                     className={
                       classes.navLink
                     }
                   >{" "}
-                   <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-user"}/> Iniciar Sesion
+                   <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-user"}/> Entrar a Vcard
                   </Button>
                   </Link>
                 </ListItem>

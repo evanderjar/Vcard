@@ -34,7 +34,8 @@
     "react-scripts": "3.4.1",
     "react-slick": "^0.27.11",
     "react-swipeable-views": "^0.13.9",
-    "rsuite": "^4.8.1"
+    "rsuite": "^4.8.1",
+    "vcards-js": "^2.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

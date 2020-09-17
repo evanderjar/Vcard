@@ -47,6 +47,10 @@ function Formulario() {
   let [codigoPostal, SetCodigoPostal] = useState("")
   let [provincia, SetProvincia] = useState("")
   let [telefonoLocal, SetTelefonoLocal] = useState("")
+  let [clave, SetClave] = useState("")
+  let [confirmarClave, SetConfirmarClave] = useState("")
+  let [primeraVez, SetPrimeraVez] = useState(false)
+  
 
 
   /************************************************ */
@@ -60,29 +64,97 @@ function Formulario() {
 
   useEffect(() => {
     var usuario = localStorage.getItem('usuario')
-    SetCorreo(usuario)
-    db.collection('Datos_usuarios').where("correo", "==",usuario)
-    .onSnapshot(function(querySnapshot) {
-        var reporte = [];
-        querySnapshot.forEach(function(doc) {
+
+    if(localStorage.getItem('ruta') !== ""){
+      db.collection('Datos_usuarios').where('correo', '==', usuario).where('nombre_ruta', '==', localStorage.getItem('ruta')).get()
+      .then(snapshot => {
+        var reporte = []
+        if (snapshot.empty) {
+          console.log("no exite")
+            SetActualizar(false)
+            SetMostrarReturn(true)
+        }else{
+          snapshot.forEach(doc => {
             let datos = doc.data()
             datos.$key = doc.id
             reporte.push(datos);
-        });
-        if(reporte.length === 0){
-          console.log("no exite")
-          SetActualizar(false)
-          SetMostrarReturn(true)
-        }else {
+          });
+
+          reporte.forEach(element=>{
+            if(element.nombre_ruta === localStorage.getItem('ruta')){
+              reporte = element
+            }
+          })
+
           console.log(reporte)
+
+            
           if(reporte.foto_perfil ==""){
             reporte.foto_perfil = imagen_anonimo
             SetImagen("")
           }else{
             SetImagen(reporte.foto_perfil)
           }
+          console.log(imagen)
 
           console.log(reporte)
+          SetCorreo(usuario)
+          SetKey(reporte.$key)
+          SetNombre(reporte.nombre)
+          SetApellido(reporte.apellido)
+          SetCodigo_telefono("")
+          SetTelefono(reporte.telefono)
+          SetCargo(reporte.cargo)
+          SetTwitter(reporte.twitter)
+          SetInstagram(reporte.instagram)
+          SetFacebook(reporte.facebook)
+          SetLinkedin(reporte.linkedin)
+          SetSkype(reporte.skype)
+          SetWeb(reporte.web)
+          SetTiktok(reporte.tiktok)
+          SetLeadPage(reporte.leadPage)
+          SetPais(reporte.pais)
+          SetDireccion(reporte.direccion)
+          SetCiudad(reporte.ciudad)
+          SetCodigoPostal(reporte.codigoPostal)
+          SetProvincia(reporte.provincia)
+          SetTelefonoLocal(reporte.telefonoLocal)
+          SetNombre_ruta(reporte.nombre_ruta)
+          SetImagen(reporte.foto_perfil)
+          SetClave(reporte.clave)
+          SetPrimeraVez(reporte.tiene_usuario)
+
+
+          SetActualizar(true)
+          SetMostrarReturn(true)
+        }
+      })
+    }else{
+      db.collection('Datos_usuarios').where('correo', '==', usuario).get()
+      .then(snapshot => {
+        var reporte = []
+        if (snapshot.empty) {
+          console.log("no exite")
+            SetActualizar(false)
+            SetMostrarReturn(true)
+        }else{
+          snapshot.forEach(doc => {
+            let datos = doc.data()
+            datos.$key = doc.id
+            reporte.push(datos);
+          })
+          console.log(reporte)
+            
+          if(reporte.foto_perfil ==""){
+            reporte.foto_perfil = imagen_anonimo
+            SetImagen("")
+          }else{
+            SetImagen(reporte.foto_perfil)
+          }
+          console.log(imagen)
+
+          console.log(reporte)
+          SetCorreo(usuario)
           SetKey(reporte[0].$key)
           SetNombre(reporte[0].nombre)
           SetApellido(reporte[0].apellido)
@@ -105,12 +177,16 @@ function Formulario() {
           SetTelefonoLocal(reporte[0].telefonoLocal)
           SetNombre_ruta(reporte[0].nombre_ruta)
           SetImagen(reporte[0].foto_perfil)
+          SetClave(reporte[0].clave)
+          SetPrimeraVez(reporte[0].tiene_usuario)
 
 
           SetActualizar(true)
           SetMostrarReturn(true)
         }
-    })
+      })
+    }
+    
 
   },[])
 
@@ -228,7 +304,7 @@ function Formulario() {
             <div class="form-group">
             <label  style={style.titulos}>
               Correo:
-              <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required readOnly/>
+              <input style={{fontSize: "15px"}} class="form-control" type="email" name="correo" value={correo} onChange={(event)=>{SetCorreo(event.target.value)}} required/>
             </label>
             </div>
             </CRow>
@@ -276,6 +352,26 @@ function Formulario() {
                 </label>
               </div>
             </CRow>
+            {
+              primeraVez ? 
+              ''
+              :
+              <CRow>
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Clave:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="clave" value={clave} onChange={(event)=>{SetClave(event.target.value)}} required/>
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label style={style.titulos}>
+                  Repetir Clave:
+                  <input style={{fontSize: "15px"}} class="form-control" type="text" name="confirmarClave" value={confirmarClave} onChange={(event)=>{SetConfirmarClave(event.target.value)}} required/>
+                </label>
+              </div>
+            </CRow>
+            }
           </form>
         </div>;
       case 1:
@@ -387,40 +483,102 @@ function Formulario() {
         const split_tiktok = tiktok.split("/")
         var cuenta_tiktok = tiktok
         if(split_tiktok.length === 1){
-          console.log(cuenta_tiktok)
           cuenta_tiktok = "https://www.tiktok.com/"+tiktok
         }
 
-
-        db.collection("Datos_usuarios").doc(key).set({
-          nombre, 
-          apellido, 
-          nombre_ruta,
-          telefono,
-          correo, 
-          twitter:cuenta_twitter,
-          cargo,
-          instagram:cuenta_instagram,
-          facebook,
-          linkedin,
-          skype,
-          web,
-          foto_perfil:imagen,
-          tiktok:cuenta_tiktok,
-          pais,
-          direccion,
-          ciudad,
-          codigoPostal,
-          provincia,
-          telefonoLocal,
-          leadPage
-        })
-        .then(resultado=>{
-            console.log("Atualizo")
-            // window.location ="/#/"+nombre_ruta 
-            SetExisteCodigo(false)
-            localStorage.setItem('cargo_formulario','true')
-        })
+        if(!primeraVez){
+          db.collection('Datos_usuarios').where('tiene_usuario', '==', true).get()
+          .then(snapshot => {
+            var reporte = []
+            var contador = 0
+            snapshot.forEach(doc => {
+              let datos = doc.data()
+              datos.$key = doc.id
+              reporte.push(datos);
+            });
+            reporte.forEach(element=>{
+              if(element.usuario === correo){
+                console.log("son iguales")
+                contador++
+              }
+            })
+            if(contador === 1){
+              alert("El correo utilizado ya esta en uso")
+            }else{
+              db.collection("Datos_usuarios").doc(key).set({
+                nombre, 
+                apellido, 
+                nombre_ruta,
+                telefono,
+                correo, 
+                twitter:cuenta_twitter,
+                cargo,
+                instagram:cuenta_instagram,
+                facebook,
+                linkedin,
+                skype,
+                web,
+                foto_perfil:imagen,
+                tiktok:cuenta_tiktok,
+                pais,
+                direccion,
+                ciudad,
+                codigoPostal,
+                provincia,
+                telefonoLocal,
+                leadPage,
+                usuario:correo,
+                clave,
+                enviado:true,
+                tiene_usuario:true
+      
+              })
+              .then(resultado=>{
+                  console.log("Atualizo")
+                  // window.location ="/#/"+nombre_ruta 
+                  SetExisteCodigo(false)
+                  localStorage.setItem('cargo_formulario','true')
+              })
+            }
+            
+          })
+        }else{
+          
+          db.collection("Datos_usuarios").doc(key).set({
+            nombre, 
+            apellido, 
+            nombre_ruta,
+            telefono,
+            correo, 
+            twitter:cuenta_twitter,
+            cargo,
+            instagram:cuenta_instagram,
+            facebook,
+            linkedin,
+            skype,
+            web,
+            foto_perfil:imagen,
+            tiktok:cuenta_tiktok,
+            pais,
+            direccion,
+            ciudad,
+            codigoPostal,
+            provincia,
+            telefonoLocal,
+            leadPage,
+            usuario:correo,
+            clave,
+            enviado:true,
+            tiene_usuario:true
+  
+          })
+          .then(resultado=>{
+              console.log("Atualizo")
+              // window.location ="/#/"+nombre_ruta 
+              SetExisteCodigo(false)
+              localStorage.setItem('cargo_formulario','true')
+          })
+        }
 
       }else{
         localStorage.clear()
@@ -453,7 +611,7 @@ function Formulario() {
           cuenta_tiktok = "https://www.tiktok.com/"+tiktok
         }
 
-
+        
 
         /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
         await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
@@ -469,9 +627,10 @@ function Formulario() {
               console.log("no existe")
               contador++
               SetExisteCodigo(false)
-              GuardarFicha({nombre, 
+              GuardarFicha({
+                nombre, 
                 apellido, 
-                nombre_ruta:rutadinamica,
+                nombre_ruta,
                 telefono,
                 correo, 
                 twitter:cuenta_twitter,
@@ -489,7 +648,11 @@ function Formulario() {
                 codigoPostal,
                 provincia,
                 telefonoLocal,
-                leadPage
+                leadPage,
+                usuario:correo,
+                clave,
+                enviado:true,
+                tiene_usuario:true
               })
               .then(Guardo=>{
                 console.log("Guardo")

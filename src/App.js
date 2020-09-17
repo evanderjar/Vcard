@@ -50,7 +50,6 @@ function App() {
 
   return (
     <div>
-      <AuthProvider>
         <HashRouter>
           <Switch>
             <Route exact path="/">
@@ -79,7 +78,6 @@ function App() {
             </Route>
           </Switch>
         </HashRouter>
-      </AuthProvider>
     </div>
   );
 }

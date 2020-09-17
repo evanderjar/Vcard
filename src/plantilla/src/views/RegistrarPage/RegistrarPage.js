@@ -25,7 +25,10 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "../../assets/img/bg.jpg";
 
-import { app } from '../../../../firebase'
+import { app, db } from '../../../../firebase'
+
+/***** CONSULTAS BD ***************** */
+import { GuardarFicha } from '../../../../consultas/consultas' 
 
 
 const useStyles = makeStyles(styles);
@@ -47,19 +50,69 @@ export default function RegistrarPage(props) {
   let [usuario, SetUsuario] = useState("")
   let [clave, SetClave] = useState("")
   let [confirmarClave, SetConfirmarClave] = useState("")
+  let [contador, Setcontador] = useState(0)
 
   const NuevoUsuario = async (event) => {
     event.preventDefault();
 
     if(clave === confirmarClave){
-        try {
-            await app
-              .auth()
-              .createUserWithEmailAndPassword(usuario, clave)
-                window.location ="/#/login" 
-          } catch (error) {
-            alert(error);
-          }
+
+      await db.collection('Datos_usuarios').where('usuario', '==', usuario).get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          var fecha = new Date()
+          fecha = fecha.getDate() + "/" + (fecha.getMonth() +1) + "/" + fecha.getFullYear()
+          const rutadinamica = Math.random().toString(36).substring(2)
+          Setcontador(1)
+          GuardarFicha({
+            nombre:"", 
+            apellido:"", 
+            nombre_ruta:rutadinamica,
+            telefono:"",
+            correo:usuario, 
+            twitter:"",
+            cargo:"",
+            instagram:"",
+            facebook:"",
+            linkedin:"",
+            skype:"",
+            web:"",
+            foto_perfil:"",
+            tiktok:"",
+            pais:"",
+            direccion:"",
+            ciudad:"",
+            codigoPostal:"",
+            provincia:"",
+            telefonoLocal:"",
+            leadPage:"",
+            fecha,
+            usuario,
+            clave,
+            enviado:true,
+            tiene_usuario:true
+          })
+          .then(resultado=>{
+              console.log("Guardo")
+              window.location ="/#/login" 
+          })
+          
+        }else{
+          alert('Hay un usuario con las credenciales dadas.');
+        }
+      
+      })
+          
+        
+      
+      // try {
+        //     await app
+        //       .auth()
+        //       .createUserWithEmailAndPassword(usuario, clave)
+        //         window.location ="/#/login" 
+        //   } catch (error) {
+        //     alert(error);
+        //   }
     }else{
         alert ("Las contraseñas no son iguales")
     }

@@ -27,7 +27,7 @@ import styles from "../../assets/jss/material-kit-react/views/loginPage";
 import image from "../../assets/img/sign.jpg";
 import logo from "../../../../assets/tugogo.png";
 
-import { app } from '../../../../firebase'
+import { app, db } from '../../../../firebase'
 
 const useStyles = makeStyles(styles);
 
@@ -49,17 +49,31 @@ export default function LoginPage(props) {
       console.log(usuario)
       console.log(clave)
 
-      try {
-          await app
-            .auth()
-            .signInWithEmailAndPassword(usuario, clave);
-            localStorage.setItem('cargo_formulario','false')
-            localStorage.setItem('usuario',usuario)
-
-            window.location ="/#/formulario" 
-        } catch (error) {
-          alert(error);
+      await db.collection('Datos_usuarios').where('usuario', '==', usuario).get()
+      .then(snapshot => {
+        if (snapshot.empty) {
+          alert('No se encuentran usuarios con las credenciales dadas.');
+          
+        }else{
+          console.log("Existe")
+          localStorage.setItem('cargo_formulario','false')
+          localStorage.setItem('usuario',usuario)
+          localStorage.setItem('ruta',"")
+          window.location ="/#/formulario"
         }
+        })
+
+      // try {
+      //     await app
+      //       .auth()
+      //       .signInWithEmailAndPassword(usuario, clave);
+      //       localStorage.setItem('cargo_formulario','false')
+      //       localStorage.setItem('usuario',usuario)
+
+      //       window.location ="/#/formulario" 
+      //   } catch (error) {
+      //     alert(error);
+      //   }
 
 
   }
