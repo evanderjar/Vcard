@@ -149,7 +149,7 @@ if (mostrarReturn){
       <>
       <Navbar/>
         <div className="content">
-        <Row>
+        <Row style={{    marginRight: "350px", paddingBottom: "15px"}}>
           <div className="update ml-auto mr-auto">
               </div>
               <div className="update ml-auto mr-auto">
@@ -202,7 +202,7 @@ if (mostrarReturn){
           </Row>
           <Row>
             <Col md="12">
-              <Card>
+              <Card style={{marginLeft: "30px", marginRight: "30px"}}>
                 <CardHeader>
                   <CardTitle tag="h4">Vcars Masivas</CardTitle>
                 </CardHeader>
@@ -210,10 +210,10 @@ if (mostrarReturn){
                   <Table responsive style={{paddingBottom: "92px"}}>
                     <thead className="text-primary" style={{textAlign:"center"}}>
                       <tr>
-                        <th>Ruta Dinamica</th>
-                        <th>fecha</th>
-                        <th>Acciones</th>
-                        <th>Enviar</th>
+                        <th style={{textAlign: "center"}}>Ruta Dinamica</th>
+                        <th align="center">fecha</th>
+                        <th align="center">Acciones</th>
+                        <th style={{textAlign: "center"}}>Enviar</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -229,6 +229,7 @@ if (mostrarReturn){
                             <td component="th" scope="row">Por enviar</td>
                         }
                         <td align="center">
+<<<<<<< HEAD
                         <Button type="submit" className="btn-round" color="primary" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
                                 Vcard
                         </Button>
@@ -236,6 +237,14 @@ if (mostrarReturn){
                             Enviado
                         </Button>
                         
+=======
+                        <button style={{marginRight: "10px"}} className="btn-round" color="primary" type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
+                                Vcard
+                            </button>
+                            <button className="btn-round" color="primary" type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
+                                Enviado
+                            </button>
+>>>>>>> 826b3d80ce007a8c0055fe8929e0fa2104af03c5
                         </td>
                         </tr>
                        ))}
