@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react'
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -23,26 +23,49 @@ import CustomInput from "../../components/CustomInput/CustomInput.js";
 
 import styles from "../../assets/jss/material-kit-react/views/loginPage.js";
 
-import image from "../../assets/img/bg2.jpg";
-import logo from "../../../../assets/tugogo.png";
+import image from "../../assets/img/bg.jpg";
+
+import { app } from '../../../../firebase'
+
 
 const useStyles = makeStyles(styles);
 
 export default function RegistrarPage(props) {
-  // const imageClasses = classNames(
-  //   classes.imgRaised,
-  //   classes.imgRoundedCircle,
-  //   classes.imgFluid
-  // );
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const classes = useStyles();
   const { ...rest } = props;
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
+  const navImageClasses = classNames(classes.imgRounded, classes.imgGallery);
+
+  let [usuario, SetUsuario] = useState("")
+  let [clave, SetClave] = useState("")
+  let [confirmarClave, SetConfirmarClave] = useState("")
+
+  const NuevoUsuario = async (event) => {
+    event.preventDefault();
+
+    if(clave === confirmarClave){
+        try {
+            await app
+              .auth()
+              .createUserWithEmailAndPassword(usuario, clave)
+                window.location ="/#/login" 
+          } catch (error) {
+            alert(error);
+          }
+    }else{
+        alert ("Las contraseñas no son iguales")
+    }
+}
   return (
     <div>
-      <image src={logo} alt="logo"/>
       <Header
         absolute
         color="transparent"
@@ -59,13 +82,13 @@ export default function RegistrarPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={5}>
+            <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
+                <form onSubmit={NuevoUsuario} className={classes.form}>
                   <CardHeader style={{backgroundImage: "linear-gradient(to right, #FFB762 , #FF9459)"}} className={classes.cardHeader}>
-                    <h2 style={{color:"white"}}>Registrar</h2>
+                    <h2 style={{fontWeight: "bold", color:"white"}}>Registrar</h2>
                   </CardHeader>
-                  <p className={classes.divider}>Tus datos</p>
+                  <p style={{fontSize: "15px", color: "#9a9c9e"}} className={classes.divider}>Tus datos</p>
                   <CardBody>
                     <CustomInput
                       labelText="Correo..."
@@ -75,6 +98,7 @@ export default function RegistrarPage(props) {
                       }}
                       inputProps={{
                         type: "email",
+                        onChange:(event)=>{SetUsuario(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Email className={classes.inputIconsColor} />
@@ -90,6 +114,7 @@ export default function RegistrarPage(props) {
                       }}
                       inputProps={{
                         type: "password",
+                        onChange:(event)=>{SetClave(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Lock className={classes.inputIconsColor} />
@@ -106,6 +131,7 @@ export default function RegistrarPage(props) {
                       }}
                       inputProps={{
                         type: "password",
+                        onChange:(event)=>{SetConfirmarClave(event.target.value)},
                         endAdornment: (
                           <InputAdornment position="end">
                             <Lock className={classes.inputIconsColor} />
@@ -116,7 +142,7 @@ export default function RegistrarPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button style={{backgroundColor: "#FFB762"}} type="button" size="lg">
+                    <Button style={{backgroundColor: "#FFB762", fontSize: "12px"}} type="submit" size="lg">
                       REGISTRARSE
                     </Button>
                   </CardFooter>

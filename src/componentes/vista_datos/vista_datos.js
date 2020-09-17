@@ -142,14 +142,12 @@ function VistaDatos() {
                   {usuario.twitter === "" || usuario.twitter === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.twitter} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={twitter} alt="tw"></img>
-                      {/* <i class="fab fa-twitter-square" Style="font-size: 35px !important; color:#00acee !important"></i> */}
                     </a>
                   }
 
                   {usuario.facebook === "" || usuario.facebook === undefined ? '': 
                       <a style={VcardStile.redes2} target="_blank" href={usuario.facebook} rel="noopener noreferrer">
                        <img style={VcardStile.icono} src={facebook} alt="tw"></img>
-                         {/* <i class="fab fa-facebook" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                       </a>
                   }
 
@@ -162,35 +160,28 @@ function VistaDatos() {
                   {usuario.skype === "" || usuario.skype === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.skype} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={skype} alt="tw"></img>
-                      {/* <i class="fab fa-skype" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                     </a>
                   }
                   {usuario.web === "" || usuario.web === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.web} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={web} alt="tw"></img>
-                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
                   {usuario.instagram === "" || usuario.instagram === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.instagram} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={instagram} alt="tw"></img>
-                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
 
                   {usuario.tiktok === "" || usuario.tiktok === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.tiktok} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={tiktok} alt="tw"></img>
-                      {/* <i class="fab fa-tiktok"></i> */}
-                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
 
                   {usuario.leadPage === "" || usuario.leadPage === undefined ? '': 
                     <a style={VcardStile.redes2} target="_blank" href={usuario.leadPage} rel="noopener noreferrer">
                       <img style={VcardStile.icono} src={pagina} alt="tw"></img>
-                      {/* <i class="fas fa-globe-americas"></i> */}
-                      {/* <i class="fas fa-globe-americas" Style="font-size: 35px !important;"></i> */}
                     </a>
                   }
 
@@ -209,7 +200,6 @@ function VistaDatos() {
                     {/* ENVIAR */}
                     <a style={VcardStile.redes2} href={`sms:+${usuario.telefono}?body=Hola, como estas?`} target="_blank" rel="noopener noreferrer">
                     <img style={VcardStile.icono} src={sms} alt="tw"></img>
-                      {/* <i class="fas fa-sms" Style="font-size: 35px !important; color:#3b5998 !important"></i> */}
                     </a>
                     </CRow>
                 </div>
@@ -220,7 +210,7 @@ function VistaDatos() {
               <button style={VcardStile.boton3}>
               <a style={{marginRight: "10px"}} data-action="share/whatsaap/share" href={`https://api.whatsapp.com/send?text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
               <img style={VcardStile.icono} src={what} alt="tw"></img>
-                  </a>
+              </a>
               </button>
               <button style={VcardStile.boton3}>
               <a style={{marginRight: "10px"}} href={`https://telegram.me/share/url?url=http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}&text=Te invito a visitar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/%23/${usuario.nombre_ruta}`} target="_blank" rel="noopener noreferrer">
@@ -228,7 +218,7 @@ function VistaDatos() {
                   </a>
               </button>
               <button style={VcardStile.boton3}>
-              <a style={{marginRight: "10px"}} href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">  
+              <a  href={`mailto:?subject=VCard&body=Hola lo invito a revisar la Vcard de ${usuario.nombre} ${usuario.apellido} - http://tienda.deproinf.com.ve/#/${usuario.nombre_ruta}?`} target="_blank" rel="noopener noreferrer">  
                     <i class="fas fa-envelope" Style="font-size: 20px !important; color:#ffffff !important"></i>
                   </a>
               </button>

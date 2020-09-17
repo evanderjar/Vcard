@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom'
 
 import styles from "../../assets/jss/material-kit-react/views/loginPage";
 
-import image from "../../assets/img/bg7.jpg";
+import image from "../../assets/img/sign.jpg";
 import logo from "../../../../assets/tugogo.png";
 
 import { app } from '../../../../firebase'
@@ -82,13 +82,13 @@ export default function LoginPage(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={5}>
+            <GridItem xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form} onSubmit={EntrarLogin}>
                   <CardHeader style={{backgroundImage: "linear-gradient(to right, #1CBBC4 , #4FD190)"}} className={classes.cardHeader}>
-                    <h2 style={{color:"white"}}>Login</h2>
+                    <h2 style={{fontWeight: "bold", color:"white"}}>Login</h2>
                   </CardHeader>
-                  <p className={classes.divider}>Tus datos</p>
+                  <p style={{fontSize: "15px", color: "#9a9c9e"}} className={classes.divider}>Tus datos</p>
                   <CardBody>
                     <CustomInput
                       labelText="Correo..."
@@ -125,11 +125,11 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button type="submit" style={{backgroundColor: "#4FD190"}} size="lg">
+                    <Button type="submit" style={{backgroundColor: "#4FD190", fontSize: "12px", marginRight: "8px"}} size="lg">
                       Iniciar Sesion
                     </Button>
                     <Link to="/registrar">
-                    <Button style={{backgroundColor: "#4FD190"}} size="lg">
+                    <Button style={{backgroundColor: "#4FD190", fontSize: "12px"}} size="lg">
                       SIN CUENTA? REGISTRATE AQUI.
                     </Button>
                     </Link>

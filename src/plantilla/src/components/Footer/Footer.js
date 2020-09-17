@@ -33,7 +33,7 @@ export default function Footer(props) {
           &copy; {1900 + new Date().getYear()} , powered by{" "}
           <Favorite className={classes.icon} /> 
           <a
-            href="https://www.creative-tim.com?ref=mkr-footer"
+            href="#"
             className={aClasses}
             target="_blank"
           >

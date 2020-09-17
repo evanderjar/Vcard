@@ -21,7 +21,7 @@ import styles from "../../assets/jss/material-kit-react/components/headerLinksSt
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinksRegistro(props) {
+export default function HeaderLinksBuscar(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   setTimeout(function() {
     setCardAnimation("");
@@ -41,17 +41,29 @@ export default function HeaderLinksRegistro(props) {
             rightLinks={
               <List className={classes.list}>
                 <ListItem className={classes.listItem}>
-                <img style={{width: "90px", height: "112px", marginRight: "915px"}} src={logo} alt="..." className={navImageClasses} />
+                <img style={{width: "90px", height: "112px", marginRight: "765px"}} src={logo} alt="..." className={navImageClasses} />
                 </ListItem>
                 <ListItem className={classes.listItem}>
-                <Link style={{color:"#FFB762"}} to="/login">
+                <Link style={{color:"#1CBBC4"}} to="/login">
+                  <Button
+                    color="transparent"
+                    className={
+                      classes.navLink
+                    }
+                  >{" "}
+                   <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-user"}/> Iniciar Sesion
+                  </Button>
+                  </Link>
+                </ListItem>
+                <ListItem className={classes.listItem}>
+                <Link style={{color:"#1CBBC4"}} to="/registrar">
                   <Button style={{marginRight: "60px"}}
                     color="transparent"
                     className={
                       classes.navLink
                     }
                   >{" "}
-                    Iniciar Sesion
+                    <i style={{fontSize: "13px", paddingRight: "5px"}} className={"fa fa-users"}/>Resgistrarse
                   </Button>
                   </Link>
                 </ListItem>

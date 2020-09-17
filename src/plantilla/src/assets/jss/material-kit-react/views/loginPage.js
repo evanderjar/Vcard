@@ -8,15 +8,15 @@ const signupPageStyle = {
     position: "relative",
     paddingTop: "20vh",
     color: "#FFFFFF",
-    paddingBottom: "200px"
+    paddingBottom: "100px"
   }, 
    cont2: {
     ...container,
     zIndex: "2",
     position: "relative",
-    paddingTop: "15vh",
+    paddingTop: "10vh",
     color: "#FFFFFF",
-    paddingBottom: "100px"
+    paddingBottom: "60px"
   },
   cardHidden: {
     opacity: "0",
@@ -66,15 +66,19 @@ const signupPageStyle = {
     marginBottom: "15px"
   },
   cardH: {
+    backgroundColor:"#1CBBC4",
     width: "auto",
     textAlign: "center",
     marginLeft: "0px",
     marginRight: "0px",
-    marginTop: "-40px",
+    marginTop: "-70px",
     padding: "20px 0",
+    paddingBottom: "0px",
     marginBottom: "15px",
     border: "0",
-    borderRadius: "0px",
+    borderTopRightRadius: "15px",
+    borderTopLeftRadius: "15px"
+
   },
   cardB: {
     width: "auto",
@@ -123,6 +127,12 @@ const signupPageStyle = {
   },
   inputIconsColor: {
     color: "#495057"
+  },
+  prueba:{
+    border: "solid 1px",
+     marginTop: "15px", 
+     width: "140px", 
+     color:"#1CBBC4"
   }
 };
 
