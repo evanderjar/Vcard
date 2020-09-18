@@ -34,6 +34,8 @@ import pagina from '../../../../assets/ICONOS COLOR/pagina.png';
 import { db } from '../../../../firebase'
 import { Row } from 'react-bootstrap';
 
+import { saveAs } from 'file-saver';
+
 
 const useStyles = makeStyles(styles);
 
@@ -110,19 +112,24 @@ export default function RegistrarPage(props) {
   },[])
 
 
-  // const DescargarVCF = async(event) => {
-  //   event.preventDefault();
-    
-  //   fetch('http://localhost:4000/descargar-archivo', {
-  //     method: 'GET', // or 'PUT'
-  //     body: JSON.stringify(usuario), // data can be `string` or {object}!
-  //     headers:{
-  //       'Content-Type': 'application/json'
-  //     }
-  //   }).then(res => res.json())
-  //   .catch(error => console.error('Error:', error))
-  //   .then(response => console.log('Success:', response));
-  // }
+  const DescargarVCF = async(event) => {
+    event.preventDefault();
+    console.log(usuario)
+    fetch('http://api.tugogo.com.mx/descargar-archivo', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(usuario), // data can be `string` or {object}!
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.blob();
+    })
+    .then(function(blob) {
+    saveAs(blob, "Vcard.vcf");
+    }).catch(error => {
+    console.log("error")
+    })
+  }
 
 
 if(mostrarReturn){
@@ -231,7 +238,9 @@ if(mostrarReturn){
                       </a>
                     </button>
                   }
-                    
+                    {/* <Button style={{marginRight: "330px"}} justIcon round color="white" onClick={DescargarVCF}>
+                  <i style={{fontSize: "15px"}} className={"fa fa-download"}/>
+                  </Button> */}
                     
                     </Row>
                   </div>

@@ -9,8 +9,10 @@ import BuscarVcard from './plantilla/src/views/BuscarPage/buscarVcard'
 import LoginPage from './plantilla/src/views/LoginPage/LoginPage'
 import RegistrarPage from './plantilla/src/views/RegistrarPage/RegistrarPage'
 import ProfilePage from './plantilla/src/views/ProfilePage/ProfilePage'
-import Formulario2 from './plantilla/src2/views/User';
-import Tables from './plantilla/src2/views/Tables';
+// import Formulario2 from './plantilla/src2/views/User';
+// import Tables from './plantilla/src2/views/Tables';
+import Formulario from './componentes/formulario/formulario'
+import TodasVcard from './componentes/manejo-vcards/todasVcars'
 // import Login from './componentes/login/login'
 // import Registrar from './componentes/registrar/registrar'
 import CrearUsuario from './componentes/crear-usuarios/crear-usuarios'
@@ -60,7 +62,7 @@ function App() {
               <BuscarVcard />
             </Route>
             <Route exact path="/formulario">
-              <Formulario2 />
+              <Formulario />
             </Route>
             <Route exact path="/login">
               <LoginPage />
@@ -72,7 +74,7 @@ function App() {
               <CrearUsuario />
             </Route>
             <Route exact path="/Administrar-Vcard">
-              <Tables />
+              <TodasVcard />
             </Route>
             <Route exact path="/:id">
               <ProfilePage />

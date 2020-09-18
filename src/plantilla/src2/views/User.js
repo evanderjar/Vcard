@@ -220,9 +220,6 @@ function Formulario2() {
         /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TWITTER****** */
         const split_twitter = twitter.split("/")
         var cuenta_twitter = twitter
-        console.log(twitter)
-        console.log(cuenta_twitter)
-        console.log(split_twitter)
 
         if(split_twitter.length === 1 && split_twitter[0] !== "" ){
           cuenta_twitter = "https://twitter.com/"+twitter
@@ -336,97 +333,96 @@ function Formulario2() {
           })
         }
 
-      }else{
-        localStorage.clear()
-        telefono = codigo_telefono+telefono
-        const rutadinamica = Math.random().toString(36).substring(2)
-        SetNombre_ruta(rutadinamica)
+      }
+    //   else{
+    //     localStorage.clear()
+    //     telefono = codigo_telefono+telefono
+    //     const rutadinamica = Math.random().toString(36).substring(2)
+    //     SetNombre_ruta(rutadinamica)
 
 
-        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TWITTER****** */
-        const split_twitter = twitter.split("/")
-        var cuenta_twitter = twitter
-        console.log(twitter)
-        console.log(cuenta_twitter)
-        console.log(split_twitter)
+    //     /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TWITTER****** */
+    //     const split_twitter = twitter.split("/")
+    //     var cuenta_twitter = twitter
+    //     console.log(twitter)
+    //     console.log(cuenta_twitter)
+    //     console.log(split_twitter)
 
-        if(split_twitter.length === 1 && split_twitter[0] !== "" ){
-          cuenta_twitter = "https://twitter.com/"+twitter
-        }
+    //     if(split_twitter.length === 1 && split_twitter[0] !== "" ){
+    //       cuenta_twitter = "https://twitter.com/"+twitter
+    //     }
 
-        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO INSTAGRAM****** */
-        const split_instagram = instagram.split("/")
-        var cuenta_instagram = instagram
-        if(split_instagram.length === 1 && split_instagram[0] !== ""){
-          console.log(cuenta_instagram)
-          cuenta_instagram = "https://instagram.com/"+instagram
-        }
+    //     /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO INSTAGRAM****** */
+    //     const split_instagram = instagram.split("/")
+    //     var cuenta_instagram = instagram
+    //     if(split_instagram.length === 1 && split_instagram[0] !== ""){
+    //       console.log(cuenta_instagram)
+    //       cuenta_instagram = "https://instagram.com/"+instagram
+    //     }
 
-        /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TIKTOK****** */
-        const split_tiktok = tiktok.split("/")
-        var cuenta_tiktok = tiktok
-        if(split_tiktok.length === 1 && split_tiktok[0] !== ""){
-          cuenta_tiktok = "https://www.tiktok.com/"+tiktok
-        }
+    //     /***** MODIFICAR SI ESTA COLOCANDO EL NOMBRE DE USUARIO TIKTOK****** */
+    //     const split_tiktok = tiktok.split("/")
+    //     var cuenta_tiktok = tiktok
+    //     if(split_tiktok.length === 1 && split_tiktok[0] !== ""){
+    //       cuenta_tiktok = "https://www.tiktok.com/"+tiktok
+    //     }
 
         
 
-        /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
-        await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
-        .onSnapshot(function(querySnapshot) {
-            var reporte = [];
-            var contador = 0
-            querySnapshot.forEach(function(doc) {
-                let datos = doc.data()
-                datos.$key = doc.id
-                reporte.push(datos);
-            });
-            if(reporte.length === 0 ){
-              console.log("no existe")
-              contador++
-              SetExisteCodigo(false)
-              GuardarFicha({
-                nombre, 
-                apellido, 
-                nombre_ruta,
-                telefono,
-                correo, 
-                twitter:cuenta_twitter,
-                cargo,
-                instagram:cuenta_instagram,
-                facebook,
-                linkedin,
-                skype,
-                web,
-                foto_perfil:imagen,
-                tiktok:cuenta_tiktok,
-                pais,
-                direccion,
-                ciudad,
-                codigoPostal,
-                provincia,
-                telefonoLocal,
-                leadPage,
-                usuario:correo,
-                clave,
-                enviado:true,
-                tiene_usuario:true
-              })
-              .then(Guardo=>{
-                console.log("Guardo")
-                // window.location ="/#/"+nombre_ruta 
-                SetExisteCodigo(false)
-                localStorage.setItem('cargo_formulario','true')
-              })
-              console.log(reporte)
-              console.log(contador)
-            }
-            if(reporte.length > 0 && contador === 0){
-              SetExisteCodigo(true)
-            }
-        })
-      }
-  };
+    //     /********* CONSULTAR SI EL NOMBRE DE LA RUTA EXITE EN LA BD **************************** */
+    //     await db.collection('Datos_usuarios').where("nombre_ruta", "==",rutadinamica)
+    //     db.collection('Datos_usuarios').where('correo', '==', usuario).get()
+    //     .then(snapshot => {
+    //       var reporte = []
+    //       if (snapshot.empty) {
+    //         SetExisteCodigo(true)
+    //       }else{
+    //         snapshot.forEach(doc => {
+    //           let datos = doc.data()
+    //           datos.$key = doc.id
+    //           reporte.push(datos);
+    //         })
+    //         contador++
+    //         SetExisteCodigo(false)
+    //         GuardarFicha({
+    //           nombre, 
+    //           apellido, 
+    //           nombre_ruta,
+    //           telefono,
+    //           correo, 
+    //           twitter:cuenta_twitter,
+    //           cargo,
+    //           instagram:cuenta_instagram,
+    //           facebook,
+    //           linkedin,
+    //           skype,
+    //           web,
+    //           foto_perfil:imagen,
+    //           tiktok:cuenta_tiktok,
+    //           pais,
+    //           direccion,
+    //           ciudad,
+    //           codigoPostal,
+    //           provincia,
+    //           telefonoLocal,
+    //           leadPage,
+    //           usuario:correo,
+    //           clave,
+    //           enviado:true,
+    //           tiene_usuario:true
+    //         })
+    //         .then(Guardo=>{
+    //           console.log("Guardo")
+    //           // window.location ="/#/"+nombre_ruta 
+    //           SetExisteCodigo(false)
+    //           localStorage.setItem('cargo_formulario','true')
+    //         })
+    //       }
+    //     })
+  
+  
+    // };
+}
 
     
   
@@ -481,7 +477,7 @@ function Formulario2() {
                     <CardTitle tag="h5">Editar Perfil</CardTitle>
                   </CardHeader>
                   <CardBody>
-                    <Form>
+                    <Form onSubmit={handleNext}>
                       <Row>
                         <Col className="pr-1" md="5">
                           <FormGroup>
@@ -744,7 +740,6 @@ function Formulario2() {
                             className="btn-round"
                             color="primary"
                             type="submit"
-                            onClick={handleNext}
                           >
                             ACTUALIZAR
                           </Button>

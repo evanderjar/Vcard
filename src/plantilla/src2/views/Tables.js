@@ -229,22 +229,12 @@ if (mostrarReturn){
                             <td component="th" scope="row">Por enviar</td>
                         }
                         <td align="center">
-<<<<<<< HEAD
-                        <Button type="submit" className="btn-round" color="primary" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
+                        <Button style={{marginRight: "10px"}} className="btn-round" color="primary" type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
                                 Vcard
-                        </Button>
-                        <Button type="submit" value={row.nombre_ruta} onClick = {modificarEstatus} style={{marginLeft:"5px"}} className="btn-round" color="primary">
-                            Enviado
-                        </Button>
-                        
-=======
-                        <button style={{marginRight: "10px"}} className="btn-round" color="primary" type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
-                                Vcard
-                            </button>
-                            <button className="btn-round" color="primary" type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
+                            </Button>
+                            <Button className="btn-round" color="primary" type="submit" value={row.nombre_ruta} onClick = {modificarEstatus}>
                                 Enviado
-                            </button>
->>>>>>> 826b3d80ce007a8c0055fe8929e0fa2104af03c5
+                            </Button>
                         </td>
                         </tr>
                        ))}

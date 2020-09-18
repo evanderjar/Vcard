@@ -42,7 +42,7 @@ function TodasVcard(){
     
     useEffect(() => {
 
-        db.collection('Datos_usuarios').where("tiene_usuario", "==",false)
+        db.collection('Datos_usuarios')
         .onSnapshot(function(querySnapshot) {
             var reporte = [];
             querySnapshot.forEach(function(doc) {
@@ -57,49 +57,49 @@ function TodasVcard(){
     },[])
 
 
-    const AgregarNuevoUsuario = (event) => {
-        event.preventDefault();
-        localStorage.setItem('modificar_credenciales',"false")
-        window.location = "/#/crear-usuarios"
-    }
+    // const AgregarNuevoUsuario = (event) => {
+    //     event.preventDefault();
+    //     localStorage.setItem('modificar_credenciales',"false")
+    //     window.location = "/#/crear-usuarios"
+    // }
 
-    const exportar = (event) => {
-        event.preventDefault();
-        console.log("aqui se exporta")
-    }
+    // const exportar = (event) => {
+    //     event.preventDefault();
+    //     console.log("aqui se exporta")
+    // }
 
-//    const Eliminar = (event) => {
-//         event.preventDefault();
-//         const key  = event.target.value
-//         var contador = 0
+   const Eliminar = (event) => {
+        event.preventDefault();
+        const key  = event.target.value
+        var contador = 0
         
 
-//         if(window.confirm("Seguro que quiere eliminar el usuario")){
-//             db.collection('Datos_usuarios').where("nombre_ruta", "==",key)
-//             .onSnapshot(function(querySnapshot) {
-//                 var reporte = [];
-//                 querySnapshot.forEach(function(doc) {
-//                     let datos = doc.data()
-//                     datos.$key = doc.id
-//                     reporte = datos ;
-//                     if(contador === 0){
-//                         contador++ 
-//                     }
-//                 });
+        if(window.confirm("Seguro que quiere eliminar el usuario")){
+            db.collection('Datos_usuarios').where("nombre_ruta", "==",key)
+            .onSnapshot(function(querySnapshot) {
+                var reporte = [];
+                querySnapshot.forEach(function(doc) {
+                    let datos = doc.data()
+                    datos.$key = doc.id
+                    reporte = datos ;
+                    if(contador === 0){
+                        contador++ 
+                    }
+                });
                 
-//                 if(contador === 1 && reporte.length !== 0){
-//                     console.log(reporte)
-//                     db.collection("Datos_usuarios").doc(reporte.$key).delete()
-//                     .then(aliminado=>{
-//                         localStorage.getItem('modificar_credenciales',"")
-//                         alert("se elimino con exito")
-//                     })
-//                 }
-//             })
-//         }else{
+                if(contador === 1 && reporte.length !== 0){
+                    console.log(reporte)
+                    db.collection("Datos_usuarios").doc(reporte.$key).delete()
+                    .then(aliminado=>{
+                        localStorage.getItem('modificar_credenciales',"")
+                        alert("se elimino con exito")
+                    })
+                }
+            })
+        }else{
 
-//         }  
-//     }
+        }  
+    }
 
 
     const GenerarDatos = (event) => {
@@ -170,15 +170,22 @@ function TodasVcard(){
         event.preventDefault()
         console.log(filtro)
         var buscar = true
+        var campo_buscar =""
         if(filtro === "Enviado"){
             buscar = true
+            campo_buscar = "enviado"
         }else if(filtro === "PorEnviar"){
             buscar = false
+            campo_buscar = "enviado"
+        }else if(filtro === "ConUsuario"){
+            buscar = true
+            campo_buscar = "tiene_usuario"
+        }else if(filtro === "SinUsuarios"){
+            buscar = false
+            campo_buscar = "tiene_usuario"
         }
 
-        console.log(buscar)
-
-        db.collection('Datos_usuarios').where("enviado", "==",buscar)
+        db.collection('Datos_usuarios').where(campo_buscar, "==",buscar)
         .onSnapshot(function(querySnapshot) {
             var reporte = [];
             querySnapshot.forEach(function(doc) {
@@ -193,17 +200,16 @@ function TodasVcard(){
 
 
 
-
 if (mostrarReturn){
     return (
         <div>
-            <button type="submit" onClick={AgregarNuevoUsuario}>
+            {/* <button type="submit" onClick={AgregarNuevoUsuario}>
                 Agregar nuevo usuario
-            </button>
+            </button> */}
             <div></div>
-            <button type="submit" onClick={exportar}>
+            {/* <button type="submit" onClick={exportar}>
                 Exportar
-            </button>
+            </button> */}
             <div></div>
             <select value={generarvariasRutas} onChange={(event)=>{SetGenerarvariasRutas(event.target.value)}}>
                 <option value="1">1</option>
@@ -224,6 +230,8 @@ if (mostrarReturn){
             <select value={filtro} onChange={(event)=>{SetFiltro(event.target.value)}}>
                 <option value="Enviado">Enviado</option>
                 <option value="PorEnviar">Por enviar</option>
+                <option value="ConUsuario">Registrados</option>
+                <option value="SinUsuarios">Por Registrar</option>
                 
             </select>
             <button type="submit" onClick={Filtrar}>
@@ -259,9 +267,9 @@ if (mostrarReturn){
                             <TableCell component="th" scope="row">Por enviar</TableCell>
                         }
                         <TableCell align="center">
-                            {/* <button type="submit" value={row.nombre_ruta} onClick={Eliminar}>
+                            <button type="submit" value={row.nombre_ruta} onClick={Eliminar}>
                                 Eliminar
-                            </button> */}
+                            </button>
                             <button type="submit" onClick = {(event) =>{event.preventDefault(); window.location = `/#/${row.nombre_ruta}`}}>
                                 Vcard
                             </button>
